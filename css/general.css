@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+/* helpers */
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.grid {
+    display: grid;
+}
+
+.hidden {
+    display: hidden
+}
+

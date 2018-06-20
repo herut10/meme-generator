@@ -1,0 +1,13 @@
+.images-container {
+    width:90%;
+    grid-template-rows: repeat(4, 25vh);
+    grid-template-columns: repeat(4, 24vw);
+    grid-gap: 10px;
+}
+
+.item-img {
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}

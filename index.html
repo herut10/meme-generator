@@ -5,15 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/image-chooser.css">
+    <link rel="stylesheet" href="css/editor.css">
+    <link rel="stylesheet" href="css/general.css">
     <title>meme</title>
 </head>
 
-<body>
-    <header></header>
-    <main><h1>meme</h1></main>
+<body onload="initMain()">
+    <header>
+        <h1>meme-generator</h1>
+    </header>
+    <main>
+        <div class="image-chooser">
+            <div class="image-filter">
+                <div class="filter"></div>
+            </div>
+            <div class="images-container grid">
+
+            </div>
+        </div>
+        <div class="meme-editor flex">
+            <canvas class="meme-canvas"></canvas>
+            <div class="edit-options">
+
+            </div>
+        </div>
+    </main>
     <footer></footer>
 
+
+
+    <script src="js/canvas-service.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/main.js"></script>
 </body>
