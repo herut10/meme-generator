@@ -22,3 +22,12 @@ function drawImageCanvas() {
         console.log('something went wrong getting meme');
     }
 }
+
+function drawTextLineCanvas() {
+    var meme = getGMeme();
+    meme.txts.array.forEach(function (txt) {
+        ctx.font = `${txt.size}px impact`;
+        ctx.fillText(txt.line, txt.xPosition,txt.yPosition);
+        ctx.strokeText(txt.line, txt.xPosition,txt.yPosition);
+    });
+}

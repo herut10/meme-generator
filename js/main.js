@@ -28,3 +28,10 @@ function onClickImage(id) {
     setMemeSelected(id)
     drawImageCanvas()
 }
+
+function onAddLineText(ev) {
+    ev.preventDefault();
+    var txt = document.querySelector(".input-line-txt").value;
+    addNewText(txt); // add to model memes
+    drawTextLineCanvas(); 
+}
