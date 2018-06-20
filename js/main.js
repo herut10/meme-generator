@@ -28,10 +28,13 @@ function onClickImage(id) {
 function onDrawText(ev, idInput) {
     console.log('onDrawText');
     ev.stopPropagation();
-    var txt = document.querySelector(".input-line-txt").value;
+    var txt = document.querySelector(`.line-text-${idInput}`).value;
+    var color = document.querySelector('#color-text').value;
+
     if (txt) {
         console.log('add text');
-        addNewText(txt);
+        console.log(txt);
+        addNewText(txt, color);
         drawTextLineCanvas(idInput);
     }
 }
@@ -49,9 +52,9 @@ function onAddLineText(ev) {
     console.log('onAddLineText');
     ev.stopPropagation();
 
-    
+
     var strHTML = ` <div class="add-line-menu flex" >
-                        <input class="input-line-txt" type="text" placeholder="Enter text" required>
+                        <input class="input-line-txt line-text-${getcountText()+1}" type="text" placeholder="Enter text" required>
                         <select class="select-font-size">
                             <option value="10">10</option>
                             <option value="12">12</option>
@@ -70,7 +73,7 @@ function onAddLineText(ev) {
                             <option value="blue">Blue</option>
                             <option value="yellow">Yellow</option>
                         </select>
-                        <button class="btn btn-draw-text" onclick="onDrawText(event, 1)">add text</button>              
+                        <button class="btn btn-draw-text" onclick="onDrawText(event,${getcountText()+1})">add text</button>              
                     </div>`;
     document.querySelector('.lines-edit').innerHTML += strHTML;
 }

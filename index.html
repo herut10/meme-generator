@@ -11,10 +11,10 @@
     <link href="css/animate.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
-    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- font-awesome -->
-    <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="css/image-chooser.css">
     <link rel="stylesheet" href="css/editor.css">
@@ -44,8 +44,8 @@
             <canvas class="meme-canvas"></canvas>
             <div class="editor-options flex">
                 <div class="lines-edit flex column">
-                    <div class="add-line-menu flex" >
-                        <input class="input-line-txt" type="text" placeholder="Enter text" required>
+                    <div class="add-line-menu flex">
+                        <input class="input-line-txt line-text-1" type="text" placeholder="Enter text" required>
                         <select class="select-font-size">
                             <option value="10">10</option>
                             <option value="12">12</option>
@@ -64,13 +64,16 @@
                             <option value="blue">Blue</option>
                             <option value="yellow">Yellow</option>
                         </select>
+                        <input type="color" id="color-text" name="color" value="#ffffff" />
                         <button class="btn btn-draw-text" onclick="onDrawText(event, 1)">add text</button>
                     </div>
 
- 
+
                 </div>
 
-                <button class="btn btn-add-line-text" onclick="onAddLineText(event)">+</button>
+                <button class="btn btn-add-line-text" onclick="onAddLineText(event)">
+                    <i class="fa fa-plus-circle" style="font-size:35px;"></i>
+                </button>
 
             </div>
 

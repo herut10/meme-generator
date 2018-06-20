@@ -7,38 +7,25 @@ var gTags;
 var gMeme;
 
 
-function getGMeme() {
-    return gMeme
-}
 
 function initMemeService() {
-    gTags = ['nice', 'funny', 'political']
-    gFilterBy = 'all'
-    createImgs()
+    gTags = ['nice', 'funny', 'political'];
+    gFilterBy = 'all';
+    createImgs();
 }
 
-//TODO: add filter
-function getImagesToDisplay() {
-    return gImgs
+
+function addNewText(txt, color) {
+    console.log(txt);
+    gMeme.txts.push(createText(txt, color))
 }
 
-function setMemeSelected(id) {
-    gMeme = {
-        selectedImgId: id,
-        txts: []
-    }
-}
-
-function addNewText(txt) {
-    gMeme.txts.push(createText(txt))
-}
-
-function createText(txt) {
+function createText(txt, color) {
     return {
         line: txt,
         size: 6,
         align: 'center',
-        color: 'white'
+        color: color
     }
 }
 
@@ -67,4 +54,24 @@ function getRandomTags() {
         resTags.push(tags.splice(idx))
     }
     return resTags
+}
+
+function getGMeme() {
+    return gMeme
+}
+
+//TODO: add filter
+function getImagesToDisplay() {
+    return gImgs
+}
+
+function getcountText() {
+    return gMeme.txts.length;
+}
+
+function setMemeSelected(id) {
+    gMeme = {
+        selectedImgId: id,
+        txts: []
+    }
 }

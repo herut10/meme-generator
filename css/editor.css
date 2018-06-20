@@ -1,5 +1,3 @@
-
-
 .meme-editor {
     background: yellow;
     z-index: 30;
@@ -8,13 +6,13 @@
     top: 0;
     width: 100%;
     height: 100%;
-
 }
 
-.editor-options{
+.editor-options {
     justify-content: space-between;
     background-color: blue;
-    padding: 20px;;
+    padding: 20px;
+    ;
 }
 
 .meme-editor .meme-canvas {
@@ -22,10 +20,15 @@
     margin: 40px;
 }
 
-.footer-editor{
+.footer-editor {
     margin: auto;
 }
 
-.add-line-menu{
+.add-line-menu {
     margin: 10px;
+}
+
+.btn-add-line-text {
+    width: fit-content;
+    height: fit-content;
 }

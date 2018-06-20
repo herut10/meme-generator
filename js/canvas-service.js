@@ -12,8 +12,6 @@ function initCanvas() {
 function setCanvasDimensions(width, height) {
     gElCanvas.height = height;
     gElCanvas.width = width;
-    console.log(gElCanvas.height);
-    console.log(gElCanvas.width);
 }
 
 
@@ -31,6 +29,7 @@ function drawImageCanvas() {
 }
 
 function drawTextLineCanvas(idInput) {
+    console.log(idInput);
     var meme = getGMeme();
     meme.txts.forEach(function (txt) {
         gCtx.font = `${txt.size}em impact`;
@@ -39,7 +38,7 @@ function drawTextLineCanvas(idInput) {
         if (idInput === 1) {
             gCtx.fillText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.15);
             gCtx.strokeText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.15); //top
-        } else if (idx === 2) {
+        } else if (idInput === 2) {
             gCtx.fillText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.85);
             gCtx.strokeText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.85); //bottom
         } else {
