@@ -36,3 +36,7 @@ function onAddLineText(ev) {
     addNewText(txt); // add to model memes
     drawTextLineCanvas(); 
 }
+
+function onCloseEditor() {
+    document.querySelector('.meme-editor').classList.add('hidden')
+}

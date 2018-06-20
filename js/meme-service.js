@@ -1,20 +1,15 @@
 'use strict'
 
-var gImgCount = 25;
+var IMG_COUNT = 25;
 var gImgs;
 var gFilterBy
-
 var gTags;
-
-
 var gMeme;
 
 
 function getGMeme() {
     return gMeme
 }
-
-
 
 function initMemeService() {
     gTags = ['nice', 'funny', 'political']
@@ -34,15 +29,12 @@ function setMemeSelected(id) {
     }
 }
 
-
 function addNewText(txt) {
     gMeme.txts.push(createText(txt))
 }
 
 function createText(txt) {
-
     return {
-
         line: txt,
         size: 6,
         align: 'center',
@@ -50,25 +42,15 @@ function createText(txt) {
         xPosition: 0,
         yPosition: 0
     }
-
-
 }
-
-
-
 
 function createImgs() {
     gImgs = [];
-    for (var i = 0; i < gImgCount; i++) {
+    for (var i = 0; i < IMG_COUNT; i++) {
         gImgs.push(createImg())
 
     }
 }
-
-
-
-
-
 
 function createImg() {
     return {
