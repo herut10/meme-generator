@@ -57,21 +57,31 @@ function onDeleteText(ev, idInput) {
 function onAddLineText(ev) {
     var countText = getcountText();
 
-    var strHTML = ` <div class="add-line-menu flex" >
-                        <input class="input-line-txt line-text-${countText}" type="text" placeholder="Enter text" required>
-                        <select class="select-font-size">
-                            <option value="10">10</option>
-                            <option value="12">12</option>
-                            <option value="14">14</option>
-                            <option value="16">16</option>
-                            <option value="18">18</option>
-                            <option value="20">20</option>
-                            <option value="22">22</option>
-                            <option value="24">24</option>
-                        </select>
-                        <input type="color" id="color-text-${countText}" name="color" value="#ffffff" />
-                        <button class="btn btn-draw-text" onclick="onDrawText(event,${countText})">add text</button> 
-                        <button class="btn btn-delete-text" onclick="onDeleteText(event,${countText})"><i class="fa fa-trash"></i></button>             
+    var strHTML = ` <div class="add-line-menu flex">
+                        <div class="selection-style-text">
+                            <input class="input-line-txt line-text-${countText}" type="text" placeholder="Enter text" required>
+                            <select class="select-font-size">
+                                <option value="10">10</option>
+                                <option value="12">12</option>
+                                <option value="14">14</option>
+                                <option value="16">16</option>
+                                <option value="18">18</option>
+                                <option value="20">20</option>
+                                <option value="22">22</option>
+                                <option value="24">24</option>
+                            </select>
+                            <input type="color" id="color-text-${countText}" name="color" value="#ffffff" />
+                        </div>
+
+
+                        <div class="btns-actions-text">
+                            <button class="btn btn-draw-text" onclick="onDrawText(event,${countText})">add text</button> 
+                            <button class="btn btn-delete-text" onclick="onDeleteText(event,${countText})"><i class="fa fa-trash"></i></button>
+                        </div>
                     </div>`;
     document.querySelector('.lines-edit').innerHTML += strHTML;
+}
+
+function onChangekeywordFilter() {
+    setFilterBy(document.querySelector('.select-keyword-filter').value);
 }

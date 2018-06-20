@@ -75,3 +75,7 @@ function setMemeSelected(id) {
         txts: []
     }
 }
+
+function setFilterBy(keyword) {
+    gFilterBy = keyword;
+}

@@ -34,7 +34,11 @@
         <!-- IMAGE-CHOOSER -->
         <div class="image-chooser flex column">
             <div class="image-filter">
-                <div class="filter">filter</div>
+                <select class="select-keyword-filter" onchange="onChangekeywordFilter()">
+                    <option value="political">political</option>
+                    <option value="funny">funny</option>
+                    <option value="nice">nice</option>
+                </select>
             </div>
             <div class="images-container grid"></div>
         </div>
@@ -45,20 +49,28 @@
             <div class="editor-options flex">
                 <div class="lines-edit flex column">
                     <div class="add-line-menu flex">
-                        <input class="input-line-txt line-text-0" type="text" placeholder="Enter text" required>
-                        <select class="select-font-size">
-                            <option value="10">10</option>
-                            <option value="12">12</option>
-                            <option value="14">14</option>
-                            <option value="16">16</option>
-                            <option value="18">18</option>
-                            <option value="20">20</option>
-                            <option value="22">22</option>
-                            <option value="24">24</option>
-                        </select>
-                        <input type="color" id="color-text-0" name="color" value="#ffffff" />
-                        <button class="btn btn-draw-text" onclick="onDrawText(event, 0)">add text</button>
-                        <button class="btn btn-delete-text" onclick="onDeleteText(event,0)"><i class="fa fa-trash"></i></button>
+                        <div class="selection-style-text">
+                            <input class="input-line-txt line-text-0" type="text" placeholder="Enter text" required>
+                            <select class="select-font-size">
+                                <option value="10">10</option>
+                                <option value="12">12</option>
+                                <option value="14">14</option>
+                                <option value="16">16</option>
+                                <option value="18">18</option>
+                                <option value="20">20</option>
+                                <option value="22">22</option>
+                                <option value="24">24</option>
+                            </select>
+                            <input type="color" id="color-text-0" name="color" value="#ffffff" />
+                        </div>
+
+
+                        <div class="btns-actions-text">
+                            <button class="btn btn-draw-text" onclick="onDrawText(event, 0)">add text</button>
+                            <button class="btn btn-delete-text" onclick="onDeleteText(event,0)">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div>
                     </div>
 
 
@@ -71,12 +83,18 @@
             </div>
 
             <div class="footer-editor">
-                <button class="btn btn-back-gallery" onclick="onCloseEditor()"><i class="fa fa-undo"> Back to gallery</i></button>
-                <button class="btn btn-download-meme" onclick="onDownloadMeme()"><i class="fa fa-download"> Download</i></button>
+                <button class="btn btn-back-gallery" onclick="onCloseEditor()">
+                    <i class="fa fa-undo"> Back to gallery</i>
+                </button>
+                <button class="btn btn-download-meme" onclick="onDownloadMeme()">
+                    <i class="fa fa-download"> Download</i>
+                </button>
             </div>
         </div>
     </main>
-    <footer>&copy; Copyright 2018 Idan&Herut.com</footer>
+    <footer>
+        <h5>&copy; Copyright 2018 Idan&Herut.com</h5>
+    </footer>
 
     <script src="js/util-service.js"></script>
     <script src="js/canvas-service.js"></script>

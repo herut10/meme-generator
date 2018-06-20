@@ -26,6 +26,13 @@
 
 .add-line-menu {
     margin: 10px;
+    justify-content: space-between;
+}
+
+.lines-edit
+{
+    background-color: black;
+    width: 60%;
 }
 
 .btn-add-line-text {
