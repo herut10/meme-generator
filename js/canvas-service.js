@@ -35,10 +35,10 @@ function drawTextLineCanvas(idInput) {
         gCtx.font = `${txt.size}em impact`;
         gCtx.fillStyle = txt.color
         gCtx.textAlign = "center";
-        if (idInput === 1) {
+        if (idInput === 0) {
             gCtx.fillText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.15);
             gCtx.strokeText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.15); //top
-        } else if (idInput === 2) {
+        } else if (idInput ===1) {
             gCtx.fillText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.85);
             gCtx.strokeText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.85); //bottom
         } else {

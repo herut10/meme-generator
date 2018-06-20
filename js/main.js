@@ -49,8 +49,13 @@ function onDownloadMeme() {
 
 }
 
+function onDeleteText(ev, idInput) {
+    ev.stopPropagation();
+    console.log('to delete text number: ', idInput);
+}
+
 function onAddLineText(ev) {
-    var countText = getcountText() + 1;
+    var countText = getcountText();
 
     var strHTML = ` <div class="add-line-menu flex" >
                         <input class="input-line-txt line-text-${countText}" type="text" placeholder="Enter text" required>
@@ -65,7 +70,8 @@ function onAddLineText(ev) {
                             <option value="24">24</option>
                         </select>
                         <input type="color" id="color-text-${countText}" name="color" value="#ffffff" />
-                        <button class="btn btn-draw-text" onclick="onDrawText(event,${countText})">add text</button>              
+                        <button class="btn btn-draw-text" onclick="onDrawText(event,${countText})">add text</button> 
+                        <button class="btn btn-delete-text" onclick="onDeleteText(event,${countText})"><i class="fa fa-trash"></i></button>             
                     </div>`;
     document.querySelector('.lines-edit').innerHTML += strHTML;
 }

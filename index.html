@@ -45,7 +45,7 @@
             <div class="editor-options flex">
                 <div class="lines-edit flex column">
                     <div class="add-line-menu flex">
-                        <input class="input-line-txt line-text-1" type="text" placeholder="Enter text" required>
+                        <input class="input-line-txt line-text-0" type="text" placeholder="Enter text" required>
                         <select class="select-font-size">
                             <option value="10">10</option>
                             <option value="12">12</option>
@@ -56,8 +56,9 @@
                             <option value="22">22</option>
                             <option value="24">24</option>
                         </select>
-                        <input type="color" id="color-text-1" name="color" value="#ffffff" />
-                        <button class="btn btn-draw-text" onclick="onDrawText(event, 1)">add text</button>
+                        <input type="color" id="color-text-0" name="color" value="#ffffff" />
+                        <button class="btn btn-draw-text" onclick="onDrawText(event, 0)">add text</button>
+                        <button class="btn btn-delete-text" onclick="onDeleteText(event,0)"><i class="fa fa-trash"></i></button>
                     </div>
 
 
