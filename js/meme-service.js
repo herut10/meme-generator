@@ -38,9 +38,7 @@ function createText(txt) {
         line: txt,
         size: 6,
         align: 'center',
-        color: 'white',
-        xPosition: 0,
-        yPosition: 0
+        color: 'white'
     }
 }
 

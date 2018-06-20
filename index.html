@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
 
-    
+
 </head>
 
 <body class="flex column" onload="initMain()">
@@ -42,36 +42,41 @@
         <!-- EDITOR -->
         <div class="meme-editor flex column hidden">
             <canvas class="meme-canvas"></canvas>
-            <div class="editor-options">
-                <div class="line-edit flex">
-
-                    <form onsubmit="onAddLineText(event)">
+            <div class="editor-options flex">
+                <div class="lines-edit flex column">
+                    <div class="add-line-menu flex" >
                         <input class="input-line-txt" type="text" placeholder="Enter text" required>
-                        <input type="submit" value="Submit">
-                    </form>
-                    <select class="select-font-size">
-                        <option value="10">10</option>
-                        <option value="12">12</option>
-                        <option value="14">14</option>
-                        <option value="16">16</option>
-                        <option value="18">18</option>
-                        <option value="20">20</option>
-                        <option value="22">22</option>
-                        <option value="24">24</option>
-                    </select>
+                        <select class="select-font-size">
+                            <option value="10">10</option>
+                            <option value="12">12</option>
+                            <option value="14">14</option>
+                            <option value="16">16</option>
+                            <option value="18">18</option>
+                            <option value="20">20</option>
+                            <option value="22">22</option>
+                            <option value="24">24</option>
+                        </select>
+                        <select class="select-color">
+                            <option value="black">Black</option>
+                            <option value="white">White</option>
+                            <option value="red">Red</option>
+                            <option value="green">Green</option>
+                            <option value="blue">Blue</option>
+                            <option value="yellow">Yellow</option>
+                        </select>
+                        <button class="btn btn-draw-text" onclick="onDrawText(event, 1)">add text</button>
+                    </div>
 
-                    <select class="select-color">
-                        <option value="black">Black</option>
-                        <option value="white">White</option>
-                        <option value="red">Red</option>
-                        <option value="green">Green</option>
-                        <option value="blue">Blue</option>
-                        <option value="yellow">Yellow</option>
-                    </select>
+ 
                 </div>
 
+                <button class="btn btn-add-line-text" onclick="onAddLineText(event)">+</button>
 
-                <button onclick="onCloseEditor()">back to gallery</button>
+            </div>
+
+            <div class="footer-editor">
+                <button class="btn btn-back-gallery" onclick="onCloseEditor()">back to gallery</button>
+                <button class="btn btn-download-meme" onclick="onDownloadMeme()">Download Meme</button>
             </div>
         </div>
     </main>

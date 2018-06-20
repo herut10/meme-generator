@@ -30,16 +30,16 @@ function drawImageCanvas() {
     }
 }
 
-function drawTextLineCanvas() {
+function drawTextLineCanvas(idInput) {
     var meme = getGMeme();
-    meme.txts.forEach(function (txt, idx) {
+    meme.txts.forEach(function (txt) {
         gCtx.font = `${txt.size}em impact`;
         gCtx.fillStyle = txt.color
         gCtx.textAlign = "center";
-        if (idx === 0) {
+        if (idInput === 1) {
             gCtx.fillText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.15);
             gCtx.strokeText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.15); //top
-        } else if (idx === 1) {
+        } else if (idx === 2) {
             gCtx.fillText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.85);
             gCtx.strokeText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.85); //bottom
         } else {
