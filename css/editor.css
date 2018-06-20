@@ -40,4 +40,10 @@
     height: fit-content;
     border-radius: 40px;
     border: none;
+    transition: all 1s ease;
+}
+
+.btn-add-line-text:hover {
+    animation: shake 1s;
+    background-color: darkslategrey;
 }

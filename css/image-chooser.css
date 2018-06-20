@@ -32,3 +32,8 @@ main{
     height: 70px;
     margin-top: 20px;
 }
+
+.item-img:hover {
+    animation: shake 2s;
+    border-color: red;
+}

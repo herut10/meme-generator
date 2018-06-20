@@ -32,7 +32,7 @@
     <main>
 
         <!-- IMAGE-CHOOSER -->
-        <div class="image-chooser flex column">
+        <div class="image-chooser flex column ">
             <div class="image-filter">
                 <select class="select-keyword-filter" onchange="onChangekeywordFilter()">
                     <option value="political">political</option>
@@ -40,11 +40,11 @@
                     <option value="nice">nice</option>
                 </select>
             </div>
-            <div class="images-container grid"></div>
+            <div class="images-container grid animated bounceInLeft"></div>
         </div>
 
         <!-- EDITOR -->
-        <div class="meme-editor flex column hidden">
+        <div class="meme-editor flex column hidden animated bounceInUp">
             <canvas class="meme-canvas"></canvas>
             <div class="editor-options flex">
                 <div class="lines-edit flex column">

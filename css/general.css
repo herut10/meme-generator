@@ -26,3 +26,9 @@ body
     display: none;
 }
 
+
+select,input, .btn{
+    cursor: pointer;
+}
+
+
