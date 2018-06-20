@@ -1,11 +1,7 @@
-.meme-canvas {
-    border: 1px black solid;
-    /* width: 90vw;
-    height: 50vh; */
-}
+
 
 .meme-editor {
-    background: black;
+    background: yellow;
     z-index: 30;
     position: fixed;
     left: 0;
@@ -13,4 +9,13 @@
     width: 100%;
     height: 100%;
     overflow: auto;
+}
+
+.editor-options{
+    background-color: blue;
+}
+
+.meme-editor .meme-canvas {
+    border: 2px black solid;
+    margin: 40px;
 }

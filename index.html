@@ -5,6 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meme-Generator</title>
+
+    <!-- Animate CSS -->
+    <!-- <link href="css/animate.css" rel="stylesheet"> -->
+
+    <!-- Bootstrap core CSS -->
+    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- font-awesome -->
+    <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
 
     <link rel="stylesheet" href="css/image-chooser.css">
     <link rel="stylesheet" href="css/editor.css">
@@ -12,7 +22,7 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
 
-    <title>meme-generator</title>
+    
 </head>
 
 <body class="flex column" onload="initMain()">
@@ -34,6 +44,7 @@
             <canvas class="meme-canvas"></canvas>
             <div class="editor-options">
                 <div class="line-edit flex">
+
                     <form onsubmit="onAddLineText(event)">
                         <input class="input-line-txt" type="text" placeholder="Enter text" required>
                         <input type="submit" value="Submit">
@@ -50,14 +61,13 @@
                     </select>
 
                     <select class="select-color">
-                            <option value="black">Black</option>
-                            <option value="white">White</option>
-                            <option value="red">Red</option>
-                            <option value="green">Green</option>
-                            <option value="blue">Blue</option>
-                            <option value="yellow">Yellow</option>
-                        </select>
-
+                        <option value="black">Black</option>
+                        <option value="white">White</option>
+                        <option value="red">Red</option>
+                        <option value="green">Green</option>
+                        <option value="blue">Blue</option>
+                        <option value="yellow">Yellow</option>
+                    </select>
                 </div>
 
 
