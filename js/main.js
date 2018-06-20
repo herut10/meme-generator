@@ -25,6 +25,7 @@ function renderImages() {
 
 
 function onClickImage(id) {
+    document.querySelector('.meme-editor').classList.remove('hidden')
     setMemeSelected(id)
     drawImageCanvas()
 }

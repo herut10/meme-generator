@@ -35,13 +35,17 @@ function setMemeSelected(id) {
 }
 
 
+function addNewText(txt) {
+    gMeme.txts.push(createText(txt))
+}
+
 function createText(txt) {
 
     return {
 
         line: txt,
-        size: 20,
-        align: 'left',
+        size: 6,
+        align: 'center',
         color: 'white',
         xPosition: 0,
         yPosition: 0
@@ -60,6 +64,8 @@ function createImgs() {
 
     }
 }
+
+
 
 
 

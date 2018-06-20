@@ -1,7 +1,7 @@
 .images-container {
     width:90%;
     grid-template-rows: repeat(4, 25vh);
-    grid-template-columns: repeat(4, 24vw);
+    grid-template-columns: repeat(4, 25%);
     grid-gap: 10px;
 }
 
