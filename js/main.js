@@ -29,12 +29,13 @@ function onDrawText(ev, idInput) {
     console.log('onDrawText');
     ev.stopPropagation();
     var txt = document.querySelector(`.line-text-${idInput}`).value;
-    var color = document.querySelector('#color-text').value;
+    var color = document.querySelector(`#color-text-${idInput}`).value;
+    var size = document.querySelector('.select-font-size').value;
 
     if (txt) {
         console.log('add text');
         console.log(txt);
-        addNewText(txt, color);
+        addNewText(txt, color, size);
         drawTextLineCanvas(idInput);
     }
 }
@@ -49,12 +50,10 @@ function onDownloadMeme() {
 }
 
 function onAddLineText(ev) {
-    console.log('onAddLineText');
-    ev.stopPropagation();
-
+    var countText = getcountText() + 1;
 
     var strHTML = ` <div class="add-line-menu flex" >
-                        <input class="input-line-txt line-text-${getcountText()+1}" type="text" placeholder="Enter text" required>
+                        <input class="input-line-txt line-text-${countText}" type="text" placeholder="Enter text" required>
                         <select class="select-font-size">
                             <option value="10">10</option>
                             <option value="12">12</option>
@@ -65,15 +64,8 @@ function onAddLineText(ev) {
                             <option value="22">22</option>
                             <option value="24">24</option>
                         </select>
-                        <select class="select-color">
-                            <option value="black">Black</option>
-                            <option value="white">White</option>
-                            <option value="red">Red</option>
-                            <option value="green">Green</option>
-                            <option value="blue">Blue</option>
-                            <option value="yellow">Yellow</option>
-                        </select>
-                        <button class="btn btn-draw-text" onclick="onDrawText(event,${getcountText()+1})">add text</button>              
+                        <input type="color" id="color-text-${countText}" name="color" value="#ffffff" />
+                        <button class="btn btn-draw-text" onclick="onDrawText(event,${countText})">add text</button>              
                     </div>`;
     document.querySelector('.lines-edit').innerHTML += strHTML;
 }

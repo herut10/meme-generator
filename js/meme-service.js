@@ -15,15 +15,15 @@ function initMemeService() {
 }
 
 
-function addNewText(txt, color) {
+function addNewText(txt, color, size) {
     console.log(txt);
-    gMeme.txts.push(createText(txt, color))
+    gMeme.txts.push(createText(txt, color, size))
 }
 
-function createText(txt, color) {
+function createText(txt, color, size) {
     return {
         line: txt,
-        size: 6,
+        size: size,
         align: 'center',
         color: color
     }

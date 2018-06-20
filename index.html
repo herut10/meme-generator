@@ -56,15 +56,7 @@
                             <option value="22">22</option>
                             <option value="24">24</option>
                         </select>
-                        <select class="select-color">
-                            <option value="black">Black</option>
-                            <option value="white">White</option>
-                            <option value="red">Red</option>
-                            <option value="green">Green</option>
-                            <option value="blue">Blue</option>
-                            <option value="yellow">Yellow</option>
-                        </select>
-                        <input type="color" id="color-text" name="color" value="#ffffff" />
+                        <input type="color" id="color-text-1" name="color" value="#ffffff" />
                         <button class="btn btn-draw-text" onclick="onDrawText(event, 1)">add text</button>
                     </div>
 
@@ -78,8 +70,8 @@
             </div>
 
             <div class="footer-editor">
-                <button class="btn btn-back-gallery" onclick="onCloseEditor()">back to gallery</button>
-                <button class="btn btn-download-meme" onclick="onDownloadMeme()">Download Meme</button>
+                <button class="btn btn-back-gallery" onclick="onCloseEditor()"><i class="fa fa-undo"> Back to gallery</i></button>
+                <button class="btn btn-download-meme" onclick="onDownloadMeme()"><i class="fa fa-download"> Download</i></button>
             </div>
         </div>
     </main>
