@@ -57,7 +57,7 @@ function onCloseEditor() {
 // download meme 
 function onDownloadMeme(elLink) {
     elLink.href = getDateUrlCanvas();
-    elLink.download = 'Meme-Generator.jpg';
+    elLink.download = 'My-Meme.jpg';
     onCloseEditor();
 }
 

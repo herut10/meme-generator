@@ -3,12 +3,10 @@
 var IMG_COUNT = 25;
 var gImgs;
 var gFilterBy
-var gTags;
 var gMeme;
 
 
 function initMemeService() {
-    gTags = ['nice', 'funny', 'political'];
     gFilterBy = 'all';
     createImgs();
 }

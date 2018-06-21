@@ -1,11 +1,10 @@
-
-.image-chooser{
-    align-items: center;
-
+.image-chooser {
+    width: fit-content;
+    margin: auto;
 }
 
 .images-container {
-    grid-template-rows: repeat(26, 200px);
+    grid-template-rows: repeat(25, 200px);
     grid-template-columns: repeat(1, 180px);
     grid-gap: 20px;
 }
@@ -16,15 +15,15 @@
     background-size: cover;
     background-position: center center;
     border: 1px solid black;
-    border-radius: 6px;
+    border-radius: 7px;
 }
 
-main{
+main {
     background-color: #555f6fad;
     width: 100%;
 }
 
-.image-filter{
+.image-filter {
     width: 100%;
     height: 70px;
 }
@@ -34,23 +33,46 @@ main{
     border-color: red;
 }
 
-@media (min-width: 410px) {
+@media (min-width:425px) {
     .images-container {
         grid-template-rows: repeat(13, 200px);
         grid-template-columns: repeat(2, 180px);
     }
 }
 
-@media (min-width: 620px) {
+@media (min-width:630px) {
     .images-container {
         grid-template-rows: repeat(9, 200px);
         grid-template-columns: repeat(3, 180px);
     }
 }
 
-@media (min-width: 820px) {
+@media (min-width:840px) {
+    .images-container {
+        grid-template-rows: repeat(7, 200px);
+        grid-template-columns: repeat(4, 180px);
+    }
+}
+@media (min-width:1040px) {
+    .images-container {
+        grid-template-rows: repeat(5, 200px);
+        grid-template-columns: repeat(5, 180px);
+    }
+}
+@media (min-width:1230px) {
     .images-container {
         grid-template-rows: repeat(5, 200px);
         grid-template-columns: repeat(6, 180px);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
