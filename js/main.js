@@ -89,12 +89,14 @@ function onDeleteText(ev, idInput) {
 }
 function onTextClick(ev){
     console.log(ev);
-    updateText(null,null,0,ev.clientX,ev.clientY)
+    var mouseposition=mousePos(ev)
+    updateText(null,null,0,mouseposition.x,mouseposition.y)
     drawCanvas()
 }
 function onDragText(ev){
-
-
+    var mouseposition=mousePos(ev)
+    updateText(null,null,0,mouseposition.x,mouseposition.y)
+    drawCanvas()
 }
 
 
