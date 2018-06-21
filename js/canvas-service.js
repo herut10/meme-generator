@@ -37,7 +37,7 @@ function drawCanvas() {
 function drawTextLineCanvas() {
     var meme = getGMeme();
     meme.txts.forEach(function (txt, idx) {
-        gCtx.font = `${txt.size}em impact`;
+        gCtx.font = `${txt.bold} ${txt.size}em impact`;
         gCtx.fillStyle = txt.color
         gCtx.textAlign = "center";
         if (idx === 0) {
@@ -51,4 +51,8 @@ function drawTextLineCanvas() {
             gCtx.strokeText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.5); //middle
         }
     });
+}
+
+function getDateUrlCanvas() {
+    return gElCanvas.toDataURL();
 }

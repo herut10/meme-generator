@@ -19,9 +19,13 @@ function renderImages() {
 
 
 function onClickImage(id) {
-    toggleEditor()
-    setMemeSelected(id)
+    setTimeout(() => {
+        document.querySelector('.meme-editor').classList.toggle('none');
+    }, 100);
+    document.querySelector('.image-chooser').classList.toggle('none');
+    setMemeSelected(id);
     drawImageCanvas();
+
     onAddLineText();
 }
 
@@ -41,22 +45,20 @@ function onChangeStyleText(idInput) {
     }
 }
 
+function onCloseEditor() {
+    document.querySelector(".lines-edit").innerHTML = '';
 
-function toggleEditor() {
     setTimeout(() => {
         document.querySelector('.meme-editor').classList.toggle('none');
     }, 100);
-
     document.querySelector('.image-chooser').classList.toggle('none');
 }
 
 // download meme 
-function onDownloadMeme() {
-    console.log(elCanvas.toDataURL())
-    elLink.href = elCanvas.toDataURL()
-    elLink.download = 'koala.jpg'
-
-
+function onDownloadMeme(elLink) {
+    elLink.href = getDateUrlCanvas();
+    elLink.download = 'Meme-Generator.jpg';
+    onCloseEditor();
 }
 
 function onChangeSize(ev, id, diff) {
@@ -65,9 +67,6 @@ function onChangeSize(ev, id, diff) {
         onChangeStyleText(id)
     }
 }
-
-
-
 
 function onDeleteText(ev, idInput) {
     ev.stopPropagation();
@@ -85,9 +84,10 @@ function onAddLineText() {
 
     var strHTML = `     <div class="selection-style-text">
                             <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="Enter text" required>
-                            <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff" />
                             <button class="btn btn-increase-size" onclick="onChangeSize(event,'${newIdLine}',1)"><i class="fa fa-font"></i><i class="fa fa-arrow-up"></i></button>
                             <button class="btn btn-decrease-size" onclick="onChangeSize(event,'${newIdLine}',-1)"><i class="fa fa-font"></i><i class="fa fa-arrow-down"></i></button>
+                            <button class="btn btn-bold" onclick="onBoldText(event,'${newIdLine}')"><i class="fa fa-bold bold-select"></i></button>
+                            <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff" />
                         </div>
                         <div class="btns-actions-text">
                             <button class="btn btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">
@@ -99,6 +99,14 @@ function onAddLineText() {
     node.classList.add('add-line-menu', `add-line-menu-${newIdLine}`, 'flex');
     node.innerHTML = strHTML;
     document.querySelector(".lines-edit").appendChild(node);
+}
+
+function onBoldText(event, idLine) {
+    setBoldToLineText(idLine);
+    var elBoldSelect = document.querySelector('.bold-select');
+    elBoldSelect.classList.toggle('fa-bold');
+    elBoldSelect.classList.toggle('fa-bold');
+    drawCanvas();
 }
 
 function onChangekeywordFilter() {
