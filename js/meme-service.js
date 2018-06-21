@@ -17,7 +17,6 @@ function initMemeService() {
 
 
 function addNewText(txt, color, size) {
-    console.log(txt);
     gMeme.txts.push(createText(txt, color, size))
 }
 
