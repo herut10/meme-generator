@@ -39,7 +39,7 @@ function removeLineFromMeme(idInput) {
     gMeme.txts.splice(getLineIndexById(idInput), 1);
 }
 
-function isValidToRemove(idInput) {
+function isLineExist(idInput) {
     return gMeme.txts[getLineIndexById(idInput)] !== undefined;
 }
 
@@ -57,10 +57,14 @@ function createText(id, txt, color, size) {
     }
 }
 
-function updateText(txt, color, size, index) {
+function updateText(txt, color, index) {
     gMeme.txts[index].line = txt;
     gMeme.txts[index].color = color;
-    gMeme.txts[index].size = size;
+
+}
+
+function setSizeLine(id, diff) {
+    gMeme.txts[getLineIndexById(id)].size += diff
 }
 
 // function getRandomTags() {

@@ -29,16 +29,17 @@ function onClickImage(id) {
 function onChangeStyleText(idInput) {
     var txt = document.querySelector(`.line-text-${idInput}`).value;
     var color = document.querySelector(`#color-text-${idInput}`).value;
-    var size = document.querySelector(`.select-font-size-${idInput}`).value;
-
-    var indexLine = getLineIndexById(idInput);
-    if (indexLine === -1) {
-        addNewText(idInput, txt, color, size);
-        onAddLineText();
-    } else {
-        updateText(txt, color, size, indexLine);
+    // var size = document.querySelector(`.select-font-size-${idInput}`).value;
+    if (txt) {
+        var indexLine = getLineIndexById(idInput);
+        if (indexLine === -1) {
+            addNewText(idInput, txt, color, 6);
+            onAddLineText();
+        } else {
+            updateText(txt, color, indexLine);
+        }
+        drawCanvas();
     }
-    drawTextLineCanvas(idInput);
 }
 
 
@@ -51,13 +52,24 @@ function onDownloadMeme() {
 
 }
 
+function onChangeSize(ev, id, diff) {
+    if (isLineExist(id)) {
+        setSizeLine(id, diff)
+        onChangeStyleText(id)
+    }
+}
+
+
+
+
 function onDeleteText(ev, idInput) {
     ev.stopPropagation();
 
-    if (isValidToRemove(idInput)) {
+    if (isLineExist(idInput)) {
         removeLineFromMeme(idInput);
         var nodeToRemove = document.querySelector(`.add-line-menu-${idInput}`);
         document.querySelector(".lines-edit").removeChild(nodeToRemove);
+        drawCanvas();
     }
 }
 
@@ -66,17 +78,9 @@ function onAddLineText() {
 
     var strHTML = `     <div class="selection-style-text">
                             <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="Enter text" required>
-                            <select onchange="onChangeStyleText('${newIdLine}')" class="select-font-size-${newIdLine}">
-                                <option value="10">10</option>
-                                <option value="12">12</option>
-                                <option value="14">14</option>
-                                <option value="16">16</option>
-                                <option value="18">18</option>
-                                <option value="20">20</option>
-                                <option value="22">22</option>
-                                <option value="24">24</option>
-                            </select>
                             <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff" />
+                            <button class="btn btn-increase-size" onclick="onChangeSize(event,'${newIdLine}',1)"><i class="fa fa-font"></i><i class="fa fa-arrow-up"></i></button>
+                            <button class="btn btn-decrease-size" onclick="onChangeSize(event,'${newIdLine}',-1)"><i class="fa fa-font"></i><i class="fa fa-arrow-down"></i></button>
                         </div>
                         <div class="btns-actions-text">
                             <button class="btn btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">

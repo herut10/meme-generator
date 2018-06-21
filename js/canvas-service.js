@@ -22,19 +22,22 @@ function drawImageCanvas() {
     if (meme) {
         var img = new Image;
         img.src = `/img/${meme.selectedImgId}.jpg`;
-        var newWidth = Math.min(window.innerWidth,window.innerHeight)
-        var newHeight = newWidth * (img.height/img.width);
+        var newWidth = Math.min(window.innerWidth,window.innerHeight)*0.9
+        var newHeight = newWidth * (img.height/img.width)
         setCanvasDimensions(newWidth, newHeight);
         gCtx.drawImage(img, 0, 0, newWidth, newHeight)
     }
 }
 
-function drawTextLineCanvas(idInput) {
-    drawImageCanvas() //reset canvas before adding new lines
-    console.log(idInput);
+function drawCanvas() {
+    drawImageCanvas();
+    drawTextLineCanvas();
+}
+
+function drawTextLineCanvas() {
     var meme = getGMeme();
     meme.txts.forEach(function (txt, idx) {
-        gCtx.font = `${txt.size}px impact`;
+        gCtx.font = `${txt.size}em impact`;
         gCtx.fillStyle = txt.color
         gCtx.textAlign = "center";
         if (idx === 0) {
