@@ -35,3 +35,8 @@ input,
 .align-center {
     align-items: center;
 }
+
+.choose-btn {
+    background: #cfc6c6b0;
+    outline: 2px black solid;
+}

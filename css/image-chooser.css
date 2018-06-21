@@ -1,14 +1,13 @@
 
 .image-chooser{
     align-items: center;
+
 }
 
 .images-container {
-    width:90%;
-    grid-template-rows: repeat(7, 25vh);
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(26, 200px);
+    grid-template-columns: repeat(1, 180px);
     grid-gap: 20px;
-    margin: 30px;
 }
 
 .item-img {
@@ -33,4 +32,25 @@ main{
 .item-img:hover {
     animation: shake 2s;
     border-color: red;
+}
+
+@media (min-width: 410px) {
+    .images-container {
+        grid-template-rows: repeat(13, 200px);
+        grid-template-columns: repeat(2, 180px);
+    }
+}
+
+@media (min-width: 620px) {
+    .images-container {
+        grid-template-rows: repeat(7, 200px);
+        grid-template-columns: repeat(3, 180px);
+    }
+}
+
+@media (min-width: 820px) {
+    .images-container {
+        grid-template-rows: repeat(7, 200px);
+        grid-template-columns: repeat(4, 180px);
+    }
 }
