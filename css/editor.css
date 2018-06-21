@@ -6,6 +6,7 @@
     top: 0;
     width: 100%;
     min-height: 100vh;
+    height: fit-content;
 }
 
 .editor-options {
@@ -18,7 +19,6 @@
 .meme-editor .meme-canvas {
     border: 2px black solid;
     margin: 40px;
-    
 }
 
 .footer-editor {
@@ -30,8 +30,7 @@
     justify-content: space-between;
 }
 
-.lines-edit
-{
+.lines-edit {
     background-color: black;
     width: 100%;
 }
