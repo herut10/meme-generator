@@ -27,7 +27,7 @@
 
 <body class="flex column" onload="initMain()">
     <header>
-        <ul>
+        <ul class>
             <li>
                 About us
             </li>
@@ -50,18 +50,19 @@
         <!-- EDITOR -->
         <div class="meme-editor flex align-center column none animated bounceInUp">
             <canvas class="meme-canvas"></canvas>
-            <div class="editor-options flex">
-                <div class="lines-edit flex column">
+            <div class="flex column">
+                <div class="editor-options flex">
+                    <div class="lines-edit flex column">
+                    </div>
                 </div>
-            </div>
-
-            <div class="footer-editor">
-                <button class="btn btn-back-gallery" onclick="onCloseEditor()">
-                    <i class="fa fa-undo"> Back to gallery</i>
-                </button>
-                <a class="btn btn-download-meme" onclick="onDownloadMeme(this)">
-                    <i class="fa fa-download"> Download</i>
-                </a>
+                <div class="footer-editor">
+                    <button class="btn btn-back-gallery" onclick="onCloseEditor()">
+                        <i class="fa fa-undo"> Back to gallery</i>
+                    </button>
+                    <a class="btn btn-download-meme" onclick="onDownloadMeme(this)">
+                        <i class="fa fa-download"> Download</i>
+                    </a>
+                </div>
             </div>
         </div>
     </main>

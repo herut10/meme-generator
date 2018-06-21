@@ -7,6 +7,7 @@
     width: 100%;
     min-height: 100vh;
     height: fit-content;
+
 }
 
 .editor-options {
@@ -18,7 +19,6 @@
 
 .meme-editor .meme-canvas {
     border: 2px black solid;
-    margin: 40px;
 }
 
 .footer-editor {
@@ -43,7 +43,7 @@
     transition: all 1s ease;
 }
 
-.input-line-txt{
+.input-line-txt {
     width: 100%
 }
 
@@ -52,8 +52,15 @@
     background-color: darkslategrey;
 }
 
-@media(min-width: 510px){
-    .input-line-txt{
+@media(min-width: 510px) {
+    .input-line-txt {
         width: auto;
+    }
+}
+
+@media(min-width: 920px) {
+    main .meme-editor {
+        flex-direction: row;
+        justify-content: space-evenly;
     }
 }
