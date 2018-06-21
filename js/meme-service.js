@@ -41,11 +41,12 @@ function isLineExist(idInput) {
     return gMeme.txts[getLineIndexById(idInput)] !== undefined;
 }
 
-function addNewText(id, txt, color, size) {
-    gMeme.txts.push(createText(id, txt, color, size))
+function addNewText(id, txt, color, size, xPosition, yPosition) {
+    gMeme.txts.push(createText(id, txt, color, size, xPosition, yPosition))
+
 }
 
-function createText(id, txt, color, size) {
+function createText(id, txt, color, size, xPosition, yPosition) {
     return {
         idLine: id,
         line: txt,
@@ -53,7 +54,9 @@ function createText(id, txt, color, size) {
         align: 'center',
         color: color,
         bold: 'normal',
-        shadow: false
+        shadow: false,
+        xPosition: xPosition,
+        yPosition: yPosition,
     }
 }
 
@@ -71,9 +74,17 @@ function setShadowToLineText(idLine) {
     gMeme.txts[index].shadow = !(gMeme.txts[index].shadow);
 }
 
-function updateText(txt, color, index) {
-    gMeme.txts[index].line = txt;
-    gMeme.txts[index].color = color;
+function updateText(txt, color, index, xPosition, yPosition) {
+    if (txt) {
+        gMeme.txts[index].line = txt;
+    }
+    if (color) {
+        gMeme.txts[index].color = color;
+    }
+    if (xPosition) {
+        gMeme.txts[index].xPosition = xPosition
+        gMeme.txts[index].yPosition = yPosition
+    }
 
 }
 
