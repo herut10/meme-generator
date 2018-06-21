@@ -19,8 +19,7 @@ function renderImages() {
 
 
 function onClickImage(id) {
-    document.querySelector('.meme-editor').classList.remove('hidden');
-    document.querySelector('.image-chooser').classList.add('hidden');
+    toggleEditor()
     setMemeSelected(id)
     drawImageCanvas();
     onAddLineText();
@@ -43,9 +42,12 @@ function onChangeStyleText(idInput) {
 }
 
 
-function onCloseEditor() {
-    document.querySelector('.meme-editor').classList.add('hidden');
-    document.querySelector('.image-chooser').classList.remove('hidden');
+function toggleEditor() {
+    setTimeout(() => {
+        document.querySelector('.meme-editor').classList.toggle('none');
+    }, 100);
+    
+    document.querySelector('.image-chooser').classList.toggle('none');
 }
 
 function onDownloadMeme() {

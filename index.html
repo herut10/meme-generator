@@ -44,7 +44,7 @@
         </div>
 
         <!-- EDITOR -->
-        <div class="meme-editor flex align-center column hidden animated bounceInUp">
+        <div class="meme-editor flex align-center column none animated bounceInUp">
             <canvas class="meme-canvas"></canvas>
             <div class="editor-options flex">
                 <div class="lines-edit flex column">
@@ -52,7 +52,7 @@
             </div>
 
             <div class="footer-editor">
-                <button class="btn btn-back-gallery" onclick="onCloseEditor()">
+                <button class="btn btn-back-gallery" onclick="toggleEditor()">
                     <i class="fa fa-undo"> Back to gallery</i>
                 </button>
                 <button class="btn btn-download-meme" onclick="onDownloadMeme()">
