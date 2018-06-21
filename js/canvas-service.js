@@ -50,7 +50,7 @@ function drawTextLineCanvas() {
         gCtx.shadowBlur = (txt.shadow) ? 15 : 0;
         gCtx.shadowColor = 'rgba(0,0,0,1)';
         gCtx.fillText(txt.line, txt.xPosition, txt.yPosition);
-        gCtx.strokeText(txt.line, txt.xPosition, txt.yPosition); 
+        gCtx.strokeText(txt.line, txt.xPosition, txt.yPosition);
     });
 }
 
@@ -61,3 +61,34 @@ function getLineWidth(txt) {
 function getDateUrlCanvas() {
     return gElCanvas.toDataURL();
 }
+
+
+
+
+function getCanvasPos() {
+    console.log(gElCanvas);
+
+    var _x = gElCanvas.offsetLeft;
+    var _y = gElCanvas.offsetTop;
+    console.log(gElCanvas);
+    var tempCanvas=gElCanvas.cloneNode(true)
+    while (tempCanvas = tempCanvas.offsetParent) {
+        _x += tempCanvas.offsetLeft - gElCatempCanvasnvas.scrollLeft;
+        _y += tempCanvas.offsetTop - tempCanvas.scrollTop;
+    }
+    console.log(tempCanvas);
+    return {
+        left: _x,
+        top: _y
+    }
+};
+
+function mousePos(ev) {
+    var canvasPos = getCanvasPos(ev.target)
+    var mouseX = ev.clientX - canvasPos.left + window.pageXOffset;
+    var mouseY = ev.clientY - canvasPos.top + window.pageYOffset;
+    return {
+        x: mouseX,
+        y: mouseY
+    };
+};
