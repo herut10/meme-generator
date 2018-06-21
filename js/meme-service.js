@@ -53,7 +53,17 @@ function createText(id, txt, color, size) {
         line: txt,
         size: size,
         align: 'center',
-        color: color
+        color: color,
+        bold: 'normal'
+    }
+}
+
+function setBoldToLineText(idLine) {
+    var index = getLineIndexById(idLine);
+    if (gMeme.txts[index].bold === 'normal') {
+        gMeme.txts[index].bold = 'bold';
+    } else {
+        gMeme.txts[index].bold = 'normal';
     }
 }
 
@@ -66,17 +76,6 @@ function updateText(txt, color, index) {
 function setSizeLine(id, diff) {
     gMeme.txts[getLineIndexById(id)].size += diff
 }
-
-// function getRandomTags() {
-//     var tags = gTags.slice();
-//     var resTags = []
-//     var tagCount = getRandInt(1, tags.length) //at least one tag
-//     for (let i = 0; i < tagCount; i++) {
-//         var idx = getRandInt(1, tags.length)
-//         resTags.push(tags.splice(idx))
-//     }
-//     return resTags
-// }
 
 function getGMeme() {
     return gMeme;
