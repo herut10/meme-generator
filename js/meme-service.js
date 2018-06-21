@@ -22,7 +22,9 @@ function addNewText(txt, color, size) {
 }
 
 function updateText(txt, color, size, idInput) {
-    gMeme.txts[idInput] = createText(txt, color, size)
+    gMeme.txts[idInput].line = txt;
+    gMeme.txts[idInput].color = color;
+    gMeme.txts[idInput].size = size;
 }
 
 function createText(txt, color, size) {

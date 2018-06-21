@@ -23,41 +23,22 @@ function onClickImage(id) {
     document.querySelector('.image-chooser').classList.add('hidden');
     setMemeSelected(id)
     drawImageCanvas();
+    onAddLineText();
 }
 
-function onInputText(idInput){
+function onChangeStyleText(idInput) {
     var txt = document.querySelector(`.line-text-${idInput}`).value;
     var color = document.querySelector(`#color-text-${idInput}`).value;
     var size = document.querySelector(`.select-font-size-${idInput}`).value;
     
-    if(idInput===getCountText()){
-        // create
-    }else{
-        //update
+    if (idInput === getCountText()) {
+        addNewText(txt, color, size);
+        onAddLineText();
+    } else {
+        updateText(txt, color, size, idInput);
     }
+    drawTextLineCanvas(idInput);
 }
-
-
-// function onDrawText(ev, idInput) {
-//     console.log('onDrawText');
-//     ev.stopPropagation(); //TODO do we need this?
-    // var txt = document.querySelector(`.line-text-${idInput}`).value;
-    // var color = document.querySelector(`#color-text-${idInput}`).value;
-    // var size = document.querySelector('.select-font-size').value;
-
-//     if (txt) {
-//         console.log('add text');
-//         console.log(txt);
-//         if (!update) {
-//             addNewText(txt, color, size);
-//         } else {
-//             updateText(txt, color, size,idInput)
-//         }
-//         drawTextLineCanvas(idInput);
-//         onAddLineText()
-//     }
-// }
-
 
 
 function onCloseEditor() {
@@ -77,10 +58,10 @@ function onDeleteText(ev, idInput) {
 function onAddLineText() {
     var countText = getCountText();
 
-    var strHTML = ` <div class="add-line-menu flex">
+    var strHTML = `
                         <div class="selection-style-text">
-                            <input class="input-line-txt line-text-${countText}" type="text" placeholder="Enter text" required>
-                            <select class="select-font-size">
+                            <input class="input-line-txt line-text-${countText}" onkeyup="onChangeStyleText(${countText})" type="text" placeholder="Enter text" required>
+                            <select onchange="onChangeStyleText(${countText})" class="select-font-size-${countText}">
                                 <option value="10">10</option>
                                 <option value="12">12</option>
                                 <option value="14">14</option>
@@ -90,34 +71,20 @@ function onAddLineText() {
                                 <option value="22">22</option>
                                 <option value="24">24</option>
                             </select>
-                            <input type="color" id="color-text-${countText}" name="color" value="#ffffff" />
+                            <input onchange="onChangeStyleText(${countText})" type="color" id="color-text-${countText}" name="color" value="#ffffff" />
                         </div>
+                        <div class="btns-actions-text">
+                            <button class="btn btn-delete-text" onclick="onDeleteText(event,${countText})">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div>`;
 
-
-                        <div class="btns-actions-${countText}">
-                            <button class="btn btn-draw-text" onclick="onDrawText(event,${countText})">add text</button> 
-                            <button class="btn btn-delete-text" onclick="onDeleteText(event,${countText})"><i class="fa fa-trash"></i></button>
-                        </div>
-                    </div>`;
-    document.querySelector('.lines-edit').innerHTML += strHTML;
-    updateInputElements();
+    var node = document.createElement("div");
+    node.classList.add('add-line-menu' ,'flex');
+    node.innerHTML = strHTML;
+    document.querySelector(".lines-edit").appendChild(node);
 }
 
 function onChangekeywordFilter() {
     setFilterBy(document.querySelector('.select-keyword-filter').value);
 }
-
-
-// function updateInputElements() {
-//     var meme = getGMeme()
-//     var countText = getcountText();
-//     meme.txts.forEach(function (txt, idx) {
-//         document.querySelector(`.line-text-${idx}`).value = txt.line
-//         if (idx !== countText - 1) {
-//             document.querySelector(`.btns-actions-${idx}`).innerHTML = `
-//         <button class="btn btn-update-text" onclick="onUpdateText(event,${idx},false)">update text</button> 
-//         <button class="btn btn-delete-text" onclick="onDeleteText(event,${countText})"><i class="fa fa-trash"></i></button>
-//         `
-//         }
-//     });
-// }

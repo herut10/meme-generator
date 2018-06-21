@@ -48,10 +48,10 @@
             <canvas class="meme-canvas"></canvas>
             <div class="editor-options flex">
                 <div class="lines-edit flex column">
-                    <div class="add-line-menu flex">
+                    <!-- <div class="add-line-menu flex">
                         <div class="selection-style-text">
-                            <input class="input-line-txt line-text-0" onkeydown="onInputText(0)" type="text" placeholder="Enter text" required>
-                            <select class="select-font-size-0">
+                            <input class="input-line-txt line-text-0" onkeyup="onChangeStyleText(0)" type="text" placeholder="Enter text" required>
+                            <select onchange="onChangeStyleText(0)" class="select-font-size-0">
                                 <option value="10">10</option>
                                 <option value="12">12</option>
                                 <option value="14">14</option>
@@ -61,24 +61,19 @@
                                 <option value="22">22</option>
                                 <option value="24">24</option>
                             </select>
-                            <input type="color" id="color-text-0" name="color" value="#ffffff" />
+                            <input onchange="onChangeStyleText(0)" type="color" id="color-text-0" name="color" value="#ffffff" />
                         </div>
 
 
                         <div class="btns-actions-text">
-                            <button class="btn btn-draw-text" onclick="onDrawText(event, 0,false)">add text</button>
                             <button class="btn btn-delete-text" onclick="onDeleteText(event,0)">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </div>
-                    </div>
+                    </div> -->
 
 
                 </div>
-
-                <button class="btn btn-add-line-text" onclick="onAddLineText(event)">
-                    <i class="fa fa-plus-circle" style="font-size:35px;"></i>
-                </button>
 
             </div>
 
