@@ -7,7 +7,7 @@ var gCtx;
 function initCanvas() {
     gElCanvas = document.querySelector('.meme-canvas');
     gCtx = gElCanvas.getContext('2d');
-
+    
 }
 
 function setCanvasDimensions(width, height) {
@@ -40,6 +40,8 @@ function drawTextLineCanvas() {
         gCtx.font = `${txt.bold} ${txt.size}em impact`;
         gCtx.fillStyle = txt.color
         gCtx.textAlign = "center";
+        gCtx.shadowBlur = (txt.shadow) ? 15 : 0;
+        gCtx.shadowColor = 'rgba(0,0,0,1)';
         if (idx === 0) {
             gCtx.fillText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.15);
             gCtx.strokeText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.15); //top

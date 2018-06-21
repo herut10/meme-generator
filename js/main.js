@@ -87,6 +87,7 @@ function onAddLineText() {
                             <button class="btn btn-increase-size" onclick="onChangeSize(event,'${newIdLine}',1)"><i class="fa fa-font"></i><i class="fa fa-arrow-up"></i></button>
                             <button class="btn btn-decrease-size" onclick="onChangeSize(event,'${newIdLine}',-1)"><i class="fa fa-font"></i><i class="fa fa-arrow-down"></i></button>
                             <button class="btn btn-bold btn-bold-${newIdLine}" onclick="onBoldText(event,'${newIdLine}')"><i class="fa fa-bold bold-select"></i></button>
+                            <button class="btn btn-shadow btn-shadow-${newIdLine}" onclick="onShadowText(event,'${newIdLine}')">s</button>
                             <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff" />
                         </div>
                         <div class="btns-actions-text">
@@ -99,6 +100,14 @@ function onAddLineText() {
     node.classList.add('add-line-menu', `add-line-menu-${newIdLine}`, 'flex');
     node.innerHTML = strHTML;
     document.querySelector(".lines-edit").appendChild(node);
+}
+
+function onShadowText(event, idLine) {
+    if (isLineExist(idLine)) {
+        setShadowToLineText(idLine);
+        document.querySelector(`.btn-shadow-${idLine}`).classList.toggle('choose-btn');
+        drawCanvas();
+    }
 }
 
 function onBoldText(event, idLine) {

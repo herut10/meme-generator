@@ -54,7 +54,8 @@ function createText(id, txt, color, size) {
         size: size,
         align: 'center',
         color: color,
-        bold: 'normal'
+        bold: 'normal',
+        shadow: false
     }
 }
 
@@ -65,6 +66,11 @@ function setBoldToLineText(idLine) {
     } else {
         gMeme.txts[index].bold = 'normal';
     }
+}
+
+function setShadowToLineText(idLine) {
+    var index = getLineIndexById(idLine);
+    gMeme.txts[index].shadow = !(gMeme.txts[index].shadow);
 }
 
 function updateText(txt, color, index) {
