@@ -1,13 +1,14 @@
 
 .image-chooser{
     align-items: center;
-
 }
 
 .images-container {
-    grid-template-rows: repeat(26, 200px);
-    grid-template-columns: repeat(1, 180px);
-    grid-gap: 20px;
+    width:90%;
+    grid-template-rows: repeat(7, 25vh);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin: 30px;
 }
 
 .item-img {
@@ -22,35 +23,17 @@
 main{
     background-color: #555f6fad;
     width: 100%;
+    margin-top: 10px;
 }
 
 .image-filter{
+    background: #fffbfb1c;
     width: 100%;
     height: 70px;
+    margin-top: 20px;
 }
 
 .item-img:hover {
     animation: shake 2s;
     border-color: red;
-}
-
-@media (min-width: 410px) {
-    .images-container {
-        grid-template-rows: repeat(13, 200px);
-        grid-template-columns: repeat(2, 180px);
-    }
-}
-
-@media (min-width: 620px) {
-    .images-container {
-        grid-template-rows: repeat(9, 200px);
-        grid-template-columns: repeat(3, 180px);
-    }
-}
-
-@media (min-width: 820px) {
-    .images-container {
-        grid-template-rows: repeat(5, 200px);
-        grid-template-columns: repeat(6, 180px);
-    }
 }

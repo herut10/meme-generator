@@ -34,14 +34,23 @@ function onChangeStyleText(idInput) {
     var color = document.querySelector(`#color-text-${idInput}`).value;
     // var size = document.querySelector(`.select-font-size-${idInput}`).value;
     if (txt) {
+        drawImageCanvas();
+        var dimensions = getCanvasDimensions()
         var indexLine = getLineIndexById(idInput);
+        var linesCount = getCountText();
         if (indexLine === -1) {
-            addNewText(idInput, txt, color, 5);
+            if (linesCount === 0) {
+                addNewText(idInput, txt, color, 5, dimensions.width / 2, dimensions.height * 0.15);
+            } else if (linesCount === 1) {
+                addNewText(idInput, txt, color, 5, dimensions.width / 2, dimensions.height * 0.85);
+            } else {
+                addNewText(idInput, txt, color, 5, dimensions.width / 2, dimensions.height * 0.5);
+            }
             onAddLineText();
         } else {
             updateText(txt, color, indexLine);
         }
-        drawCanvas();
+        drawTextLineCanvas();
     }
 }
 
@@ -78,6 +87,16 @@ function onDeleteText(ev, idInput) {
         drawCanvas();
     }
 }
+function onTextClick(ev){
+    console.log(ev);
+    updateText(null,null,0,ev.clientX,ev.clientY)
+    drawCanvas()
+}
+function onDragText(ev){
+
+
+}
+
 
 function onAddLineText() {
     var newIdLine = makeId(4);

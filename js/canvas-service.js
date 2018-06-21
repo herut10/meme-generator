@@ -7,7 +7,7 @@ var gCtx;
 function initCanvas() {
     gElCanvas = document.querySelector('.meme-canvas');
     gCtx = gElCanvas.getContext('2d');
-    
+
 }
 
 function setCanvasDimensions(width, height) {
@@ -34,6 +34,13 @@ function drawCanvas() {
     drawTextLineCanvas();
 }
 
+function getCanvasDimensions() {
+    return {
+        width: gElCanvas.width,
+        height: gElCanvas.height
+    }
+}
+
 function drawTextLineCanvas() {
     var meme = getGMeme();
     meme.txts.forEach(function (txt, idx) {
@@ -42,17 +49,13 @@ function drawTextLineCanvas() {
         gCtx.textAlign = "center";
         gCtx.shadowBlur = (txt.shadow) ? 15 : 0;
         gCtx.shadowColor = 'rgba(0,0,0,1)';
-        if (idx === 0) {
-            gCtx.fillText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.15);
-            gCtx.strokeText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.15); //top
-        } else if (idx === 1) {
-            gCtx.fillText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.85);
-            gCtx.strokeText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.85); //bottom
-        } else {
-            gCtx.fillText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.5);
-            gCtx.strokeText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.5); //middle
-        }
+        gCtx.fillText(txt.line, txt.xPosition, txt.yPosition);
+        gCtx.strokeText(txt.line, txt.xPosition, txt.yPosition); 
     });
+}
+
+function getLineWidth(txt) {
+    return gCtx.measureText(txt).width
 }
 
 function getDateUrlCanvas() {
