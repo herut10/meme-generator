@@ -7,6 +7,7 @@
     grid-template-rows: repeat(25, 200px);
     grid-template-columns: repeat(1, 180px);
     grid-gap: 20px;
+    background-color: green;
 }
 
 .item-img {
@@ -21,14 +22,20 @@
 main {
     background-color: #555f6fad;
     width: 100%;
-    margin-top: 10px;
 }
 
 .image-filter {
     width: 100%;
+    background-color: red;
     height: 70px;
-    margin-top: 20px;
+    justify-content: center;
 }
+
+.image-filter select{
+    width: 80px;
+    height: 30px;
+}
+
 
 .item-img:hover {
     animation: shake 2s;
