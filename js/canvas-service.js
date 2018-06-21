@@ -7,7 +7,7 @@ var gCtx;
 function initCanvas() {
     gElCanvas = document.querySelector('.meme-canvas');
     gCtx = gElCanvas.getContext('2d');
-    
+
 }
 
 function setCanvasDimensions(width, height) {
@@ -22,10 +22,10 @@ function drawImageCanvas() {
     if (meme) {
         var img = new Image;
         img.src = `/img/${meme.selectedImgId}.jpg`;
-        var newWidth = window.innerWidth * 0.6;
-        var newHeight = newWidth * (img.height / img.width);
+        var newWidth = Math.min(window.innerWidth,window.innerHeight)
+        var newHeight = newWidth * (img.height/img.width);
         setCanvasDimensions(newWidth, newHeight);
-        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+        gCtx.drawImage(img, 0, 0, newWidth, newHeight)
     }
 }
 

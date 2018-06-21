@@ -31,4 +31,8 @@ select,input, .btn{
     cursor: pointer;
 }
 
+.align-center{
+    align-items: center;
+}
+
 
