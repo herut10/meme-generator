@@ -31,11 +31,12 @@ function onChangeStyleText(idInput) {
     var color = document.querySelector(`#color-text-${idInput}`).value;
     var size = document.querySelector(`.select-font-size-${idInput}`).value;
 
-    if (idInput === getCountText()) {
-        addNewText(txt, color, size);
+    var indexLine = getLineIndexById(idInput);
+    if (indexLine === -1) {
+        addNewText(idInput, txt, color, size);
         onAddLineText();
     } else {
-        updateText(txt, color, size, idInput);
+        updateText(txt, color, size, indexLine);
     }
     drawTextLineCanvas(idInput);
 }
@@ -54,25 +55,18 @@ function onDeleteText(ev, idInput) {
     ev.stopPropagation();
 
     if (isValidToRemove(idInput)) {
-        console.log('to delete text number: ', idInput);
         removeLineFromMeme(idInput);
         var nodeToRemove = document.querySelector(`.add-line-menu-${idInput}`);
         document.querySelector(".lines-edit").removeChild(nodeToRemove);
-
-        for (let i = idInput +1; i < array.length; i++) {
-            const element = array[i];
-            
-        }
     }
 }
 
 function onAddLineText() {
-    var countText = getCountText();
+    var newIdLine = makeId(4);
 
-    var strHTML = `
-                        <div class="selection-style-text">
-                            <input class="input-line-txt line-text-${countText}" onkeyup="onChangeStyleText(${countText})" type="text" placeholder="Enter text" required>
-                            <select onchange="onChangeStyleText(${countText})" class="select-font-size-${countText}">
+    var strHTML = `     <div class="selection-style-text">
+                            <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="Enter text" required>
+                            <select onchange="onChangeStyleText('${newIdLine}')" class="select-font-size-${newIdLine}">
                                 <option value="10">10</option>
                                 <option value="12">12</option>
                                 <option value="14">14</option>
@@ -82,16 +76,16 @@ function onAddLineText() {
                                 <option value="22">22</option>
                                 <option value="24">24</option>
                             </select>
-                            <input onchange="onChangeStyleText(${countText})" type="color" id="color-text-${countText}" name="color" value="#ffffff" />
+                            <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff" />
                         </div>
                         <div class="btns-actions-text">
-                            <button class="btn btn-delete-text-${countText}" onclick="onDeleteText(event,${countText})">
+                            <button class="btn btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </div>`;
 
     var node = document.createElement("div");
-    node.classList.add('add-line-menu', `add-line-menu-${countText}`, 'flex');
+    node.classList.add('add-line-menu', `add-line-menu-${newIdLine}`, 'flex');
     node.innerHTML = strHTML;
     document.querySelector(".lines-edit").appendChild(node);
 }
