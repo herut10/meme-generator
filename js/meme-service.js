@@ -8,6 +8,7 @@ var gMeme;
 
 
 
+
 function initMemeService() {
     gTags = ['nice', 'funny', 'political'];
     gFilterBy = 'all';
@@ -69,7 +70,7 @@ function getImagesToDisplay() {
     return gImgs
 }
 
-function getcountText() {
+function getCountText() {
     return gMeme.txts.length;
 }
 

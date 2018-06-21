@@ -50,8 +50,8 @@
                 <div class="lines-edit flex column">
                     <div class="add-line-menu flex">
                         <div class="selection-style-text">
-                            <input class="input-line-txt line-text-0" type="text" placeholder="Enter text" required>
-                            <select class="select-font-size">
+                            <input class="input-line-txt line-text-0" onkeydown="onInputText(0)" type="text" placeholder="Enter text" required>
+                            <select class="select-font-size-0">
                                 <option value="10">10</option>
                                 <option value="12">12</option>
                                 <option value="14">14</option>
@@ -66,7 +66,7 @@
 
 
                         <div class="btns-actions-text">
-                            <button class="btn btn-draw-text" onclick="onDrawText(event, 0)">add text</button>
+                            <button class="btn btn-draw-text" onclick="onDrawText(event, 0,false)">add text</button>
                             <button class="btn btn-delete-text" onclick="onDeleteText(event,0)">
                                 <i class="fa fa-trash"></i>
                             </button>

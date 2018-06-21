@@ -25,25 +25,38 @@ function onClickImage(id) {
     drawImageCanvas();
 }
 
-function onDrawText(ev, idInput, update) {
-    console.log('onDrawText');
-    ev.stopPropagation(); //TODO do we need this?
+function onInputText(idInput){
     var txt = document.querySelector(`.line-text-${idInput}`).value;
     var color = document.querySelector(`#color-text-${idInput}`).value;
-    var size = document.querySelector('.select-font-size').value;
-
-    if (txt) {
-        console.log('add text');
-        console.log(txt);
-        if (!update) {
-            addNewText(txt, color, size);
-        } else {
-            updateText(txt, color, size,idInput)
-        }
-        drawTextLineCanvas(idInput);
-        onAddLineText()
+    var size = document.querySelector(`.select-font-size-${idInput}`).value;
+    
+    if(idInput===getCountText()){
+        // create
+    }else{
+        //update
     }
 }
+
+
+// function onDrawText(ev, idInput) {
+//     console.log('onDrawText');
+//     ev.stopPropagation(); //TODO do we need this?
+    // var txt = document.querySelector(`.line-text-${idInput}`).value;
+    // var color = document.querySelector(`#color-text-${idInput}`).value;
+    // var size = document.querySelector('.select-font-size').value;
+
+//     if (txt) {
+//         console.log('add text');
+//         console.log(txt);
+//         if (!update) {
+//             addNewText(txt, color, size);
+//         } else {
+//             updateText(txt, color, size,idInput)
+//         }
+//         drawTextLineCanvas(idInput);
+//         onAddLineText()
+//     }
+// }
 
 
 
@@ -62,7 +75,7 @@ function onDeleteText(ev, idInput) {
 }
 
 function onAddLineText() {
-    var countText = getcountText();
+    var countText = getCountText();
 
     var strHTML = ` <div class="add-line-menu flex">
                         <div class="selection-style-text">
@@ -95,16 +108,16 @@ function onChangekeywordFilter() {
 }
 
 
-function updateInputElements() {
-    var meme = getGMeme()
-    var countText = getcountText();
-    meme.txts.forEach(function (txt, idx) {
-        document.querySelector(`.line-text-${idx}`).value = txt.line
-        if (idx !== countText - 1) {
-            document.querySelector(`.btns-actions-${idx}`).innerHTML = `
-        <button class="btn btn-update-text" onclick="onUpdateText(event,${idx})">update text</button> 
-        <button class="btn btn-delete-text" onclick="onDeleteText(event,${countText})"><i class="fa fa-trash"></i></button>
-        `
-        }
-    });
-}
+// function updateInputElements() {
+//     var meme = getGMeme()
+//     var countText = getcountText();
+//     meme.txts.forEach(function (txt, idx) {
+//         document.querySelector(`.line-text-${idx}`).value = txt.line
+//         if (idx !== countText - 1) {
+//             document.querySelector(`.btns-actions-${idx}`).innerHTML = `
+//         <button class="btn btn-update-text" onclick="onUpdateText(event,${idx},false)">update text</button> 
+//         <button class="btn btn-delete-text" onclick="onDeleteText(event,${countText})"><i class="fa fa-trash"></i></button>
+//         `
+//         }
+//     });
+// }
