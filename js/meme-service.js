@@ -16,13 +16,39 @@ function createImgs() {
     for (var i = 0; i < IMG_COUNT; i++) {
         gImgs.push(createImg())
     }
+    gImgs[0].keywords = ['Political', 'Nice'];
+    gImgs[1].keywords = ['Tv'];
+    gImgs[2].keywords = ['Political'];
+    gImgs[3].keywords = ['Animal'];
+    gImgs[4].keywords = ['Baby', 'Funny'];
+    gImgs[5].keywords = ['Baby'];
+    gImgs[6].keywords = ['Animal'];
+    gImgs[7].keywords = ['Movies'];
+    gImgs[8].keywords = ['Baby'];
+    gImgs[9].keywords = ['Tv'];
+    gImgs[10].keywords = ['Tv'];
+    gImgs[11].keywords = ['Tv'];
+    gImgs[12].keywords = ['Movies', 'Nice'];
+    gImgs[13].keywords = ['Baby', 'Funny'];
+    gImgs[14].keywords = ['Political'];
+    gImgs[15].keywords = ['Baby'];
+    gImgs[16].keywords = ['Animal'];
+    gImgs[17].keywords = ['Political'];
+    gImgs[18].keywords = ['Sport'];
+    gImgs[19].keywords = ['Movies', 'Funny'];
+    gImgs[20].keywords = ['Movies', 'Nice'];
+    gImgs[21].keywords = ['Movies'];
+    gImgs[22].keywords = ['Tv'];
+    gImgs[23].keywords = ['Movies'];
+    gImgs[24].keywords = ['Movies', 'Toys'];
+
+
 }
 
 function createImg() {
     return {
         id: gImgs.length + 1,
-        url: `img/${gImgs.length + 1}.jpg`
-        // keywords: getRandomTags()
+        url: `img/${gImgs.length + 1}.jpg`,
     };
 }
 

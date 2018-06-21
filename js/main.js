@@ -25,7 +25,6 @@ function onClickImage(id) {
     document.querySelector('.image-chooser').classList.toggle('none');
     setMemeSelected(id);
     drawImageCanvas();
-
     onAddLineText();
 }
 
@@ -141,4 +140,5 @@ function onBoldText(event, idLine) {
 
 function onChangekeywordFilter() {
     setFilterBy(document.querySelector('.select-keyword-filter').value);
+    renderImages();
 }
