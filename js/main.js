@@ -11,7 +11,7 @@ function renderImages() {
     var strHTML = '';
 
     strHTML = imgs.map(function (img) {
-        return `<div style="background-image:url(img/${img.id}.jpg)" class="item-img" onclick="onClickImage(${img.id})">
+        return `<div style="background-image:url(../img/${img.id}.jpg)" class="item-img" onclick="onClickImage(${img.id})">
                 </div>`
     }).join('');
     document.querySelector('.images-container').innerHTML = strHTML;
@@ -53,6 +53,7 @@ function onDownloadMeme() {
 function onDeleteText(ev, idInput) {
     ev.stopPropagation();
     console.log('to delete text number: ', idInput);
+    removeLineFromMeme();
 }
 
 function onAddLineText() {
