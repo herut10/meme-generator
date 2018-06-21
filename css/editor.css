@@ -13,6 +13,7 @@
     justify-content: space-between;
     background-color: blue;
     padding: 20px;
+    width: 100%;
 }
 
 .meme-editor .meme-canvas {
@@ -42,7 +43,17 @@
     transition: all 1s ease;
 }
 
+.input-line-txt{
+    width: 100%
+}
+
 .btn-add-line-text:hover {
     animation: shake 1s;
     background-color: darkslategrey;
+}
+
+@media(min-width: 510px){
+    .input-line-txt{
+        width: auto;
+    }
 }
