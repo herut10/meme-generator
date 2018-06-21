@@ -7,34 +7,49 @@ var gTags;
 var gMeme;
 
 
-function removeLineFromMeme(idInput) {
-    gMeme.txts.splice(idInput, 1);
-}
-
-function isValidToRemove(idInput) {
-    console.log(idInput);
-    return gMeme.txts[idInput] !== undefined;
-}
-
 function initMemeService() {
     gTags = ['nice', 'funny', 'political'];
     gFilterBy = 'all';
     createImgs();
 }
 
-
-function addNewText(txt, color, size) {
-    gMeme.txts.push(createText(txt, color, size))
+function createImgs() {
+    gImgs = [];
+    for (var i = 0; i < IMG_COUNT; i++) {
+        gImgs.push(createImg())
+    }
 }
 
-function updateText(txt, color, size, idInput) {
-    gMeme.txts[idInput].line = txt;
-    gMeme.txts[idInput].color = color;
-    gMeme.txts[idInput].size = size;
-}
-
-function createText(txt, color, size) {
+function createImg() {
     return {
+        id: gImgs.length + 1,
+        url: `img/${gImgs.length + 1}.jpg`
+        // keywords: getRandomTags()
+    };
+}
+
+function getLineIndexById(idLine) {
+    var index = gMeme.txts.findIndex(function (line) {
+        return line.idLine === idLine
+    });
+    return index;
+}
+
+function removeLineFromMeme(idInput) {
+    gMeme.txts.splice(getLineIndexById(idInput), 1);
+}
+
+function isValidToRemove(idInput) {
+    return gMeme.txts[getLineIndexById(idInput)] !== undefined;
+}
+
+function addNewText(id, txt, color, size) {
+    gMeme.txts.push(createText(id, txt, color, size))
+}
+
+function createText(id, txt, color, size) {
+    return {
+        idLine: id,
         line: txt,
         size: size,
         align: 'center',
@@ -42,40 +57,30 @@ function createText(txt, color, size) {
     }
 }
 
-function createImgs() {
-    gImgs = [];
-    for (var i = 0; i < IMG_COUNT; i++) {
-        gImgs.push(createImg())
-
-    }
+function updateText(txt, color, size, index) {
+    gMeme.txts[index].line = txt;
+    gMeme.txts[index].color = color;
+    gMeme.txts[index].size = size;
 }
 
-function createImg() {
-    return {
-        id: gImgs.length + 1,
-        url: `img/${gImgs.length + 1}.jpg`,
-        keywords: getRandomTags()
-    };
-}
-
-function getRandomTags() {
-    var tags = gTags.slice();
-    var resTags = []
-    var tagCount = getRandInt(1, tags.length) //at least one tag
-    for (let i = 0; i < tagCount; i++) {
-        var idx = getRandInt(1, tags.length)
-        resTags.push(tags.splice(idx))
-    }
-    return resTags
-}
+// function getRandomTags() {
+//     var tags = gTags.slice();
+//     var resTags = []
+//     var tagCount = getRandInt(1, tags.length) //at least one tag
+//     for (let i = 0; i < tagCount; i++) {
+//         var idx = getRandInt(1, tags.length)
+//         resTags.push(tags.splice(idx))
+//     }
+//     return resTags
+// }
 
 function getGMeme() {
-    return gMeme
+    return gMeme;
 }
 
 //TODO: add filter
 function getImagesToDisplay() {
-    return gImgs
+    return gImgs;
 }
 
 function getCountText() {
