@@ -33,7 +33,7 @@ function onChangeStyleText(idInput) {
     if (txt) {
         var indexLine = getLineIndexById(idInput);
         if (indexLine === -1) {
-            addNewText(idInput, txt, color, 6);
+            addNewText(idInput, txt, color,5);
             onAddLineText();
         } else {
             updateText(txt, color, indexLine);
