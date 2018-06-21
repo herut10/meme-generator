@@ -86,7 +86,7 @@ function onAddLineText() {
                             <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="Enter text" required>
                             <button class="btn btn-increase-size" onclick="onChangeSize(event,'${newIdLine}',1)"><i class="fa fa-font"></i><i class="fa fa-arrow-up"></i></button>
                             <button class="btn btn-decrease-size" onclick="onChangeSize(event,'${newIdLine}',-1)"><i class="fa fa-font"></i><i class="fa fa-arrow-down"></i></button>
-                            <button class="btn btn-bold" onclick="onBoldText(event,'${newIdLine}')"><i class="fa fa-bold bold-select"></i></button>
+                            <button class="btn btn-bold btn-bold-${newIdLine}" onclick="onBoldText(event,'${newIdLine}')"><i class="fa fa-bold bold-select"></i></button>
                             <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff" />
                         </div>
                         <div class="btns-actions-text">
@@ -102,11 +102,11 @@ function onAddLineText() {
 }
 
 function onBoldText(event, idLine) {
-    setBoldToLineText(idLine);
-    var elBoldSelect = document.querySelector('.bold-select');
-    elBoldSelect.classList.toggle('fa-bold');
-    elBoldSelect.classList.toggle('fa-bold');
-    drawCanvas();
+    if (isLineExist(idLine)) {
+        setBoldToLineText(idLine);
+        document.querySelector(`.btn-bold-${idLine}`).classList.toggle('choose-btn');
+        drawCanvas();
+    }
 }
 
 function onChangekeywordFilter() {
