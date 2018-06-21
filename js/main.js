@@ -32,7 +32,7 @@ function onChangeStyleText(idInput) {
     if (txt) {
         var indexLine = getLineIndexById(idInput);
         if (indexLine === -1) {
-            addNewText(idInput, txt, color,5);
+            addNewText(idInput, txt, color, 5);
             onAddLineText();
         } else {
             updateText(txt, color, indexLine);
@@ -46,11 +46,16 @@ function toggleEditor() {
     setTimeout(() => {
         document.querySelector('.meme-editor').classList.toggle('none');
     }, 100);
-    
+
     document.querySelector('.image-chooser').classList.toggle('none');
 }
 
+// download meme 
 function onDownloadMeme() {
+    console.log(elCanvas.toDataURL())
+    elLink.href = elCanvas.toDataURL()
+    elLink.download = 'koala.jpg'
+
 
 }
 
