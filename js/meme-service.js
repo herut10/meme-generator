@@ -7,7 +7,14 @@ var gTags;
 var gMeme;
 
 
+function removeLineFromMeme(idInput) {
+    gMeme.txts.splice(idInput, 1);
+}
 
+function isValidToRemove(idInput) {
+    console.log(idInput);
+    return gMeme.txts[idInput] !== undefined;
+}
 
 function initMemeService() {
     gTags = ['nice', 'funny', 'political'];
