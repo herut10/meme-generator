@@ -8,6 +8,7 @@
     grid-template-columns: repeat(1, 180px);
     grid-gap: 20px;
     background-color: green;
+    height: fit-content;
 }
 
 .item-img {

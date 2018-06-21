@@ -2,12 +2,12 @@
 
 var IMG_COUNT = 25;
 var gImgs;
-var gFilterBy
+var gFilterBy;
 var gMeme;
 
 
 function initMemeService() {
-    gFilterBy = 'all';
+    gFilterBy = 'All';
     createImgs();
 }
 
@@ -41,8 +41,6 @@ function createImgs() {
     gImgs[22].keywords = ['Tv'];
     gImgs[23].keywords = ['Movies'];
     gImgs[24].keywords = ['Movies', 'Toys'];
-
-
 }
 
 function createImg() {
@@ -122,9 +120,13 @@ function getGMeme() {
     return gMeme;
 }
 
-//TODO: add filter
 function getImagesToDisplay() {
-    return gImgs;
+    if (gFilterBy === 'All') {
+        return gImgs
+    }
+    return gImgs.filter(function (img) {
+        return img.keywords.includes(gFilterBy);
+    });
 }
 
 function getCountText() {
