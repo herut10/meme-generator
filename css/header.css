@@ -74,6 +74,8 @@ body .header-page {
 
 .btn-offCanvas-menu {
     display: none;
+    border: none;
+    border-radius: 6px;
 }
 
 .header-menu li:hover {
@@ -88,6 +90,7 @@ li:hover a {
 .btn-offCanvas-menu i {
     font-size: 30px;
 }
+
 
 @media (max-width: 750px) {
     .header-menu {

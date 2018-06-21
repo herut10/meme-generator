@@ -142,3 +142,8 @@ function onChangekeywordFilter() {
     setFilterBy(document.querySelector('.select-keyword-filter').value);
     renderImages();
 }
+
+function toggleMenu() {
+    console.log('open menu mobile');
+    document.querySelector('.header-container').classList.toggle('open');
+}
