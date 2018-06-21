@@ -20,6 +20,10 @@ function addNewText(txt, color, size) {
     gMeme.txts.push(createText(txt, color, size))
 }
 
+function updateText(txt, color, size, idInput) {
+    gMeme.txts[idInput] = createText(txt, color, size)
+}
+
 function createText(txt, color, size) {
     return {
         line: txt,

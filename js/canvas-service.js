@@ -29,16 +29,17 @@ function drawImageCanvas() {
 }
 
 function drawTextLineCanvas(idInput) {
+    drawImageCanvas()//reset canvas before adding new lines
     console.log(idInput);
     var meme = getGMeme();
-    meme.txts.forEach(function (txt) {
-        gCtx.font = `${txt.size}em impact`;
+    meme.txts.forEach(function (txt,idx) {
+        gCtx.font = `${txt.size}px impact`;
         gCtx.fillStyle = txt.color
         gCtx.textAlign = "center";
-        if (idInput === 0) {
+        if (idx === 0) {
             gCtx.fillText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.15);
             gCtx.strokeText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.15); //top
-        } else if (idInput ===1) {
+        } else if (idx ===1) {
             gCtx.fillText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.85);
             gCtx.strokeText(txt.line, gElCanvas.width / 2, gElCanvas.height * 0.85); //bottom
         } else {

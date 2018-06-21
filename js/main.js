@@ -25,9 +25,9 @@ function onClickImage(id) {
     drawImageCanvas();
 }
 
-function onDrawText(ev, idInput) {
+function onDrawText(ev, idInput, update) {
     console.log('onDrawText');
-    ev.stopPropagation();
+    ev.stopPropagation(); //TODO do we need this?
     var txt = document.querySelector(`.line-text-${idInput}`).value;
     var color = document.querySelector(`#color-text-${idInput}`).value;
     var size = document.querySelector('.select-font-size').value;
@@ -35,10 +35,17 @@ function onDrawText(ev, idInput) {
     if (txt) {
         console.log('add text');
         console.log(txt);
-        addNewText(txt, color, size);
+        if (!update) {
+            addNewText(txt, color, size);
+        } else {
+            updateText(txt, color, size,idInput)
+        }
         drawTextLineCanvas(idInput);
+        onAddLineText()
     }
 }
+
+
 
 function onCloseEditor() {
     document.querySelector('.meme-editor').classList.add('hidden');
@@ -54,7 +61,7 @@ function onDeleteText(ev, idInput) {
     console.log('to delete text number: ', idInput);
 }
 
-function onAddLineText(ev) {
+function onAddLineText() {
     var countText = getcountText();
 
     var strHTML = ` <div class="add-line-menu flex">
@@ -74,14 +81,30 @@ function onAddLineText(ev) {
                         </div>
 
 
-                        <div class="btns-actions-text">
+                        <div class="btns-actions-${countText}">
                             <button class="btn btn-draw-text" onclick="onDrawText(event,${countText})">add text</button> 
                             <button class="btn btn-delete-text" onclick="onDeleteText(event,${countText})"><i class="fa fa-trash"></i></button>
                         </div>
                     </div>`;
     document.querySelector('.lines-edit').innerHTML += strHTML;
+    updateInputElements();
 }
 
 function onChangekeywordFilter() {
     setFilterBy(document.querySelector('.select-keyword-filter').value);
+}
+
+
+function updateInputElements() {
+    var meme = getGMeme()
+    var countText = getcountText();
+    meme.txts.forEach(function (txt, idx) {
+        document.querySelector(`.line-text-${idx}`).value = txt.line
+        if (idx !== countText - 1) {
+            document.querySelector(`.btns-actions-${idx}`).innerHTML = `
+        <button class="btn btn-update-text" onclick="onUpdateText(event,${idx})">update text</button> 
+        <button class="btn btn-delete-text" onclick="onDeleteText(event,${countText})"><i class="fa fa-trash"></i></button>
+        `
+        }
+    });
 }
