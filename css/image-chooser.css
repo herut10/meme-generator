@@ -6,6 +6,7 @@
 .images-container {
     grid-template-rows: repeat(25, 200px);
     grid-template-columns: repeat(1, 180px);
+    border: 1px solid black;
     grid-gap: 20px;
     background-color: green;
     height: fit-content;
@@ -30,13 +31,13 @@ main {
     background-color: red;
     height: 70px;
     justify-content: center;
+    align-items: center;
 }
 
-.image-filter select{
+.image-filter select {
     width: 80px;
     height: 30px;
 }
-
 
 .item-img:hover {
     animation: shake 2s;
@@ -63,26 +64,17 @@ main {
         grid-template-columns: repeat(4, 180px);
     }
 }
+
 @media (min-width:1040px) {
     .images-container {
         grid-template-rows: repeat(5, 200px);
         grid-template-columns: repeat(5, 180px);
     }
 }
+
 @media (min-width:1230px) {
     .images-container {
         grid-template-rows: repeat(5, 200px);
         grid-template-columns: repeat(6, 180px);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

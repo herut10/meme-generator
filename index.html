@@ -26,17 +26,28 @@
 </head>
 
 <body class="flex column" onload="initMain()">
-    <header>
-        <ul class>
-            <li>
-                About us
-            </li>
-        </ul>
+    <header id="header-page" class="header-page flex">
+        <div class="header-container flex">
+            <h1 class="logo">
+                Meme-Generator
+            </h1>
+            <ul class="header-menu clean-list flex">
+                <li class="item-header-menu flex li-journal active">
+                    <a href="#">Contact</a>
+                </li>
+                <li class="item-header-menu flex">
+                    <a href="#">About us</a>
+                </li>
+            </ul>
+            <button class="btn-offCanvas-menu" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
+        </div>
     </header>
+
     <main>
         <!-- IMAGE-CHOOSER -->
         <div class="image-chooser flex column ">
             <div class="image-filter flex">
+                <h4>filter:</h4>
                 <select class="select-keyword-filter" onchange="onChangekeywordFilter()">
                     <option value="All">All</option>
                     <option value="Political">Political</option>

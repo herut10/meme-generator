@@ -102,7 +102,7 @@ function onDragText(ev){
 function onAddLineText() {
     var newIdLine = makeId(4);
 
-    var strHTML = `     <div class="selection-style-text">
+    var strHTML = `     <div class="selection-style-text animated bounceInRight">
                             <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="Enter text" required>
                             <button class="btn btn-increase-size" onclick="onChangeSize(event,'${newIdLine}',1)"><i class="fa fa-font"></i><i class="fa fa-arrow-up"></i></button>
                             <button class="btn btn-decrease-size" onclick="onChangeSize(event,'${newIdLine}',-1)"><i class="fa fa-font"></i><i class="fa fa-arrow-down"></i></button>
@@ -110,7 +110,7 @@ function onAddLineText() {
                             <button class="btn btn-shadow btn-shadow-${newIdLine}" onclick="onShadowText(event,'${newIdLine}')">s</button>
                             <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff" />
                         </div>
-                        <div class="btns-actions-text">
+                        <div class="btns-actions-text animated bounceInRight">
                             <button class="btn btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">
                                 <i class="fa fa-trash"></i>
                             </button>
