@@ -2,12 +2,8 @@
     box-sizing: border-box;
 }
 
+body {}
 
-
-body
-{
-    margin: 10px;
-}
 /* helpers */
 
 .flex {
@@ -25,17 +21,17 @@ body
 .none {
     display: none;
 }
-.hidden{
+
+.hidden {
     visibility: hidden;
 }
 
-
-select,input, .btn{
+select,
+input,
+.btn {
     cursor: pointer;
 }
 
-.align-center{
+.align-center {
     align-items: center;
 }
-
-
