@@ -39,7 +39,9 @@
                     <a href="#">About us</a>
                 </li>
             </ul>
-            <button class="btn-offCanvas-menu" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
+            <button class="btn-offCanvas-menu" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </button>
         </div>
     </header>
 
@@ -72,14 +74,14 @@
                     <div class="lines-edit flex column">
                     </div>
                 </div>
-                <div class="footer-editor">
-                    <button class="btn btn-back-gallery" onclick="onCloseEditor()">
-                        <i class="fa fa-undo"> Back to gallery</i>
-                    </button>
-                    <a class="btn btn-download-meme" onclick="onDownloadMeme(this)">
-                        <i class="fa fa-download"> Download</i>
-                    </a>
-                </div>
+            </div>
+            <div class="footer-editor flex">
+                <button class="btn btn-back-gallery" onclick="onCloseEditor()">
+                    <i class="fa fa-undo"> Back to gallery</i>
+                </button>
+                <button class="btn btn-download-meme" onclick="onDownloadMeme(this)">
+                    <i class="fa fa-download"> Download</i>
+                </button>
             </div>
         </div>
     </main>

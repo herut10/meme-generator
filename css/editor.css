@@ -49,10 +49,20 @@
 .input-line-txt {
     width: 100%
 }
+.btn-download-meme , .btn-back-gallery{
+    padding: 10px;
+    border-radius: 6px;
+}
 
 .btn-add-line-text:hover {
     animation: shake 1s;
     background-color: darkslategrey;
+}
+
+.footer-editor{
+    background-color: green;
+    width: 60%;
+    justify-content: space-around;
 }
 
 @media(min-width: 510px) {
