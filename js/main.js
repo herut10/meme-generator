@@ -156,6 +156,7 @@ function onChangekeywordFilter() {
 
 function toggleMenu() {
     console.log('open menu mobile');
-    document.querySelector('.header-container').classList.toggle('open');
+    document.querySelector('.header-menu').classList.toggle('open');
+    document.querySelector('.btn-offCanvas-menu').classList.toggle('open');
 }
 

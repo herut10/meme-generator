@@ -9,9 +9,8 @@ body .header-page {
 }
 
 .header-container {
-    width: 945px;
-    justify-content: space-between;
-    margin: 280px auto;
+    width: 100%;
+    justify-content: center;
     align-items: center;
 }
 
@@ -19,12 +18,29 @@ body .header-page {
     font-family: eurofurence;
     font-size: 40px;
     font-weight: 400;
+    margin-left: 20px;
+}
+
+.header-menu {
+    z-index: 2;
+    position: fixed;
+    top: -280px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    transition-duration:  0.5s;
+}
+
+.header-menu.open {
+    top: 130px;
+
 }
 
 .header-menu li {
     border-left: 1px solid #1e1e1e;
+    background-color: #292929;
     height: 130px;
-    width: 130px;
+    width: 100vw;
     justify-content: center;
     align-items: center;
 }
@@ -43,9 +59,17 @@ body .header-page {
 }
 
 .btn-offCanvas-menu {
-    display: none;
+    position: fixed;
+    top: 30px;
+    right: 45px;
+    padding: 20px;
     border: none;
     border-radius: 6px;
+}
+
+.btn-offCanvas-menu.open {
+    top: 30px;
+    right: 45px;
 }
 
 .header-menu li:hover {
@@ -61,18 +85,21 @@ li:hover a {
     font-size: 30px;
 }
 
-@media (max-width: 750px) {
-    .header-menu {
+@media (min-width: 750px) {
+    .header-menu{
+        flex-direction: row;
+        position: static;
+        height: 142px;
+    }
+    .header-menu li{
+        width: 180px;
+    }
+    .btn-offCanvas-menu{
         display: none;
     }
-    .header-page .btn-offCanvas-menu {
-        display: block;
-        margin-right: 40px;
+    .logo {
+        margin-left: 0px;
     }
 }
 
-@media (max-width: 970px) {
-    .logo {
-        margin-left: 20px;
-    }
-}
+@media (max-width: 970px) {}
