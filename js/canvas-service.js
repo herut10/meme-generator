@@ -64,7 +64,7 @@ function getLineDimenstions(txt) {
     gCtx.shadowColor = 'rgba(0,0,0,1)';
     return {
         width: gCtx.measureText(txt.line).width,
-        height: txt.size * 12
+        height: txt.size * 11.3
     }
 }
 
@@ -113,6 +113,9 @@ function clickOnText(ev) {
             return true
         }
     })
+    if(gSelectedTextIdx>=0){
+        displaySelected() 
+    }
 
 }
 
