@@ -96,7 +96,7 @@ function mousePos(ev) {
     var mouseY = ev.clientY - canvasPos.top + window.pageYOffset;
     return {
         x: mouseX,
-        y: mouseY-130
+        y: mouseY - 130
     };
 };
 
@@ -113,10 +113,22 @@ function clickOnText(ev) {
             return true
         }
     })
-    if(gSelectedTextIdx>=0){
-        displaySelected() 
+    if (gSelectedTextIdx >= 0) {
+        displaySelected()
     }
 
+}
+
+function isMouseOverText(ev) {
+    var mousePosition = mousePos(ev)
+    var meme = getGMeme()
+    return meme.txts.some(function (txt) {
+        var txtDimensions = getLineDimenstions(txt)
+        if (mousePosition.y <= txt.yPosition && mousePosition.y >= txt.yPosition - txtDimensions.height &&
+            mousePosition.x >= txt.xPosition - txtDimensions.width / 2 && mousePosition.x <= txt.xPosition + txtDimensions.width / 2) {
+            return true
+        }
+    })
 }
 
 function getSelectedTextIdx() {
@@ -127,8 +139,9 @@ function getSelectedText() {
     var meme = getGMeme()
     return meme.txts[gSelectedTextIdx]
 }
-function clearChoseText(){
-    gSelectedTextIdx=-1
+
+function clearChoseText() {
+    gSelectedTextIdx = -1
 }
 
 function displaySelected() {

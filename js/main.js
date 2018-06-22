@@ -14,7 +14,7 @@ function renderImages() {
 
     strHTML = imgs.map(function (img) {
         return `
-        <div class="hexagon hexagon1 item-img">
+        <div class="hexagon hexagon1">
         <div class="hexagon-in1 ">
             <div style="background-image:url(/img/${img.id}.jpg)" class="hexagon-in2 " onclick="onClickImage(${img.id})"></div>
         </div>
@@ -97,9 +97,15 @@ function onTextClick(ev){
     clickOnText(ev)
 }
 function onDragText(ev){
+    var mouseposition=mousePos(ev)
+    if(isMouseOverText(ev)){
+        document.querySelector('.meme-canvas').style='cursor: pointer;'
+    }else{
+        document.querySelector('.meme-canvas').style='cursor: default;'
+    }
+     
     var selectedTextIdx=getSelectedTextIdx()
     if(selectedTextIdx>=0){
-        var mouseposition=mousePos(ev)
         var mousePosXDiff=mouseposition.x-prevMousePosition.x
         var mousePosYDiff=mouseposition.y-prevMousePosition.y
         prevMousePosition=mouseposition
