@@ -68,7 +68,7 @@
 
         <!-- EDITOR -->
         <div class="meme-editor flex align-center column none animated bounceInUp">
-            <canvas class="meme-canvas" onclick="onTextClick(event)" onmousemove="onDragText(event)"></canvas>
+            <canvas class="meme-canvas"  onmousedown="onTextClick(event)" onmousemove="onDragText(event)" onmouseup="onClearChosenText()"></canvas>
             <div class="flex column">
                 <div class="editor-options flex">
                     <div class="lines-edit flex column">

@@ -1,5 +1,7 @@
 'use strict'
 
+var prevMousePosition;
+
 function initMain() {
     initCanvas();
     initMemeService();
@@ -87,17 +89,26 @@ function onDeleteText(ev, idInput) {
     }
 }
 function onTextClick(ev){
-    console.log(ev);
-    var mouseposition=mousePos(ev)
-    updateText(null,null,0,mouseposition.x,mouseposition.y)
-    drawCanvas()
+    prevMousePosition=mousePos(ev)
+    clickOnText(ev)
 }
 function onDragText(ev){
-    var mouseposition=mousePos(ev)
-    updateText(null,null,0,mouseposition.x,mouseposition.y)
-    drawCanvas()
+    var selectedTextIdx=getSelectedTextIdx()
+    if(selectedTextIdx>=0){
+        var mouseposition=mousePos(ev)
+        var mousePosXDiff=mouseposition.x-prevMousePosition.x
+        var mousePosYDiff=mouseposition.y-prevMousePosition.y
+        prevMousePosition=mouseposition
+        var text=getSelectedText()
+        updateText(null,null,selectedTextIdx,text.xPosition+mousePosXDiff,text.yPosition+mousePosYDiff)
+        drawCanvas()
+    }
 }
 
+function onClearChosenText(){
+    clearChoseText()
+    drawCanvas()
+}
 
 function onAddLineText() {
     var newIdLine = makeId(4);
