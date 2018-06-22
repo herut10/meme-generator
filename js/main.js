@@ -158,3 +158,4 @@ function toggleMenu() {
     console.log('open menu mobile');
     document.querySelector('.header-container').classList.toggle('open');
 }
+
