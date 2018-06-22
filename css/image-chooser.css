@@ -1,15 +1,13 @@
 .image-chooser {
-    width: fit-content;
-    margin: auto;
+    align-items: center;
 }
 
 .images-container {
-    grid-template-rows: repeat(25, 200px);
+    grid-template-rows: repeat(25, 206px);
     grid-template-columns: repeat(1, 180px);
-    border: 1px solid black;
     grid-gap: 20px;
-    background-color: green;
     height: fit-content;
+    margin-bottom: 90px;
 }
 
 .item-img {
@@ -22,7 +20,6 @@
 }
 
 main {
-    background-color: #555f6fad;
     width: 100%;
 }
 
@@ -46,35 +43,35 @@ main {
 
 @media (min-width:425px) {
     .images-container {
-        grid-template-rows: repeat(13, 200px);
+        grid-template-rows: repeat(13, 206px);
         grid-template-columns: repeat(2, 180px);
     }
 }
 
 @media (min-width:630px) {
     .images-container {
-        grid-template-rows: repeat(9, 200px);
+        grid-template-rows: repeat(9, 206px);
         grid-template-columns: repeat(3, 180px);
     }
 }
 
 @media (min-width:840px) {
     .images-container {
-        grid-template-rows: repeat(7, 200px);
+        grid-template-rows: repeat(7, 206px);
         grid-template-columns: repeat(4, 180px);
     }
 }
 
 @media (min-width:1040px) {
     .images-container {
-        grid-template-rows: repeat(5, 200px);
+        grid-template-rows: repeat(5, 206px);
         grid-template-columns: repeat(5, 180px);
     }
 }
 
 @media (min-width:1230px) {
     .images-container {
-        grid-template-rows: repeat(5, 200px);
+        grid-template-rows: repeat(5, 206px);
         grid-template-columns: repeat(6, 180px);
     }
 }

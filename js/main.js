@@ -13,8 +13,12 @@ function renderImages() {
     var strHTML = '';
 
     strHTML = imgs.map(function (img) {
-        return `<div style="background-image:url(/img/${img.id}.jpg)" class="item-img" onclick="onClickImage(${img.id})">
-                </div>`
+        return `
+        <div class="hexagon hexagon1 item-img">
+        <div class="hexagon-in1 ">
+            <div style="background-image:url(/img/${img.id}.jpg)" class="hexagon-in2 " onclick="onClickImage(${img.id})"></div>
+        </div>
+    </div>`
     }).join('');
     document.querySelector('.images-container').innerHTML = strHTML;
 }
@@ -119,7 +123,7 @@ function onAddLineText() {
                             <button class="btn btn-decrease-size" onclick="onChangeSize(event,'${newIdLine}',-1)"><i class="fa fa-font"></i><i class="fa fa-arrow-down"></i></button>
                             <button class="btn btn-bold btn-bold-${newIdLine}" onclick="onBoldText(event,'${newIdLine}')"><i class="fa fa-bold bold-select"></i></button>
                             <button class="btn btn-shadow btn-shadow-${newIdLine}" onclick="onShadowText(event,'${newIdLine}')">s</button>
-                            <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff" />
+                            <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff"  />
                         </div>
                         <div class="btns-actions-text animated bounceInRight">
                             <button class="btn btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">
