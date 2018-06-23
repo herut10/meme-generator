@@ -2,13 +2,32 @@
 
 var IMG_COUNT = 25;
 var gImgs;
-var gFilterBy;
 var gMeme;
-
+var gFilterBy;
+var gPopularKeywords;
 
 function initMemeService() {
     gFilterBy = 'All';
     createImgs();
+    createPopularKeywords();
+}
+
+function createPopularKeywords() {
+    gPopularKeywords = [];
+    gImgs.forEach(function (img) {
+        img.keywords.forEach(function (keyword) {
+            var findKeyword = gPopularKeywords.find(function (item) {
+                return item.keyword === keyword;
+            });
+            if (!findKeyword) {
+                gPopularKeywords.push({
+                    keyword: keyword,
+                    count: 0
+                });
+            }
+        });
+    });
+    console.log(gPopularKeywords);
 }
 
 function createImgs() {

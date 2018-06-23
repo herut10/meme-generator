@@ -192,6 +192,11 @@ function onChangekeywordFilter() {
 
 function toggleMenu() {
     document.querySelector('.header-menu').classList.toggle('open');
-    // document.querySelector('.btn-offCanvas-menu').classList.toggle('open');
-    // document.querySelector('.btn-offCanvas-menu').innerHTML ='';
+    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu');
+
+    if (elBtnOffCanvas.innerText !== '<i class="fa fa-bars"></i>') {
+        elBtnOffCanvas.innerText = 'X'; // להביא את התגית של איקס 
+    } else {
+        elBtnOffCanvas.innerText = '<i class="fa fa-bars"></i>';
+    }
 }
