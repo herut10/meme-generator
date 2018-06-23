@@ -72,11 +72,11 @@ main {
 }
 
 .popular-Keywords-container{
+    align-items: center;
     justify-content: space-between;
     background-color: aqua;
-    width: 80%;
-    height: 30%;
-
+    width: 90%;
+    height: 80px;
 }
 
 
