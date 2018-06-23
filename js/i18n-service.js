@@ -41,11 +41,6 @@ var gTrans = {
         BACK_TO_GALLERY:'חזרה לגלריה',
         DOWNLOAD:'הורדה',
         COPYRIGHT:'Idan&Herut.com זכויות יוצרים 2018'
-    
-        
-        
-        
-        
     }
 };
 
