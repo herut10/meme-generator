@@ -110,15 +110,9 @@ function onTextClick(ev) {
 }
 
 function onDragText(ev) {
-    var mouseposition = mousePos(ev)
-    if (isMouseOverText(ev)) {
-        document.querySelector('.meme-canvas').style = 'cursor: pointer;'
-    } else {
-        document.querySelector('.meme-canvas').style = 'cursor: default;'
-    }
-
     var selectedTextIdx = getSelectedTextIdx()
     if (selectedTextIdx >= 0) {
+        var mouseposition = mousePos(ev)
         var mousePosXDiff = mouseposition.x - prevMousePosition.x
         var mousePosYDiff = mouseposition.y - prevMousePosition.y
         prevMousePosition = mouseposition
@@ -128,6 +122,8 @@ function onDragText(ev) {
     }
 }
 
+<<<<<<< HEAD
+=======
 function onSetLang(lang) {
     setLang(lang)
     if (lang === 'he') {
@@ -148,6 +144,7 @@ function translatePage() {
     }
 }
 
+>>>>>>> 89a2ef5a69450a9452c0319124f09b38338676ed
 function onClearChosenText() {
     clearChoseText()
     drawCanvas()
@@ -157,7 +154,7 @@ function onAddLineText() {
     var newIdLine = makeId(4);
 
     var strHTML = `     <div class="selection-style-text animated bounceInRight">
-                            <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="${getCurrLang()==='en'?'Please enter text':'אנא רשום טקסט'}" required>
+                            <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="Enter text" required>
                             <button class="btn btn-increase-size" onclick="onChangeSize(event,'${newIdLine}',1)"><i class="fa fa-font"></i><i class="fa fa-arrow-up"></i></button>
                             <button class="btn btn-decrease-size" onclick="onChangeSize(event,'${newIdLine}',-1)"><i class="fa fa-font"></i><i class="fa fa-arrow-down"></i></button>
                             <button class="btn btn-bold btn-bold-${newIdLine}" onclick="onBoldText(event,'${newIdLine}')"><i class="fa fa-bold bold-select"></i></button>
@@ -208,4 +205,24 @@ function toggleMenu() {
     } else {
         elBtnOffCanvas.innerText = '<i class="fa fa-bars"></i>';
     }
+}
+
+function translatePage() {
+    var els = document.querySelectorAll('[data-trans]');
+    for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+
+        var transKey = el.getAttribute('data-trans');
+        el.innerText = getTrans(transKey);
+    }
+}
+
+function onSetLang(lang) {
+    setLang(lang)
+    if (lang === 'he') {
+        document.body.classList.add('rtl');
+    } else {
+        document.body.classList.remove('rtl');
+    }
+      translatePage();
 }
