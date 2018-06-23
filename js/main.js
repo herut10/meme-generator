@@ -181,7 +181,9 @@ function onBoldText(event, idLine) {
 }
 
 function onChangekeywordFilter() {
-    setFilterBy(document.querySelector('.select-keyword-filter').value);
+    var newKeywordFilter = document.querySelector('.select-keyword-filter').value;
+    setFilterBy(newKeywordFilter);
+    updatePopKeywordsBySearch(newKeywordFilter);
     renderImages();
 }
 
