@@ -21,8 +21,6 @@
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-
-
 </head>
 
 <body class="flex column" onload="initMain()">
@@ -55,7 +53,7 @@
         <div class="image-chooser flex column ">
             <div class="image-filter flex">
                 <h4 data-trans="FILTER">Filter:</h4>
-                <select class="select-keyword-filter" onchange="onChangekeywordFilter()">
+                <!-- <select class="select-keyword-filter" onchange="onChangekeywordFilter()">
                     <option value="All" data-trans="ALL">All</option>
                     <option value="Political" data-trans="POLITICAL">Political</option>
                     <option value="Funny" data-trans="FUNNY">Funny</option>
@@ -66,12 +64,32 @@
                     <option value="Sport" data-trans="SPORT">Sport</option>
                     <option value="Animal" data-trans="ANIMAL">Animal</option>
                     <option value="Baby" data-trans="BABY">Baby</option>
-                </select>
+                </select> -->
+                <form>
+                    <input class="select-keyword-filter1" list="keywords" name="keyword">
+                    <datalist id="keywords">
+                        <option value="All" data-trans="ALL">All</option>
+                        <option value="Political" data-trans="POLITICAL">Political</option>
+                        <option value="Funny" data-trans="FUNNY">Funny</option>
+                        <option value="Nice" data-trans="NICE">Nice</option>
+                        <option value="Movies" data-trans="MOVIES">Movies</option>
+                        <option value="Toys" data-trans="TOYS">Toys</option>
+                        <option value="Tv" data-trans="TV">Tv</option>
+                        <option value="Sport" data-trans="SPORT">Sport</option>
+                        <option value="Animal" data-trans="ANIMAL">Animal</option>
+                        <option value="Baby" data-trans="BABY">Baby</option>
+                    </datalist>
+                    <input for="keyword" type="submit" data-trans="SEARCH" value="search" onclick="onChangeKeywordFilter(event)">
+                </form>
             </div>
+
+
+
+
             <div class="images-container grid "></div>
 
-            <div class="popular-Keywords-container flex"> 
-                
+            <div class="popular-Keywords-container flex">
+
             </div>
         </div>
 
@@ -101,6 +119,8 @@
             <span data-trans="COPYRIGHT"> Copyright 2018 Idan&Herut.com</span>
         </h5>
     </footer>
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <script src="js/util-service.js"></script>
     <script src="js/canvas-service.js"></script>

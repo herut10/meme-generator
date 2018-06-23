@@ -5,7 +5,6 @@ var gImgs;
 var gMeme;
 var gFilterBy;
 var gPopularKeywords;
-var gSumPop = 0; //testing
 
 function initMemeService() {
     gFilterBy = 'All';
@@ -32,7 +31,6 @@ function createPopularKeywords() {
             }
         });
     });
-    gSumPop++; //testing
     saveToStorage('gPopularKeywords', gPopularKeywords);
     console.log(gPopularKeywords);
 }
@@ -44,7 +42,6 @@ function updatePopKeywordsBySearch(keyword) {
                 item.count++;
             }
         });
-        gSumPop++; //testing
         saveToStorage('gPopularKeywords', gPopularKeywords);
         console.log(gPopularKeywords);
     }

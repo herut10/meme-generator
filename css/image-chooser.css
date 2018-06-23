@@ -78,7 +78,7 @@ main {
     justify-content: space-between;
     background-color: aqua;
     width: 90%;
-    height: fit-content;
+    max-height: 150px;
 }
 
 @media (min-width:425px) {

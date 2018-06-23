@@ -232,8 +232,9 @@ function onBoldText(event, idLine) {
     }
 }
 
-function onChangekeywordFilter() {
-    var newKeywordFilter = document.querySelector('.select-keyword-filter').value;
+function onChangeKeywordFilter(ev) {
+    ev.preventDefault();
+    var newKeywordFilter = document.querySelector('.select-keyword-filter1').value;
     setFilterBy(newKeywordFilter);
     updatePopKeywordsBySearch(newKeywordFilter);
     renderImages();
@@ -245,7 +246,7 @@ function toggleMenu() {
     var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu');
 
     if (elBtnOffCanvas.innerText !== '<i class="fa fa-bars"></i>') {
-        elBtnOffCanvas.innerText = 'X'; // להביא את התגית של איקס 
+        elBtnOffCanvas.innerText = '<h1>X</h1>'; // להביא את התגית של איקס 
     } else {
         elBtnOffCanvas.innerText = '<i class="fa fa-bars"></i>';
     }
