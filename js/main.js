@@ -23,7 +23,6 @@ function renderImages() {
     document.querySelector('.images-container').innerHTML = strHTML;
 }
 
-
 function onClickImage(id) {
     setTimeout(() => {
         document.querySelector('.meme-editor').classList.toggle('none');
@@ -68,7 +67,6 @@ function onCloseEditor() {
     document.querySelector('.image-chooser').classList.toggle('none');
 }
 
-// download meme 
 function onDownloadMeme(elLink) {
     elLink.href = getDateUrlCanvas();
     elLink.download = 'My-Meme.jpg';
@@ -117,7 +115,6 @@ function onDragText(ev) {
     }
 }
 
-
 function onSetLang(lang) {
     setLang(lang)
     if (lang === 'he') {
@@ -128,7 +125,6 @@ function onSetLang(lang) {
     translatePage();
 }
 
-
 function translatePage() {
     var els = document.querySelectorAll('[data-trans]');
     for (var i = 0; i < els.length; i++) {
@@ -138,8 +134,6 @@ function translatePage() {
         el.innerText = getTrans(transKey);
     }
 }
-
-
 
 function onClearChosenText() {
     clearChoseText()

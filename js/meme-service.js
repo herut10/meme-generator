@@ -86,7 +86,6 @@ function isLineExist(idInput) {
 
 function addNewText(id, txt, color, size, xPosition, yPosition) {
     gMeme.txts.push(createText(id, txt, color, size, xPosition, yPosition))
-
 }
 
 function createText(id, txt, color, size, xPosition, yPosition) {
