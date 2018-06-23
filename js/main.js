@@ -23,12 +23,13 @@ function renderImages() {
     document.querySelector('.images-container').innerHTML = strHTML;
 }
 
-function onClickImage(id) {
+function onClickImage(idMeme) {
     setTimeout(() => {
         document.querySelector('.meme-editor').classList.toggle('none');
     }, 100);
     document.querySelector('.image-chooser').classList.toggle('none');
-    setMemeSelected(id);
+    setMemeSelected(idMeme);
+    updatePopularKeywords();
     drawImageCanvas();
     onAddLineText();
 }
