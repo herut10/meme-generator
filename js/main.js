@@ -4,12 +4,32 @@ var gPrevMousePosition;
 var gFonts = ['Impact', 'Arial', 'Times New Roman', 'Courier New', 'Verdana',
     'Georgia', 'Palatino', 'Garamond', 'Bookman', 'Comic Sans MS', 'Trebuchet MS', 'Arial Black'
 ]
+var numOfCols;
 
 function initMain() {
     initCanvas();
     initMemeService();
     renderImages();
     renderPopularKeywords();
+    getNumOfCols()
+    updateHexagonPosition()
+}
+
+function getNumOfCols() {
+    var screenWidth = window.innerWidth
+    if (screenWidth < 425) {
+        numOfCols = 1
+    } else if (screenWidth < 630) {
+        numOfCols = 2
+    } else if (screenWidth < 840) {
+        numOfCols = 3
+    } else if (screenWidth < 1040) {
+        numOfCols = 4
+    } else if (screenWidth < 1200) {
+        numOfCols = 5
+    } else {
+        numOfCols = 5
+    }
 }
 
 function renderPopularKeywords() {
@@ -30,13 +50,32 @@ function renderImages() {
     strHtml = imgs.map(function (img) {
         return `
         <div class="hexagon hexagon1">
-        <div class="hexagon-in1 ">
-            <div style="background-image:url(/img/${img.id}.jpg)" class="hexagon-in2 " onclick="onClickImage(${img.id})"></div>
-        </div>
-    </div>`
+            <div class="hexagon-in1 ">
+                <div style="background-image:url(/img/${img.id}.jpg)" class="hexagon-in2 " onclick="onClickImage(${img.id})"></div>
+            </div>
+        </div>`
     }).join('');
     document.querySelector('.images-container').innerHTML = strHtml;
 }
+
+function updateHexagonPosition() {
+    var hexagonNodes = document.querySelectorAll('.hexagon')
+    console.log(hexagonNodes);
+
+    for (var i = 0; i < Math.ceil(hexagonNodes.length / numOfCols); i++) {
+        console.log(i);
+        for (var j = 0; j < numOfCols; j++) {
+            if (hexagonNodes[2 * i * numOfCols + j + numOfCols]) {
+                hexagonNodes[2 * i * numOfCols + j + numOfCols].style = `        
+            position: relative;
+            right: -100px;`
+            }
+        }
+
+    }
+
+}
+
 
 function onClickImage(idMeme) {
     setTimeout(() => {
