@@ -9,11 +9,9 @@ body .header-page {
 }
 
 header .btns-lang{
-    position: fixed;
-    width:8vw;
+    width:12vw;
     background-color: green;
     justify-content: space-around;
-    left: 10px;
 }
 
 .lang-btn {
@@ -52,7 +50,7 @@ header .btns-lang{
 }
 
 .header-menu.open {
-    top: 130px;
+    top: 63px;
 }
 
 .header-menu li {
@@ -60,6 +58,7 @@ header .btns-lang{
     background-color: #323232;
     border-left: 1px solid black;
     width: 100vw;
+    height: 80px;
     justify-content: center;
     align-items: center;
 }
