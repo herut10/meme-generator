@@ -1,6 +1,9 @@
 'use strict'
 
-var prevMousePosition;
+var gPrevMousePosition;
+var gFonts = ['Impact', 'Arial', 'Times New Roman', 'Courier New', 'Verdana',
+    'Georgia', 'Palatino', 'Garamond', 'Bookman', 'Comic Sans MS', 'Trebuchet MS', 'Arial Black'
+]
 
 function initMain() {
     initCanvas();
@@ -93,7 +96,7 @@ function onDeleteText(ev, idInput) {
 }
 
 function onTextClick(ev) {
-    prevMousePosition = mousePos(ev)
+    gPrevMousePosition = mousePos(ev)
     clickOnText(ev)
 }
 
@@ -106,9 +109,9 @@ function onDragText(ev) {
     }
     var selectedTextIdx = getSelectedTextIdx()
     if (selectedTextIdx >= 0) {
-        var mousePosXDiff = mouseposition.x - prevMousePosition.x
-        var mousePosYDiff = mouseposition.y - prevMousePosition.y
-        prevMousePosition = mouseposition
+        var mousePosXDiff = mouseposition.x - gPrevMousePosition.x
+        var mousePosYDiff = mouseposition.y - gPrevMousePosition.y
+        gPrevMousePosition = mouseposition
         var text = getSelectedText()
         updateText(null, null, selectedTextIdx, text.xPosition + mousePosXDiff, text.yPosition + mousePosYDiff)
         drawCanvas()
@@ -131,6 +134,7 @@ function onAddLineText() {
                             <button class="btn btn-bold btn-bold-${newIdLine}" onclick="onBoldText(event,'${newIdLine}')"><i class="fa fa-bold bold-select"></i></button>
                             <button class="btn btn-shadow btn-shadow-${newIdLine}" onclick="onShadowText(event,'${newIdLine}')">s</button>
                             <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff"  />
+                            ${makeFontSelect(newIdLine)}
                         </div>
                         <div class="btns-actions-text animated bounceInRight">
                             <button class="btn btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">
@@ -142,6 +146,23 @@ function onAddLineText() {
     node.classList.add('add-line-menu', `add-line-menu-${newIdLine}`, 'flex');
     node.innerHTML = strHTML;
     document.querySelector(".lines-edit").appendChild(node);
+}
+
+function onFontChange(id, font) {
+    setTextFont(id, font)
+    drawCanvas()
+}
+
+function makeFontSelect(newIdLine) {
+    var resHTML = `<select onchange="onFontChange('${newIdLine}',this.value)" name="fonts">`
+    var strHTMLs = gFonts.map(function (font) {
+        return `
+        <option value="${font}">${font}</option>
+        `
+    }).join('')
+    resHTML += strHTMLs
+    resHTML += '</select>'
+    return resHTML
 }
 
 function onShadowText(event, idLine) {

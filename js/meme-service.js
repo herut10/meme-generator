@@ -125,7 +125,7 @@ function addNewText(id, txt, color, size, xPosition, yPosition) {
     gMeme.txts.push(createText(id, txt, color, size, xPosition, yPosition))
 }
 
-function createText(id, txt, color, size, xPosition, yPosition) {
+function createText(id, txt, color, size, xPosition, yPosition, font = 'impact') {
     return {
         idLine: id,
         line: txt,
@@ -136,6 +136,7 @@ function createText(id, txt, color, size, xPosition, yPosition) {
         shadow: false,
         xPosition: xPosition,
         yPosition: yPosition,
+        font: font
     }
 }
 
@@ -150,7 +151,11 @@ function updateText(txt, color, index, xPosition, yPosition) {
         gMeme.txts[index].xPosition = xPosition
         gMeme.txts[index].yPosition = yPosition
     }
+}
 
+function setTextFont(id, font) {
+    var txt = gMeme.txts[getLineIndexById(id)]
+    txt.font = font
 }
 
 function getGMeme() {

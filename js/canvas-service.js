@@ -46,7 +46,7 @@ function getCanvasDimensions() {
 function drawTextLineCanvas() {
     var meme = getGMeme();
     meme.txts.forEach(function (txt, idx) {
-        gCtx.font = `${txt.bold} ${txt.size}em impact`;
+        gCtx.font = `${txt.bold} ${txt.size}em ${txt.font}`;
         gCtx.fillStyle = txt.color
         gCtx.textAlign = "center";
         gCtx.shadowBlur = (txt.shadow) ? 15 : 0;
@@ -57,7 +57,7 @@ function drawTextLineCanvas() {
 }
 
 function getLineDimenstions(txt) {
-    gCtx.font = `${txt.bold} ${txt.size}em impact`;
+    gCtx.font = `${txt.bold} ${txt.size}em ${txt.font}`;
     gCtx.fillStyle = txt.color
     gCtx.textAlign = "center";
     gCtx.shadowBlur = (txt.shadow) ? 15 : 0;
