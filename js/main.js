@@ -6,13 +6,25 @@ function initMain() {
     initCanvas();
     initMemeService();
     renderImages();
+    renderPopularKeywords();
+}
+
+function renderPopularKeywords() {
+    var keywords = getPopularKeywords();
+    var strHtml = '';
+    strHtml = keywords.map(function (keyword) {
+        return `<h1 style="font-size: 20px">${keyword.keyword}</h1>`;
+    }).join('');
+
+    document.querySelector('.popular-Keywords-container').innerHTML = strHtml;
+    console.log(keywords);
 }
 
 function renderImages() {
     var imgs = getImagesToDisplay();
-    var strHTML = '';
+    var strHtml = '';
 
-    strHTML = imgs.map(function (img) {
+    strHtml = imgs.map(function (img) {
         return `
         <div class="hexagon hexagon1">
         <div class="hexagon-in1 ">
@@ -20,7 +32,7 @@ function renderImages() {
         </div>
     </div>`
     }).join('');
-    document.querySelector('.images-container').innerHTML = strHTML;
+    document.querySelector('.images-container').innerHTML = strHtml;
 }
 
 function onClickImage(idMeme) {

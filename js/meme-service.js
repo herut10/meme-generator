@@ -198,3 +198,7 @@ function setShadowToLineText(idLine) {
     var index = getLineIndexById(idLine);
     gMeme.txts[index].shadow = !(gMeme.txts[index].shadow);
 }
+
+function getPopularKeywords() {
+    return gPopularKeywords;
+}
