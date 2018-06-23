@@ -2,7 +2,7 @@ var gCurrLocale = 'en';
 var gTrans = {
     en: {
         SITE_TITLE: 'Meme Generator',
-        LOGO:'Da Meme Generator',
+        LOGO:'Meme Generator',
         CONTACT:'Contact',
         ABOUT_US:'About Us',
         ALL:'All',
@@ -23,8 +23,8 @@ var gTrans = {
         
     },
     he: {
-        SITE_TITLE: 'מחולל המימים',
-        LOGO:'מחולל המימים',
+        SITE_TITLE: 'מחולל מימים',
+        LOGO:'מחולל מימים',
         CONTACT:'צור קשר',
         ABOUT_US:'לגבינו',
         FILTER:':פילטור',
@@ -41,11 +41,6 @@ var gTrans = {
         BACK_TO_GALLERY:'חזרה לגלריה',
         DOWNLOAD:'הורדה',
         COPYRIGHT:'Idan&Herut.com זכויות יוצרים 2018'
-    
-        
-        
-        
-        
     }
 };
 

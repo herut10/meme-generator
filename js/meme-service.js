@@ -2,13 +2,69 @@
 
 var IMG_COUNT = 25;
 var gImgs;
-var gFilterBy;
 var gMeme;
-
+var gFilterBy;
+var gPopularKeywords;
 
 function initMemeService() {
     gFilterBy = 'All';
     createImgs();
+    gPopularKeywords = loadFromStorage('gPopularKeywords');
+    if (!gPopularKeywords) {
+        console.log('create new');
+        createPopularKeywords();
+    }
+}
+
+function createPopularKeywords() {
+    gPopularKeywords = [];
+    gImgs.forEach(function (img) {
+        img.keywords.forEach(function (keyword) {
+            var findKeyword = gPopularKeywords.find(function (item) {
+                return item.keyword === keyword;
+            });
+            if (!findKeyword) {
+                gPopularKeywords.push({
+                    keyword: keyword,
+                    count: 0
+                });
+            }
+        });
+    });
+    saveToStorage('gPopularKeywords', gPopularKeywords);
+    console.log(gPopularKeywords);
+}
+
+function updatePopKeywordsBySearch(keyword) {
+    if (keyword !== 'All') {
+        gPopularKeywords.forEach(function (item) {
+            if (item.keyword === keyword) {
+                item.count++;
+            }
+        });
+        saveToStorage('gPopularKeywords', gPopularKeywords);
+        console.log(gPopularKeywords);
+    }
+}
+
+function updatePopKeywordsBySelect() {
+    var keywords = gImgs[getIndexImgById(gMeme.selectedImgId)].keywords;
+    keywords.forEach(function (keyword) {
+        gPopularKeywords.forEach(function (item) {
+            if (item.keyword === keyword) {
+                item.count++;
+            }
+        });
+    });
+    saveToStorage('gPopularKeywords', gPopularKeywords);
+    console.log(gPopularKeywords);
+}
+
+function getIndexImgById(idImg) {
+    var index = gImgs.findIndex(function (img) {
+        return img.id === idImg
+    });
+    return index;
 }
 
 function createImgs() {
@@ -67,7 +123,6 @@ function isLineExist(idInput) {
 
 function addNewText(id, txt, color, size, xPosition, yPosition) {
     gMeme.txts.push(createText(id, txt, color, size, xPosition, yPosition))
-
 }
 
 function createText(id, txt, color, size, xPosition, yPosition) {
@@ -84,20 +139,6 @@ function createText(id, txt, color, size, xPosition, yPosition) {
     }
 }
 
-function setBoldToLineText(idLine) {
-    var index = getLineIndexById(idLine);
-    if (gMeme.txts[index].bold === 'normal') {
-        gMeme.txts[index].bold = 'bold';
-    } else {
-        gMeme.txts[index].bold = 'normal';
-    }
-}
-
-function setShadowToLineText(idLine) {
-    var index = getLineIndexById(idLine);
-    gMeme.txts[index].shadow = !(gMeme.txts[index].shadow);
-}
-
 function updateText(txt, color, index, xPosition, yPosition) {
     if (txt) {
         gMeme.txts[index].line = txt;
@@ -110,10 +151,6 @@ function updateText(txt, color, index, xPosition, yPosition) {
         gMeme.txts[index].yPosition = yPosition
     }
 
-}
-
-function setSizeLine(id, diff) {
-    gMeme.txts[getLineIndexById(id)].size += diff
 }
 
 function getGMeme() {
@@ -142,4 +179,22 @@ function setMemeSelected(id) {
 
 function setFilterBy(keyword) {
     gFilterBy = keyword;
+}
+
+function setSizeLine(id, diff) {
+    gMeme.txts[getLineIndexById(id)].size += diff
+}
+
+function setBoldToLineText(idLine) {
+    var index = getLineIndexById(idLine);
+    if (gMeme.txts[index].bold === 'normal') {
+        gMeme.txts[index].bold = 'bold';
+    } else {
+        gMeme.txts[index].bold = 'normal';
+    }
+}
+
+function setShadowToLineText(idLine) {
+    var index = getLineIndexById(idLine);
+    gMeme.txts[index].shadow = !(gMeme.txts[index].shadow);
 }

@@ -23,13 +23,13 @@ function renderImages() {
     document.querySelector('.images-container').innerHTML = strHTML;
 }
 
-
-function onClickImage(id) {
+function onClickImage(idMeme) {
     setTimeout(() => {
         document.querySelector('.meme-editor').classList.toggle('none');
     }, 100);
     document.querySelector('.image-chooser').classList.toggle('none');
-    setMemeSelected(id);
+    setMemeSelected(idMeme);
+    updatePopKeywordsBySelect();
     drawImageCanvas();
     onAddLineText();
 }
@@ -68,7 +68,6 @@ function onCloseEditor() {
     document.querySelector('.image-chooser').classList.toggle('none');
 }
 
-// download meme 
 function onDownloadMeme(elLink) {
     elLink.href = getDateUrlCanvas();
     elLink.download = 'My-Meme.jpg';
@@ -111,6 +110,29 @@ function onDragText(ev) {
     }
 }
 
+<<<<<<< HEAD
+=======
+function onSetLang(lang) {
+    setLang(lang)
+    if (lang === 'he') {
+        document.body.classList.add('rtl');
+    } else {
+        document.body.classList.remove('rtl');
+    }
+    translatePage();
+}
+
+function translatePage() {
+    var els = document.querySelectorAll('[data-trans]');
+    for (var i = 0; i < els.length; i++) {
+        var el = els[i];
+
+        var transKey = el.getAttribute('data-trans');
+        el.innerText = getTrans(transKey);
+    }
+}
+
+>>>>>>> 89a2ef5a69450a9452c0319124f09b38338676ed
 function onClearChosenText() {
     clearChoseText()
     drawCanvas()
@@ -156,17 +178,22 @@ function onBoldText(event, idLine) {
 }
 
 function onChangekeywordFilter() {
-    setFilterBy(document.querySelector('.select-keyword-filter').value);
+    var newKeywordFilter = document.querySelector('.select-keyword-filter').value;
+    setFilterBy(newKeywordFilter);
+    updatePopKeywordsBySearch(newKeywordFilter);
     renderImages();
 }
 
 function toggleMenu() {
-    console.log('open menu mobile');
     document.querySelector('.header-menu').classList.toggle('open');
-    document.querySelector('.btn-offCanvas-menu').classList.toggle('open');
+    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu');
+
+    if (elBtnOffCanvas.innerText !== '<i class="fa fa-bars"></i>') {
+        elBtnOffCanvas.innerText = 'X'; // להביא את התגית של איקס 
+    } else {
+        elBtnOffCanvas.innerText = '<i class="fa fa-bars"></i>';
+    }
 }
-
-
 
 function translatePage() {
     var els = document.querySelectorAll('[data-trans]');

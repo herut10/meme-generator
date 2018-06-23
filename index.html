@@ -26,26 +26,28 @@
 </head>
 
 <body class="flex column" onload="initMain()">
-    <button class="btn lang-btn he" onclick="onSetLang('he')"></button>
-    <button class="btn lang-btn en" onclick="onSetLang('en')"></button>
-    <header id="header-page" class="header-page flex">
+    <header class="header-page flex">
+        <div class="btns-lang flex">
+            <button class="btn lang-btn he" onclick="onSetLang('he')"></button>
+            <button class="btn lang-btn en" onclick="onSetLang('en')"></button>
+        </div>
+
+        <h1 class="logo" data-trans="LOGO">
+            Meme-Generator
+        </h1>
+
+        <ul class="header-menu clean-list flex">
+            <li class="item-header-menu flex li-journal active">
+                <a href="#" data-trans="CONTACT">Contact</a>
+            </li>
+            <li class="item-header-menu flex">
+                <a href="#" data-trans="ABOUT_US">About Us</a>
+            </li>
+        </ul>
+
         <button class="btn-offCanvas-menu" onclick="toggleMenu()">
             <i class="fa fa-bars"></i>
         </button>
-        <div class="header-container flex">
-            <h1 data-trans="LOGO" class="logo">
-                Da Meme Generator
-            </h1>
-            <ul class="header-menu clean-list flex">
-                <li class="item-header-menu flex li-journal active">
-                    <a href="#" data-trans="CONTACT">Contact</a>
-                </li>
-                <li class="item-header-menu flex">
-                    <a href="#" data-trans="ABOUT_US">About Us</a>
-                </li>
-            </ul>
-
-        </div>
     </header>
 
     <main>
@@ -67,6 +69,10 @@
                 </select>
             </div>
             <div class="images-container grid "></div>
+
+            <div class=""> 
+
+            </div>
         </div>
 
         <!-- EDITOR -->
@@ -83,15 +89,17 @@
                     <button class="btn btn-back-gallery" onclick="onCloseEditor()">
                         <i class="fa fa-undo" data-trans="BACK_TO_GALLERY"> Back to gallery</i>
                     </button>
-                    <button class="btn btn-download-meme" onclick="onDownloadMeme(this)">
+                    <a class="btn btn-download-meme" onclick="onDownloadMeme(this)">
                         <i class="fa fa-download" data-trans="DOWNLOAD"> Download</i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
     </main>
     <footer>
-        <h5>&copy; <span data-trans="COPYRIGHT"> Copyright 2018 Idan&Herut.com</span></h5>
+        <h5>&copy;
+            <span data-trans="COPYRIGHT"> Copyright 2018 Idan&Herut.com</span>
+        </h5>
     </footer>
 
     <script src="js/util-service.js"></script>
