@@ -29,7 +29,7 @@ function onClickImage(idMeme) {
     }, 100);
     document.querySelector('.image-chooser').classList.toggle('none');
     setMemeSelected(idMeme);
-    updatePopularKeywords();
+    updatePopKeywordsBySelect();
     drawImageCanvas();
     onAddLineText();
 }

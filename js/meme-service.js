@@ -31,8 +31,14 @@ function createPopularKeywords() {
 }
 
 function updatePopKeywordsBySearch(keyword) {
-
-    console.log(gPopularKeywords);
+    if (keyword !== 'All') {
+        gPopularKeywords.forEach(function (item) {
+            if (item.keyword === keyword) {
+                item.count++;
+            }
+        });
+        console.log(gPopularKeywords);
+    }
 }
 
 function updatePopKeywordsBySelect() {
