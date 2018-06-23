@@ -76,7 +76,7 @@ main {
     justify-content: space-between;
     background-color: aqua;
     width: 90%;
-    height: 80px;
+    height: fit-content;
    
 }
 
