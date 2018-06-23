@@ -9,7 +9,11 @@ var gPopularKeywords;
 function initMemeService() {
     gFilterBy = 'All';
     createImgs();
-    createPopularKeywords();
+    gPopularKeywords = loadFromStorage('gPopularKeywords');
+    if (!gPopularKeywords) {
+        console.log('create new');
+        createPopularKeywords();
+    }
 }
 
 function createPopularKeywords() {
@@ -27,6 +31,7 @@ function createPopularKeywords() {
             }
         });
     });
+    saveToStorage('gPopularKeywords', gPopularKeywords);
     console.log(gPopularKeywords);
 }
 
@@ -37,6 +42,7 @@ function updatePopKeywordsBySearch(keyword) {
                 item.count++;
             }
         });
+        saveToStorage('gPopularKeywords', gPopularKeywords);
         console.log(gPopularKeywords);
     }
 }
@@ -50,6 +56,7 @@ function updatePopKeywordsBySelect() {
             }
         });
     });
+    saveToStorage('gPopularKeywords', gPopularKeywords);
     console.log(gPopularKeywords);
 }
 
