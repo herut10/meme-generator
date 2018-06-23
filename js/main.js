@@ -9,13 +9,25 @@ function initMain() {
     initCanvas();
     initMemeService();
     renderImages();
+    renderPopularKeywords();
+}
+
+function renderPopularKeywords() {
+    var keywords = getPopularKeywords();
+    var strHtml = '';
+    strHtml = keywords.map(function (keyword) {
+        return `<h1 style="padding: 3px;font-size: ${(keyword.count+1)}vw">${keyword.keyword}</h1>`;
+    }).join('');
+
+    document.querySelector('.popular-Keywords-container').innerHTML = strHtml;
+    console.log(keywords);
 }
 
 function renderImages() {
     var imgs = getImagesToDisplay();
-    var strHTML = '';
+    var strHtml = '';
 
-    strHTML = imgs.map(function (img) {
+    strHtml = imgs.map(function (img) {
         return `
         <div class="hexagon hexagon1">
         <div class="hexagon-in1 ">
@@ -23,7 +35,7 @@ function renderImages() {
         </div>
     </div>`
     }).join('');
-    document.querySelector('.images-container').innerHTML = strHTML;
+    document.querySelector('.images-container').innerHTML = strHtml;
 }
 
 function onClickImage(idMeme) {
@@ -35,6 +47,7 @@ function onClickImage(idMeme) {
     updatePopKeywordsBySelect();
     drawImageCanvas();
     onAddLineText();
+    renderPopularKeywords();
 }
 
 function onChangeStyleText(idInput) {
@@ -118,7 +131,6 @@ function onDragText(ev) {
     }
 }
 
-
 function onClearChosenText() {
     clearChoseText()
     drawCanvas()
@@ -186,6 +198,7 @@ function onChangekeywordFilter() {
     setFilterBy(newKeywordFilter);
     updatePopKeywordsBySearch(newKeywordFilter);
     renderImages();
+    renderPopularKeywords();
 }
 
 function toggleMenu() {

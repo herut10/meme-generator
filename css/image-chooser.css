@@ -71,7 +71,14 @@ main {
     height: 206px;
 }
 
-
+.popular-Keywords-container{
+    align-items: center;
+    justify-content: space-between;
+    background-color: aqua;
+    width: 90%;
+    height: fit-content;
+   
+}
 
 @media (min-width:425px) {
     .images-container {

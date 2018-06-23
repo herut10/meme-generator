@@ -5,6 +5,7 @@ var gImgs;
 var gMeme;
 var gFilterBy;
 var gPopularKeywords;
+var gSumPop = 0; //testing
 
 function initMemeService() {
     gFilterBy = 'All';
@@ -31,6 +32,7 @@ function createPopularKeywords() {
             }
         });
     });
+    gSumPop++; //testing
     saveToStorage('gPopularKeywords', gPopularKeywords);
     console.log(gPopularKeywords);
 }
@@ -42,6 +44,7 @@ function updatePopKeywordsBySearch(keyword) {
                 item.count++;
             }
         });
+        gSumPop++; //testing
         saveToStorage('gPopularKeywords', gPopularKeywords);
         console.log(gPopularKeywords);
     }
@@ -202,4 +205,8 @@ function setBoldToLineText(idLine) {
 function setShadowToLineText(idLine) {
     var index = getLineIndexById(idLine);
     gMeme.txts[index].shadow = !(gMeme.txts[index].shadow);
+}
+
+function getPopularKeywords() {
+    return gPopularKeywords;
 }
