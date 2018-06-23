@@ -131,12 +131,12 @@ function onSetLang(lang) {
 
 function translatePage() {
     var els = document.querySelectorAll('[data-trans]');
-    for (var i=0; i<els.length; i++) {
+    for (var i = 0; i < els.length; i++) {
         var el = els[i];
 
         var transKey = el.getAttribute('data-trans');
         el.innerText = getTrans(transKey);
-    }  
+    }
 }
 
 
@@ -191,7 +191,7 @@ function onChangekeywordFilter() {
 }
 
 function toggleMenu() {
-    console.log('open menu mobile');
     document.querySelector('.header-menu').classList.toggle('open');
-    document.querySelector('.btn-offCanvas-menu').classList.toggle('open');
+    // document.querySelector('.btn-offCanvas-menu').classList.toggle('open');
+    // document.querySelector('.btn-offCanvas-menu').innerHTML ='';
 }
