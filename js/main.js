@@ -110,35 +110,20 @@ function onTextClick(ev) {
 }
 
 function onDragText(ev) {
+    var mouseposition = mousePos(ev)
+    if (isMouseOverText(ev)) {
+        document.querySelector('.meme-canvas').style = 'cursor: pointer;'
+    } else {
+        document.querySelector('.meme-canvas').style = 'cursor: default;'
+    }
     var selectedTextIdx = getSelectedTextIdx()
     if (selectedTextIdx >= 0) {
-        var mouseposition = mousePos(ev)
         var mousePosXDiff = mouseposition.x - prevMousePosition.x
         var mousePosYDiff = mouseposition.y - prevMousePosition.y
         prevMousePosition = mouseposition
         var text = getSelectedText()
         updateText(null, null, selectedTextIdx, text.xPosition + mousePosXDiff, text.yPosition + mousePosYDiff)
         drawCanvas()
-    }
-}
-
-function onSetLang(lang) {
-    setLang(lang)
-    if (lang === 'he') {
-        document.body.classList.add('rtl');
-    } else {
-        document.body.classList.remove('rtl');
-    }
-    translatePage();
-}
-
-function translatePage() {
-    var els = document.querySelectorAll('[data-trans]');
-    for (var i = 0; i < els.length; i++) {
-        var el = els[i];
-
-        var transKey = el.getAttribute('data-trans');
-        el.innerText = getTrans(transKey);
     }
 }
 
@@ -221,5 +206,5 @@ function onSetLang(lang) {
     } else {
         document.body.classList.remove('rtl');
     }
-      translatePage();
+    translatePage();
 }
