@@ -72,7 +72,7 @@ main {
 }
 
 .popular-Keywords-container{
-
+    justify-content: space-between;
     background-color: aqua;
     width: 80%;
     height: 30%;

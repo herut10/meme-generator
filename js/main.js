@@ -122,8 +122,6 @@ function onDragText(ev) {
     }
 }
 
-<<<<<<< HEAD
-=======
 function onSetLang(lang) {
     setLang(lang)
     if (lang === 'he') {
@@ -144,7 +142,6 @@ function translatePage() {
     }
 }
 
->>>>>>> 89a2ef5a69450a9452c0319124f09b38338676ed
 function onClearChosenText() {
     clearChoseText()
     drawCanvas()
