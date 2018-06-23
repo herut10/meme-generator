@@ -13,7 +13,7 @@ function renderPopularKeywords() {
     var keywords = getPopularKeywords();
     var strHtml = '';
     strHtml = keywords.map(function (keyword) {
-        return `<h1 style="font-size: ${10 * (keyword.count+1)}px">${keyword.keyword}</h1>`;
+        return `<h1 style="padding: 5px;font-size: ${(keyword.count+1)}vw">${keyword.keyword}</h1>`;
     }).join('');
 
     document.querySelector('.popular-Keywords-container').innerHTML = strHtml;

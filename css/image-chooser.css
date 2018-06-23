@@ -77,10 +77,8 @@ main {
     background-color: aqua;
     width: 90%;
     height: 80px;
+   
 }
-
-
-
 
 @media (min-width:425px) {
     .images-container {
