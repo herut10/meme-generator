@@ -4,7 +4,7 @@ body .header-page {
     box-shadow: inset 0px -6px black;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: 100px;
     width: 100%;
 }
 
@@ -104,6 +104,9 @@ li:hover a {
 }
 
 @media(min-width: 430px) {
+    body .header-page{
+        height: 80px;
+    }
     header .btns-lang {
         flex-direction: row
     }

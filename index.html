@@ -66,8 +66,8 @@
                         <option value="Animal" data-trans="ANIMAL">Animal</option>
                         <option value="Baby" data-trans="BABY">Baby</option>
                     </datalist>
-                    <button for="keyword" type="submit" data-trans="SEARCH" value="search" onclick="onChangeKeywordFilter(event)">
-                        <h4 data-trans="FILTER">Filter:</h4>
+                    <button class="btn filter-btn" for="keyword" type="submit" data-trans="SEARCH" value="search" onclick="onChangeKeywordFilter(event)">
+                        <span data-trans="FILTER">Filter</span>
                     </button>
                 </form>
             </div>
@@ -100,6 +100,29 @@
                 </div>
 
             </div>
+        </div>
+
+        <!-- modal -->
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the Modal Body</p>
+                    <p>Some other text...</p>
+                </div>
+                <div class="modal-footer">
+                    <h3>Modal Footer</h3>
+                </div>
+            </div>
+
         </div>
     </main>
     <footer>
