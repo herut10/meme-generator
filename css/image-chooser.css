@@ -1,5 +1,10 @@
+main {
+    margin-top: 80px;
+}
+
 .image-chooser {
     align-items: center;
+    background-color: #404040;
 }
 
 .images-container {
@@ -24,8 +29,8 @@ main {
 }
 
 .image-filter {
-    width: 100%;
-    background-color: red;
+    padding: 50px;
+    width: 100vw;
     height: 70px;
     justify-content: center;
     align-items: center;
@@ -78,12 +83,22 @@ main {
     width: 90%;
 }
 
+<<<<<<< HEAD
 .select-keyword-filter {
+=======
+.select-keyword-filter, .filter-btn {
+    background-color: #bac1c1;
+    color:black;
+>>>>>>> c291089647309ffc43b09b187a83b3687dd33d7d
     border: none;
     border-radius: 7px;
     height: 40px;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c291089647309ffc43b09b187a83b3687dd33d7d
 .filter-btn {
     border-radius: 7px;
     height: 40px;
