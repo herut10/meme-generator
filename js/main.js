@@ -38,6 +38,7 @@ function setGridDimensions() {
     elGrid.style = `    
             grid-template-rows: repeat(${gNumOfRows}, 150px);
             grid-template-columns: repeat(${gNumOfCols}, 180px);`
+    updateHexagonPosition()
 
 }
 
@@ -53,18 +54,25 @@ function renderPopularKeywords() {
 
 function renderImages() {
     var imgs = getImagesToDisplay();
-    var strHtml = '';
 
-    strHtml = imgs.map(function (img) {
-        return `
+
+
+    imgs.forEach(function (image, idx) {
+        var img = new Image;
+        img.src = image.url
+        img.addEventListener("load", function () {
+            console.log("image has loaded" + idx);
+            var ratio = img.width / img.height
+            document.querySelector('.images-container').innerHTML += `
         <div class="hexagon hexagon1">
             <div class="hexagon-in1 ">
-                <div style="background-image:url(img/${img.id}.jpg)" class="hexagon-in2 " onclick="onClickImage(${img.id})"></div>
+                <div style="background-image:url(img/${image.id}.jpg); background-size: 180px ${180*ratio}px;" class="hexagon-in2 " onclick="onClickImage(${img.id})"></div>
             </div>
         </div>`
-    }).join('');
-    var elGrid = document.querySelector('.images-container').innerHTML = strHtml;
-    setGridDimensions()
+            setGridDimensions()
+        });
+
+    });
 }
 
 function updateHexagonPosition() {
@@ -305,7 +313,7 @@ function toggleOffCanvas(txt) {
     gCurrOpenOffCanvas = txt
 }
 
-function renderOffCanvasBody(txt) {
+function renderOffCanvasBody(txt) { //this might look odd but if you add more header items it becomes more efficient and easy to maintain
     document.querySelector('.about').classList.add('none')
     document.querySelector('.contact').classList.add('none')
     document.querySelector(`.${txt}`).classList.remove('none')

@@ -2,45 +2,53 @@ var gCurrLocale = 'en';
 var gTrans = {
     en: {
         SITE_TITLE: 'Meme Generator',
-        LOGO:'Meme Generator',
-        CONTACT:'Contact',
-        ABOUT_US:'About Us',
-        ALL:'All',
-        POLITICAL:'Political',
-        FUNNY:'Funny',
-        NICE:'Nice',
-        MOVIES:'Movies',
-        TOYS:'Toys',
-        TV:'Tv',
+        LOGO: 'Meme Generator',
+        CONTACT: 'Contact',
+        ABOUT_US: 'About Us',
+        ALL: 'All',
+        POLITICAL: 'Political',
+        FUNNY: 'Funny',
+        NICE: 'Nice',
+        MOVIES: 'Movies',
+        TOYS: 'Toys',
+        TV: 'Tv',
         SPORT: 'Sport',
-        ANIMAL:'Animal',
-        BABY:'Baby',
-        BACK_TO_GALLERY:'Back to gallery',
-        DOWNLOAD:'Download',
-        FILTER:'Filter:',
-        COPYRIGHT:'Copyright 2018 Idan&Herut.com',
-        SEARCH:'Search'
+        ANIMAL: 'Animal',
+        BABY: 'Baby',
+        BACK_TO_GALLERY: 'Back to gallery',
+        DOWNLOAD: 'Download',
+        FILTER: 'Filter:',
+        COPYRIGHT: 'Copyright 2018 Idan&Herut.com',
+        SEARCH: 'Search',
+        TOUCH_HEADER: 'Get In Touch',
+        TOUCH_SUB_HEADER: 'In order to get in touch use the contact form below:',
+        SUBMIT: 'Submit',
+        ABOUT_US_BODY: 'Herut and Idan are two handsome programmers on the way to becoming fullstack developers.',
     },
     he: {
         SITE_TITLE: 'מחולל מימים',
-        LOGO:'מחולל מימים',
-        CONTACT:'צור קשר',
-        ABOUT_US:'לגבינו',
-        FILTER:':פילטור',
-        ALL:'הכל',
-        Political:'פוליטי',
-        FUNNY:'מצחיק',
-        NICE:'נחמד',
-        MOVIES:'סרטים',
+        LOGO: 'מחולל מימים',
+        CONTACT: 'צור קשר',
+        ABOUT_US: 'לגבינו',
+        FILTER: ':פילטור',
+        ALL: 'הכל',
+        Political: 'פוליטי',
+        FUNNY: 'מצחיק',
+        NICE: 'נחמד',
+        MOVIES: 'סרטים',
         TOYS: 'צעצועים',
-        TV:'טלוויזיה',
-        SPORT:'ספורט',
-        ANIMAL:'חיות',
-        BABY:'תינוק',
-        BACK_TO_GALLERY:'חזרה לגלריה',
-        DOWNLOAD:'הורדה',
-        COPYRIGHT:'Idan&Herut.com זכויות יוצרים 2018', 
-        SEARCH:'חפש'
+        TV: 'טלוויזיה',
+        SPORT: 'ספורט',
+        ANIMAL: 'חיות',
+        BABY: 'תינוק',
+        BACK_TO_GALLERY: 'חזרה לגלריה',
+        DOWNLOAD: 'הורדה',
+        COPYRIGHT: 'Idan&Herut.com זכויות יוצרים 2018',
+        SEARCH: 'חפש',
+        TOUCH_HEADER: 'צור איתנו קשר',
+        TOUCH_SUB_HEADER: 'על מנת ליצור קשר איתנו אנא מלאו את הטופס:',
+        SUBMIT: 'שלח',
+        ABOUT_US_BODY: '.חרות ועידן הם שני מתכנתים חתיכים בדרכם להיות מפתחי פולסטאק לעתיד',
     }
 };
 
@@ -54,13 +62,4 @@ function setLang(lang) {
 
 function getCurrLang() {
     return gCurrLocale;
-}
-
-function getParamFromURL(name) {
-    var url = window.location.href;
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
-    var results = regex.exec(url);
-    if (!results) return null;
-    var paramVal = results[2];
-    return paramVal;
 }
