@@ -4,7 +4,7 @@ body .header-page {
     box-shadow: inset 0px -6px black;
     align-items: center;
     justify-content: space-between;
-    height: 130px;
+    height: 100px;
     width: 100%;
     position: fixed;
     z-index: 100;
@@ -12,18 +12,16 @@ body .header-page {
 
 header .btns-lang {
     flex-direction: column;
-    width: 90px;
+    width: 70px;
     margin: 15px;
     justify-content: space-around;
-    height: 90px;
+    height: 70px;
     align-items: center;
 }
 
 .lang-btn {
-    min-width: 40px;
-    min-height: 40px;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: 50%;

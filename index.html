@@ -52,7 +52,7 @@
         <!-- IMAGE-CHOOSER -->
         <div class="image-chooser flex column animated bounceInRight">
             <div class="image-filter flex">
-                <form>
+                <form class="flex">
                     <input class="select-keyword-filter" list="keywords" name="keyword" placeholder="Enter text">
                     <datalist id="keywords">
                         <option value="All" data-trans="ALL">All</option>
@@ -66,9 +66,7 @@
                         <option value="Animal" data-trans="ANIMAL">Animal</option>
                         <option value="Baby" data-trans="BABY">Baby</option>
                     </datalist>
-                    <button class="btn filter-btn" for="keyword" type="submit" data-trans="SEARCH" value="search" onclick="onChangeKeywordFilter(event)">
-                        <span data-trans="FILTER">Search</span>
-                    </button>
+                    <button class="btn filter-btn" for="keyword" type="submit" data-trans="SEARCH" value="search" onclick="onChangeKeywordFilter(event)">Search</button>
                 </form>
             </div>
 
@@ -82,9 +80,16 @@
         <div class="meme-editor flex align-center column none animated bounceInUp">
             <div class="canvas-container flex column">
                 <div class="footer-editor flex align-center">
-                    <button class="btn btn-back-gallery" onclick="onCloseEditor()">
-                        <i class="fa fa-undo" data-trans="BACK_TO_GALLERY"> Back to gallery</i>
-                    </button>
+                    <div class="btn-back-gallery flex">
+                        <i class="fa fa-arrow-circle-left"></i>
+                        <button class="btn-back " onclick="onCloseEditor()" data-trans="BACK_TO_GALLERY"> Back to gallery</button>
+                    </div>
+
+
+                    <!-- <div class="btn-download-meme flex">
+                        <i class="fa fa-download icon-Download"></i>
+                        <a class="download" onclick="onDownloadMeme(this)" data-trans="DOWNLOAD"> Download</a>
+                    </div> -->
 
                 </div>
                 <canvas class="meme-canvas" onmousedown="onTextClick(event)" onmousemove="onDragText(event)" onmouseup="onClearChosenText()"></canvas>
@@ -94,11 +99,10 @@
                     <div class="lines-edit flex column">
                     </div>
                 </div>
-                <div class="btn-download-meme flex ">
+                <div class="btn-download-meme flex">
                     <i class="fa fa-download icon-Download"></i>
                     <a class="download" onclick="onDownloadMeme(this)" data-trans="DOWNLOAD"> Download</a>
                 </div>
-
             </div>
         </div>
 
