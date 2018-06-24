@@ -83,7 +83,6 @@ function updateHexagonPosition() {
 
 }
 
-
 function onClickImage(idMeme) {
     setTimeout(() => {
         document.querySelector('.meme-editor').classList.toggle('none');
@@ -181,8 +180,8 @@ function onDragText(ev) {
 }
 
 function onClearChosenText() {
-    clearChoseText()
-    drawCanvas()
+    clearChoseText();
+    drawCanvas();
 }
 
 function onAddLineText() {

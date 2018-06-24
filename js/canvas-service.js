@@ -49,8 +49,10 @@ function drawTextLineCanvas() {
         gCtx.font = `${txt.bold} ${txt.size}em ${txt.font}`;
         gCtx.fillStyle = txt.color
         gCtx.textAlign = "center";
-        gCtx.shadowBlur = (txt.shadow) ? 15 : 0;
-        gCtx.shadowColor = 'rgba(0,0,0,1)';
+        gCtx.shadowBlur = (txt.shadow) ? 10 : 0;
+        gCtx.shadowOffsetX = (txt.shadow) ? 5 : 0;
+        gCtx.shadowOffsetX = (txt.shadow) ? 5 : 0;
+        gCtx.shadowColor = "black";
         gCtx.fillText(txt.line, txt.xPosition, txt.yPosition);
         gCtx.strokeText(txt.line, txt.xPosition, txt.yPosition);
     });
