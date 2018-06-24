@@ -245,9 +245,9 @@ function onBoldText(event, idLine) {
 
 function onChangeKeywordFilter(ev) {
     ev.preventDefault();
-    var newKeywordFilter = document.querySelector('.select-keyword-filter1').value;
+    var newKeywordFilter = document.querySelector('.select-keyword-filter').value;
     if (newKeywordFilter !== '') {
-        document.querySelector('.select-keyword-filter1').value = ''
+        document.querySelector('.select-keyword-filter').value = ''
         setFilterBy(newKeywordFilter);
         updatePopKeywordsBySearch(newKeywordFilter);
         renderImages();
