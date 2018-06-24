@@ -87,6 +87,7 @@ main {
     border: none;
     border-radius: 7px;
     height: 40px;
+    background-color: #bac1c1;
 }
 
 .filter-btn {
