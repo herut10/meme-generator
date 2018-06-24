@@ -26,6 +26,10 @@
     box-shadow: 0px 0px 19px 1px rgba(0, 0, 0, 0.75);
 }
 
+.icon-Download{
+    font-size: 30px;
+}
+
 .add-line-menu {
     padding: 5px;
     justify-content: space-between;
@@ -78,9 +82,26 @@
     width: 90%;
 }
 
+.btn-delete-text {
+    font-size: 25px;
+}
+
 .btn-delete-text:hover {
     animation: bounce 1s;
-    font-size:20px;
+    font-size: 30px;
+}
+
+.btn-download-meme {
+    justify-content: space-between;
+    font-size: 25px;
+    width: 300px;
+}
+.download{
+    margin: auto;
+}
+
+.icon-Download{
+    display: fixed;
 }
 
 .btn-download-meme,
@@ -90,7 +111,6 @@
     background-color: #2eb398;
     border: none;
     color: white;
-    width: 30%;
     text-align: center;
 }
 
