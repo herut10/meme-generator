@@ -35,7 +35,7 @@ var gTrans = {
         ABOUT_US: 'לגבינו',
         FILTER: ':פילטור',
         ALL: 'הכל',
-        Political: 'פוליטי',
+        POLITICAL: 'פוליטי',
         FUNNY: 'מצחיק',
         NICE: 'נחמד',
         MOVIES: 'סרטים',
