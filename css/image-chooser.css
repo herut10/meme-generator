@@ -83,22 +83,12 @@ main {
     width: 90%;
 }
 
-<<<<<<< HEAD
 .select-keyword-filter {
-=======
-.select-keyword-filter, .filter-btn {
-    background-color: #bac1c1;
-    color:black;
->>>>>>> c291089647309ffc43b09b187a83b3687dd33d7d
     border: none;
     border-radius: 7px;
     height: 40px;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> c291089647309ffc43b09b187a83b3687dd33d7d
 .filter-btn {
     border-radius: 7px;
     height: 40px;
