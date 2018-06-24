@@ -4,7 +4,8 @@
     min-height: calc(100vh - 130px);
     align-items: center;
     justify-content: space-around;
-    overflow: hidden
+    overflow: hidden;
+    font-size: 40px;
 }
 
 .editor-actions {
