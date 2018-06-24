@@ -54,18 +54,18 @@ function renderPopularKeywords() {
 
 function renderImages() {
     var imgs = getImagesToDisplay();
-
-
-
+    document.querySelector('.images-container').innerHTML = ''
     imgs.forEach(function (image, idx) {
         var img = new Image;
         img.src = image.url
         img.addEventListener("load", function () {
             var ratio = img.height / img.width
+            console.log(ratio);
+
             document.querySelector('.images-container').innerHTML += `
         <div class="hexagon hexagon1">
             <div class="hexagon-in1 ">
-                <div style="background-image:url(img/${image.id}.jpg); background-size: 300px ${300*ratio}px;" class="hexagon-in2 " onclick="onClickImage(${image.id})"></div>
+                <div style="background-image:url(img/${image.id}.jpg); background-size: 280px ${280*ratio}px;" class="hexagon-in2 " onclick="onClickImage(${image.id})"></div>
             </div>
         </div>`
             setGridDimensions()

@@ -4,6 +4,7 @@
 var gElCanvas;
 var gCtx;
 var gSelectedTextIdx;
+var gImg
 
 function initCanvas() {
     gElCanvas = document.querySelector('.meme-canvas');
@@ -21,15 +22,9 @@ function drawImageCanvas() {
     var meme = getGMeme();
 
     if (meme) {
-        var img = new Image;
-        console.log(img.height);
-        console.log(img.width);
-        
-        img.src = `img/${meme.selectedImgId}.jpg`;
-        var newWidth = Math.min(window.innerWidth, window.innerHeight) * 0.9
-        var newHeight = newWidth * (img.height / img.width)
-        setCanvasDimensions(newWidth, newHeight);
-        gCtx.drawImage(img, 0, 0, newWidth, newHeight)
+        gImg = new Image;
+        gImg.src = `img/${meme.selectedImgId}.jpg`;
+        gImg.addEventListener('load', loadCanvas)
     }
 }
 
@@ -37,6 +32,15 @@ function drawCanvas() {
     drawImageCanvas();
     drawTextLineCanvas();
     displaySelected()
+}
+
+function loadCanvas() {
+    var newWidth = Math.min(window.innerWidth, window.innerHeight) * 0.9
+    var newHeight = newWidth * (gImg.height / gImg.width)
+    setCanvasDimensions(newWidth, newHeight);
+    gCtx.drawImage(gImg, 0, 0, newWidth, newHeight)
+    drawCanvas()
+    gImg.removeEventListener('load', loadCanvas)
 }
 
 function getCanvasDimensions() {
