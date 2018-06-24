@@ -34,6 +34,8 @@ function getNumOfCols() {
 
 function renderPopularKeywords() {
     var keywords = getPopularKeywords();
+
+
     var strHtml = '';
     strHtml = keywords.map(function (keyword) {
         return `<h1 style="padding: 3px;font-size: ${(keyword.count+1)}vw">${keyword.keyword}</h1>`;
