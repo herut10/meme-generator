@@ -66,7 +66,6 @@ function renderImages() {
     setGridDimensions()
 }
 
-
 function updateHexagonPosition() {
     var hexagonNodes = document.querySelectorAll('.hexagon')
 

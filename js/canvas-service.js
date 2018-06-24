@@ -52,7 +52,9 @@ function drawTextLineCanvas() {
         gCtx.shadowBlur = (txt.shadow) ? 10 : 0;
         gCtx.shadowOffsetX = (txt.shadow) ? 5 : 0;
         gCtx.shadowOffsetX = (txt.shadow) ? 5 : 0;
+        gCtx.strokeStyle = "black";
         gCtx.shadowColor = "black";
+        gCtx.lineWidth = 3;
         gCtx.fillText(txt.line, txt.xPosition, txt.yPosition);
         gCtx.strokeText(txt.line, txt.xPosition, txt.yPosition);
     });

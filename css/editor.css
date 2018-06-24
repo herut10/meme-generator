@@ -78,9 +78,13 @@
     width: 90%;
 }
 
+.btn-delete-text {
+    font-size:25px;
+}
+
 .btn-delete-text:hover {
     animation: bounce 1s;
-    font-size:20px;
+    font-size:30px;
 }
 
 .btn-download-meme,
