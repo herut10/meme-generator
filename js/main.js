@@ -289,9 +289,27 @@ function onSetLang(lang) {
     translatePage();
 }
 
-function offCanvas() {
+function toggleOffCanvas(txt) {
     // Get the modal
     var offCanvas = document.querySelector('.offCanvas');
+    if (txt === 'contact') {
+        offCanvas.innerHTML = `
+        <div class="offCanvas-content flex column">
+
+        <h1>Get In Touch</h1>
+        <h2>In order to get in touch use the contact form below:</h2>
+        <form class="flex column">
+            <div class="form-group flex align-center">
+                <input type="text" class="form-control" id="subject" placeholder="subject">
+            </div>
+            <div class="form-group flex align-center">
+                <textarea class="form-control" id="body" rows="3" placeholder="Write your message here..."></textarea>
+            </div>
+            <button type="button" class="btn btn-submit" onclick="contact(subject.value,body.value)">Submit</button>
+        </form>
+    </div>
+        `
+    }
     offCanvas.classList.toggle('open')
 }
 
