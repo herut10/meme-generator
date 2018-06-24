@@ -40,11 +40,9 @@ header .btns-lang {
     font-size: 40px;
     font-weight: 400;
     color: #2eb398;
-    background: green;
 }
 
 .header-menu {
-    /* margin: 45px; */
     z-index: 4;
     position: fixed;
     top: -280px;
