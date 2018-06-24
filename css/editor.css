@@ -1,11 +1,11 @@
 .meme-editor {
     background: red;
-    z-index: 3;
+    /* z-index: 3;
     position: absolute;
     left: 0;
-    top: 130px;
+    top: 130px; */
     width: 100%;
-    max-height: calc(100vh - 130px);
+    min-height: calc(100vh - 130px);
     height: 100%;
     align-items: center;
     justify-content: space-around;
