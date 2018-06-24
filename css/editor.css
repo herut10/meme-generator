@@ -78,6 +78,11 @@
     width: 90%;
 }
 
+.btn-delete-text:hover {
+    animation: bounce 1s;
+    font-size:20px;
+}
+
 .btn-download-meme,
 .btn-back-gallery {
     padding: 10px;
@@ -88,7 +93,6 @@
     width: 30%;
     text-align: center;
 }
-
 
 .footer-editor {
     width: 100%;

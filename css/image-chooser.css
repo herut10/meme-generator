@@ -1,5 +1,6 @@
 main {
     margin-top: 80px;
+    width: 100%;
 }
 
 .image-chooser {
@@ -22,10 +23,6 @@ main {
     background-position: center center;
     border: 1px solid black;
     border-radius: 7px;
-}
-
-main {
-    width: 100%;
 }
 
 .image-filter {
@@ -83,15 +80,12 @@ main {
     width: 90%;
 }
 
-.select-keyword-filter {
+.select-keyword-filter, .filter-btn {
     border: none;
     border-radius: 7px;
     height: 40px;
     background-color: #bac1c1;
 }
-
-.filter-btn {
-    border-radius: 7px;
-    height: 40px;
-    border: none;
+.filter-btn:hover{
+    animation: pulse 1s;
 }
