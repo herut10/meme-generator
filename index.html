@@ -81,9 +81,14 @@
         <!-- EDITOR -->
         <div class="meme-editor flex align-center column none animated bounceInUp">
             <div class="canvas-container flex column">
-                <button class="btn btn-back-gallery" onclick="onCloseEditor()">
-                    <i class="fa fa-undo" data-trans="BACK_TO_GALLERY"> Back to gallery</i>
-                </button>
+                <div class="footer-editor flex align-center">
+                    <button class="btn btn-back-gallery" onclick="onCloseEditor()">
+                        <i class="fa fa-undo" data-trans="BACK_TO_GALLERY"> Back to gallery</i>
+                    </button>
+                    <a class="btn btn-download-meme" onclick="onDownloadMeme(this)">
+                        <i class="fa fa-download" data-trans="DOWNLOAD"> Download</i>
+                    </a>
+                </div>
                 <canvas class="meme-canvas" onmousedown="onTextClick(event)" onmousemove="onDragText(event)" onmouseup="onClearChosenText()"></canvas>
             </div>
             <div class="editor-actions flex column">
@@ -93,12 +98,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer-editor flex align-center">
 
-                    <a class="btn btn-download-meme" onclick="onDownloadMeme(this)">
-                        <i class="fa fa-download" data-trans="DOWNLOAD"> Download</i>
-                    </a>
-                </div>
             </div>
         </div>
     </main>
