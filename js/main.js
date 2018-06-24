@@ -4,41 +4,47 @@ var gPrevMousePosition;
 var gFonts = ['Impact', 'Arial', 'Times New Roman', 'Courier New', 'Verdana',
     'Georgia', 'Palatino', 'Garamond', 'Bookman', 'Comic Sans MS', 'Trebuchet MS', 'Arial Black'
 ]
-var numOfCols;
+var gNumOfCols;
+var gNumOfRows;
 
 function initMain() {
     initCanvas();
     initMemeService();
     renderImages();
     renderPopularKeywords();
-    getNumOfCols()
+    setGridDimensions()
     updateHexagonPosition()
 }
 
-function getNumOfCols() {
+function setGridDimensions() {
     var screenWidth = window.innerWidth
-    if (screenWidth < 425) {
-        numOfCols = 1
+    if (screenWidth < 570) {
+        gNumOfCols = 1
     } else if (screenWidth < 630) {
-        numOfCols = 2
+        gNumOfCols = 2
     } else if (screenWidth < 840) {
-        numOfCols = 3
+        gNumOfCols = 3
     } else if (screenWidth < 1040) {
-        numOfCols = 4
+        gNumOfCols = 4
     } else if (screenWidth < 1200) {
-        numOfCols = 5
+        gNumOfCols = 5
     } else {
-        numOfCols = 5
+        gNumOfCols = 5
     }
+    var hexagonNodes = document.querySelectorAll('.hexagon')
+    gNumOfRows = Math.ceil(hexagonNodes.length / gNumOfCols)
+    var elGrid = document.querySelector('.images-container')
+    elGrid.style = `    
+            grid-template-rows: repeat(${gNumOfRows}, 150px);
+            grid-template-columns: repeat(${gNumOfCols}, 180px);`
+
 }
 
 function renderPopularKeywords() {
     var keywords = getPopularKeywords();
-
-
     var strHtml = '';
     strHtml = keywords.map(function (keyword) {
-        return `<h1 style="padding: 3px;font-size: ${(keyword.count+1)}vw">${keyword.keyword}</h1>`;
+        return `<h1 style="font-size: ${((keyword.count+30)/gTotalKeywordCount)}em">${keyword.keyword}</h1>`;
     }).join('');
 
     document.querySelector('.popular-Keywords-container').innerHTML = strHtml;
@@ -57,18 +63,20 @@ function renderImages() {
             </div>
         </div>`
     }).join('');
-    document.querySelector('.images-container').innerHTML = strHtml;
+    var elGrid = document.querySelector('.images-container').innerHTML = strHtml;
+    setGridDimensions()
 }
+
 
 function updateHexagonPosition() {
     var hexagonNodes = document.querySelectorAll('.hexagon')
     console.log(hexagonNodes);
 
-    for (var i = 0; i < Math.ceil(hexagonNodes.length / numOfCols); i++) {
+    for (var i = 0; i < Math.ceil(hexagonNodes.length / gNumOfCols); i++) {
         console.log(i);
-        for (var j = 0; j < numOfCols; j++) {
-            if (hexagonNodes[2 * i * numOfCols + j + numOfCols]) {
-                hexagonNodes[2 * i * numOfCols + j + numOfCols].style = `        
+        for (var j = 0; j < gNumOfCols; j++) {
+            if (hexagonNodes[2 * i * gNumOfCols + j + gNumOfCols]) {
+                hexagonNodes[2 * i * gNumOfCols + j + gNumOfCols].style = `        
             position: relative;
             right: -100px;`
             }
@@ -180,20 +188,24 @@ function onClearChosenText() {
 function onAddLineText() {
     var newIdLine = makeId(4);
 
-    var strHTML = `     <div class="selection-style-text animated bounceInRight">
-                            <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="Enter text" required>
-                            <button class="btn btn-increase-size" onclick="onChangeSize(event,'${newIdLine}',1)"><i class="fa fa-font"></i><i class="fa fa-arrow-up"></i></button>
-                            <button class="btn btn-decrease-size" onclick="onChangeSize(event,'${newIdLine}',-1)"><i class="fa fa-font"></i><i class="fa fa-arrow-down"></i></button>
-                            <button class="btn btn-bold btn-bold-${newIdLine}" onclick="onBoldText(event,'${newIdLine}')"><i class="fa fa-bold bold-select"></i></button>
-                            <button class="btn btn-shadow btn-shadow-${newIdLine}" onclick="onShadowText(event,'${newIdLine}')">s</button>
-                            <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff"  />
-                            ${makeFontSelect(newIdLine)}
+    var strHTML = `    <div>
+                            <div class="selection-style-text animated bounceInRight">
+                                <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="Enter text" required>
+                                <button class="btn btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+                                <div class="btns-actions-text animated bounceInRight">
+                                <button class="btn btn-increase-size" onclick="onChangeSize(event,'${newIdLine}',1)"><i class="fa fa-font"></i><i class="fa fa-arrow-up"></i></button>
+                                <button class="btn btn-decrease-size" onclick="onChangeSize(event,'${newIdLine}',-1)"><i class="fa fa-font"></i><i class="fa fa-arrow-down"></i></button>
+                                <button class="btn btn-bold btn-bold-${newIdLine}" onclick="onBoldText(event,'${newIdLine}')"><i class="fa fa-bold bold-select"></i></button>
+                                <button class="btn btn-shadow btn-shadow-${newIdLine}" onclick="onShadowText(event,'${newIdLine}')">s</button>
+                                <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff"  />
+                                ${makeFontSelect(newIdLine)}
+                            </div>
                         </div>
-                        <div class="btns-actions-text animated bounceInRight">
-                            <button class="btn btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </div>`;
+                        `;
+
 
     var node = document.createElement("div");
     node.classList.add('add-line-menu', `add-line-menu-${newIdLine}`, 'flex');
@@ -234,20 +246,27 @@ function onBoldText(event, idLine) {
     }
 }
 
-function onChangekeywordFilter() {
-    var newKeywordFilter = document.querySelector('.select-keyword-filter').value;
-    setFilterBy(newKeywordFilter);
-    updatePopKeywordsBySearch(newKeywordFilter);
-    renderImages();
-    renderPopularKeywords();
+function onChangeKeywordFilter(ev) {
+    ev.preventDefault();
+    var newKeywordFilter = document.querySelector('.select-keyword-filter1').value;
+    if (newKeywordFilter !== '') {
+        document.querySelector('.select-keyword-filter1').value = ''
+        setFilterBy(newKeywordFilter);
+        updatePopKeywordsBySearch(newKeywordFilter);
+        renderImages();
+        renderPopularKeywords();
+        updateHexagonPosition()
+    }
 }
 
 function toggleMenu() {
     document.querySelector('.header-menu').classList.toggle('open');
-    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu');
+    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu.fa').toggle('fa-bars')
+    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu.fa').toggle('fa-times')
+
 
     if (elBtnOffCanvas.innerText !== '<i class="fa fa-bars"></i>') {
-        elBtnOffCanvas.innerText = 'X'; // להביא את התגית של איקס 
+        elBtnOffCanvas.innerHTML = '<i class="fa fa-times"></i>'; // להביא את התגית של איקס 
     } else {
         elBtnOffCanvas.innerText = '<i class="fa fa-bars"></i>';
     }
@@ -271,4 +290,9 @@ function onSetLang(lang) {
         document.body.classList.remove('rtl');
     }
     translatePage();
+}
+
+function onOnTouch(ev) {
+    console.log(ev);
+
 }

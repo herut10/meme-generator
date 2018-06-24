@@ -1,6 +1,6 @@
 .meme-editor {
     background: red;
-    z-index: 30;
+    z-index: 3;
     position: absolute;
     left: 0;
     top: 130px;
@@ -48,6 +48,7 @@
     border: none;
     transition: all 1s ease;
 }
+
 
 .input-line-txt {
     width: 100%

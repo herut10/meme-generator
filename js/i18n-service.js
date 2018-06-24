@@ -18,9 +18,8 @@ var gTrans = {
         BACK_TO_GALLERY:'Back to gallery',
         DOWNLOAD:'Download',
         FILTER:'Filter:',
-        COPYRIGHT:'Copyright 2018 Idan&Herut.com'
-        
-        
+        COPYRIGHT:'Copyright 2018 Idan&Herut.com',
+        SEARCH:'Search'
     },
     he: {
         SITE_TITLE: 'מחולל מימים',
@@ -40,7 +39,8 @@ var gTrans = {
         BABY:'תינוק',
         BACK_TO_GALLERY:'חזרה לגלריה',
         DOWNLOAD:'הורדה',
-        COPYRIGHT:'Idan&Herut.com זכויות יוצרים 2018'
+        COPYRIGHT:'Idan&Herut.com זכויות יוצרים 2018', 
+        SEARCH:'חפש'
     }
 };
 

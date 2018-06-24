@@ -43,7 +43,7 @@ header .btns-lang {
 
 .header-menu {
     /* margin: 45px; */
-    z-index: 2;
+    z-index: 4;
     position: fixed;
     top: -280px;
     right: 0;

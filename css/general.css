@@ -41,6 +41,7 @@ button {
 select,
 input,
 .btn {
+
     cursor: pointer;
 }
 
