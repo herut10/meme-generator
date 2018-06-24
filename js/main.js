@@ -60,7 +60,7 @@ function renderImages() {
         return `
         <div class="hexagon hexagon1">
             <div class="hexagon-in1 ">
-                <div style="background-image:url(../img/${img.id}.jpg)" class="hexagon-in2 " onclick="onClickImage(${img.id})"></div>
+                <div style="background-image:url(./img/${img.id}.jpg)" class="hexagon-in2 " onclick="onClickImage(${img.id})"></div>
             </div>
         </div>`
     }).join('');
