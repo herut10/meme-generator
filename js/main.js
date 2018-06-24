@@ -300,7 +300,8 @@ function openModal() {
 }
 
 function renderContactModal(){
-    document.querySelector('.modal-header').innerHTML=`
+    document.querySelector('.modal-header').innerHTML=
+    `
     <span class="close">&times;</span>
     <h1>Get In Touch</h1>    
     `
@@ -324,7 +325,7 @@ function initModal() {
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
-        if (event.target == modal) {
+        if (event.target === modal) {
             modal.style.display = "none";
         }
     }
