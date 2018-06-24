@@ -76,3 +76,14 @@ main {
     background-color: aqua;
     width: 90%;
 }
+
+.select-keyword-filter{
+    border: none;
+    border-radius: 7px;
+    height: 40px;
+}
+.filter-btn{
+    border-radius: 7px;
+    height: 40px;
+    border: none;
+}
