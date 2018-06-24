@@ -328,66 +328,71 @@ function renderOffCanvasBody(txt) { //this might look odd but if you add more he
 
 
 function contact(subject, body) {
-    window.location = `https://mail.google.com/mail/?view=cm&fs=1&to=yonaherut@gmail.com,idanhakim123@gmail.com&su=${subject}&body=${body} `
+    document.querySelector('#body').value = '';
+    document.querySelector('#subject').value = '';
+    window.open(
+        `https://mail.google.com/mail/?view=cm&fs=1&to=yonaherut@gmail.com,idanhakim123@gmail.com&su=${subject}&body=${body} `,
+        '_blank'
+    );
 }
 
 
 
-function onFileInputChange(ev) {
-    handleImageFromInput(ev, renderCanvas)
-}
+// function onFileInputChange(ev) {
+//     handleImageFromInput(ev, renderCanvas)
+// }
 
-function renderCanvas(img) {
-    canvas.height = img.height;
-    ctx.drawImage(img, img.width, img.height);
-}
+// function renderCanvas(img) {
+//     canvas.height = img.height;
+//     ctx.drawImage(img, img.width, img.height);
+// }
 
-function handleImageFromInput(ev, onImageReady) {
-    document.querySelector('.share-container').innerHTML = '';
-    var reader = new FileReader();
-    reader.onload = function (event) {
-        var img = new Image();
-        img.onload = onImageReady.bind(null, img);
-        img.src = event.target.result;
-    };
-    reader.readAsDataURL(ev.target.files[0]);
-}
+// function handleImageFromInput(ev, onImageReady) {
+//     document.querySelector('.share-container').innerHTML = '';
+//     var reader = new FileReader();
+//     reader.onload = function (event) {
+//         var img = new Image();
+//         img.onload = onImageReady.bind(null, img);
+//         img.src = event.target.result;
+//     };
+//     reader.readAsDataURL(ev.target.files[0]);
+// }
 
-function onUploadImp(ev) {
-    ev.preventDefault();
-    console.log(ev);
+// function onUploadImp(ev) {
+//     ev.preventDefault();
+//     console.log(ev);
 
-    ev.preventDefault();
+//     ev.preventDefault();
 
-    document.getElementById('imgData').value = canvas.toDataURL('image/jpeg');
+//     document.getElementById('imgData').value = canvas.toDataURL('image/jpeg');
 
-    // A function to be called if request succeeds
-    function onSuccess(uploadedImgUrl) {
-        console.log('uploadedImgUrl', uploadedImgUrl);
+//     // A function to be called if request succeeds
+//     function onSuccess(uploadedImgUrl) {
+//         console.log('uploadedImgUrl', uploadedImgUrl);
 
-        uploadedImgUrl = encodeURIComponent(uploadedImgUrl);
-        document.querySelector('.share-container').innerHTML = `
-        <a class="w-inline-block social-share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
-           Share   
-        </a>`;
-    }
+//         uploadedImgUrl = encodeURIComponent(uploadedImgUrl);
+//         document.querySelector('.share-container').innerHTML = `
+//         <a class="w-inline-block social-share-btn fb" href="https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
+//            Share   
+//         </a>`;
+//     }
 
-    doUploadImg(elForm, onSuccess);
+//     doUploadImg(elForm, onSuccess);
 
-}
+// }
 
-function doUploadImg(elForm, onSuccess) {
-    var formData = new FormData(elForm);
+// function doUploadImg(elForm, onSuccess) {
+//     var formData = new FormData(elForm);
 
-    fetch('http://ca-upload.com/here/upload.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(function (response) {
-            return response.text();
-        })
-        .then(onSuccess)
-        .catch(function (error) {
-            console.error(error);
-        });
-}
+//     fetch('http://ca-upload.com/here/upload.php', {
+//             method: 'POST',
+//             body: formData
+//         })
+//         .then(function (response) {
+//             return response.text();
+//         })
+//         .then(onSuccess)
+//         .catch(function (error) {
+//             console.error(error);
+//         });
+// }
