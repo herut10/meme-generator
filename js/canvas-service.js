@@ -92,11 +92,12 @@ function getCanvasPos() {
 
 function mousePos(ev) {
     var canvasPos = getCanvasPos(ev.target)
+    var elHeader = document.querySelector('.header-page')
     var mouseX = ev.clientX - canvasPos.left + window.pageXOffset;
     var mouseY = ev.clientY - canvasPos.top + window.pageYOffset;
     return {
         x: mouseX,
-        y: mouseY
+        y: mouseY - elHeader.clientHeight
     };
 };
 
