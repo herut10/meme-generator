@@ -191,23 +191,21 @@ function onClearChosenText() {
 function onAddLineText() {
     var newIdLine = makeId(4);
     if (getGMeme().txts.length < 5) {
-        var strHTML = `    <div>
-        <div class="selection-style-text animated bounceInRight">
-            <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="Enter text" required>
-            <button class="btn btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">
-                <i class="fa fa-trash"></i>
-            </button>
-        </div>
-            <div class="btns-actions-text animated bounceInRight">
-            <button class="btn btn-increase-size" onclick="onChangeSize(event,'${newIdLine}',1)"><i class="fa fa-font"></i><i class="fa fa-arrow-up"></i></button>
-            <button class="btn btn-decrease-size" onclick="onChangeSize(event,'${newIdLine}',-1)"><i class="fa fa-font"></i><i class="fa fa-arrow-down"></i></button>
-            <button class="btn btn-bold btn-bold-${newIdLine}" onclick="onBoldText(event,'${newIdLine}')"><i class="fa fa-bold bold-select"></i></button>
-            <button class="btn btn-shadow btn-shadow-${newIdLine}" onclick="onShadowText(event,'${newIdLine}')">s</button>
-            <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff"  />
-            ${makeFontSelect(newIdLine)}
-        </div>
-    </div>
-    `;
+        var strHTML = `    <div class="new-text">
+                                <div class="selection-style-text flex animated bounceInRight">
+                                    <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="Enter text" required>
+                                    <button class="btn btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
+                                <div class="btns-actions-text animated bounceInRight">
+                                    <button class="btn btn-increase-size" onclick="onChangeSize(event,'${newIdLine}',1)"><i class="fa fa-font"></i><i class="fa fa-arrow-up"></i></button>
+                                    <button class="btn btn-decrease-size" onclick="onChangeSize(event,'${newIdLine}',-1)"><i class="fa fa-font"></i><i class="fa fa-arrow-down"></i></button>
+                                    <button class="btn btn-bold btn-bold-${newIdLine}" onclick="onBoldText(event,'${newIdLine}')"><i class="fa fa-bold bold-select"></i></button>
+                                    <button class="btn btn-shadow btn-shadow-${newIdLine}" onclick="onShadowText(event,'${newIdLine}')">s</button>
+                                    <input class="input-color" onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff"  />${makeFontSelect(newIdLine)}
+                                </div>
+                            </div>`;
 
 
         var node = document.createElement("div");
@@ -223,11 +221,9 @@ function onFontChange(id, font) {
 }
 
 function makeFontSelect(newIdLine) {
-    var resHTML = `<select onchange="onFontChange('${newIdLine}',this.value)" name="fonts">`
+    var resHTML = `<select class="input-font-text" onchange="onFontChange('${newIdLine}',this.value)" name="fonts">`
     var strHTMLs = gFonts.map(function (font) {
-        return `
-        <option value="${font}">${font}</option>
-        `
+        return `<option value="${font}">${font}</option>`
     }).join('')
     resHTML += strHTMLs
     resHTML += '</select>'
