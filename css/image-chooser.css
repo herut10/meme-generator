@@ -82,13 +82,14 @@ main {
     color: #2eb398;
 }
 
-.select-keyword-filter, .filter-btn {
+.select-keyword-filter,
+.filter-btn {
     border: none;
     border-radius: 7px;
     height: 40px;
     background-color: #bac1c1;
-    
 }
-.filter-btn:hover{
+
+.filter-btn:hover {
     animation: pulse 1s;
 }

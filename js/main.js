@@ -22,13 +22,13 @@ function setGridDimensions() {
     if (screenWidth < 570) {
         gNumOfCols = 1
     } else if (screenWidth < 630) {
-        gNumOfCols = 2
+        gNumOfCols = 1
     } else if (screenWidth < 840) {
-        gNumOfCols = 3
+        gNumOfCols = 2
     } else if (screenWidth < 1040) {
-        gNumOfCols = 4
+        gNumOfCols = 3
     } else if (screenWidth < 1200) {
-        gNumOfCols = 5
+        gNumOfCols = 4
     } else {
         gNumOfCols = 5
     }
@@ -83,6 +83,7 @@ function updateHexagonPosition() {
     }
 
 }
+
 
 function onClickImage(idMeme) {
     setTimeout(() => {
@@ -181,8 +182,8 @@ function onDragText(ev) {
 }
 
 function onClearChosenText() {
-    clearChoseText();
-    drawCanvas();
+    clearChoseText()
+    drawCanvas()
 }
 
 function onAddLineText() {
@@ -312,26 +313,29 @@ function setOffCanvasContent(txt) {
     var offCanvas = document.querySelector('.offCanvas');
     if (txt === 'contact') {
         offCanvas.innerHTML = `
-<div class="offCanvas-content flex column">
-
-<h1>Get In Touch</h1>
-<h2>In order to get in touch use the contact form below:</h2>
-<form class="flex column">
-<div class="form-group flex align-center">
-    <input type="text" class="form-control" id="subject" placeholder="subject">
-</div>
-<div class="form-group flex align-center">
-    <textarea class="form-control" id="body" rows="3" placeholder="Write your message here..."></textarea>
-</div>
-<button type="button" class="btn btn-submit" onclick="contact(subject.value,body.value)">Submit</button>
-</form>
-</div>`
+    <div class="contact">
+        <div class="offCanvas-content flex column">
+            <h1>Get In Touch</h1>
+            <h2>In order to get in touch use the contact form below:</h2>
+            <form class="flex column">
+                <div class="form-group flex align-center">
+                    <input type="text" class="form-control" id="subject" placeholder="subject">
+                </div>
+        <div class="form-group flex align-center">
+        <textarea class="form-control" id="body" rows="3" placeholder="Write your message here..."></textarea>
+        </div> 
+            <button type="button" class="btn btn-submit" onclick="contact(subject.value,body.value)">Submit</button>
+            </form>
+        </div>
+    </div>`
     } else if (txt === 'about') {
         offCanvas.innerHTML = `
-<div class="offCanvas-content flex column">
-<h1>About Us</h1>
-<h2>Herut and Idan are both young and handsome programmers on the way to becoming fullstack developers.</h2>
-</div>`
+        <div class="about none">
+            <div class="offCanvas-content flex column">
+                <h1>About Us</h1>
+                <h2>Herut and Idan are both young and handsome programmers on the way to becoming fullstack developers.</h2>
+            </div>
+        </div>`
     }
 }
 
