@@ -1,5 +1,5 @@
 body .header-page {
-    background-color:#222222;
+    background-color: #222222;
     color: #ffffff;
     box-shadow: inset 0px -6px black;
     align-items: center;
@@ -33,12 +33,12 @@ header .btns-lang {
     background-image: url(../img/he.png);
 }
 
-
 .lang-btn.en {
     background-image: url(../img/en.png)
 }
 
-.lang-btn.he:hover, .lang-btn.en:hover {
+.lang-btn.he:hover,
+.lang-btn.en:hover {
     animation: pulse 1s;
 }
 
@@ -98,6 +98,8 @@ li:hover a {
     padding: 10px;
     border: none;
     border-radius: 6px;
+    background-color: #2eb398;
+    color: white;
 }
 
 .btn-offCanvas-menu.open {
@@ -110,7 +112,7 @@ li:hover a {
 }
 
 @media(min-width: 486px) {
-    body .header-page{
+    body .header-page {
         height: 80px;
     }
     header .btns-lang {
