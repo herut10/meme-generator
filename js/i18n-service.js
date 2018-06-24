@@ -24,6 +24,9 @@ var gTrans = {
         TOUCH_SUB_HEADER: 'In order to get in touch use the contact form below:',
         SUBMIT: 'Submit',
         ABOUT_US_BODY: 'Herut and Idan are two handsome programmers on the way to becoming fullstack developers.',
+        SUBJECT: 'Subject',
+        BODY: 'Write your message here...',
+        FILTER_PLACEHOLDER: 'Enter text'
     },
     he: {
         SITE_TITLE: 'מחולל מימים',
@@ -49,6 +52,9 @@ var gTrans = {
         TOUCH_SUB_HEADER: 'על מנת ליצור קשר איתנו אנא מלאו את הטופס:',
         SUBMIT: 'שלח',
         ABOUT_US_BODY: '.חרות ועידן הם שני מתכנתים חתיכים בדרכם להיות מפתחי פולסטאק לעתיד',
+        SUBJECT: 'נושא',
+        BODY: 'רשום את הודעתך כאן...',
+        FILTER_PLACEHOLDER: 'הכנס טקסט'
     }
 };
 
