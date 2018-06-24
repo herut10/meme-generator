@@ -61,12 +61,11 @@ function renderImages() {
         var img = new Image;
         img.src = image.url
         img.addEventListener("load", function () {
-            console.log("image has loaded" + idx);
-            var ratio = img.width / img.height
+            var ratio = img.height / img.width
             document.querySelector('.images-container').innerHTML += `
         <div class="hexagon hexagon1">
             <div class="hexagon-in1 ">
-                <div style="background-image:url(img/${image.id}.jpg); background-size: 180px ${180*ratio}px;" class="hexagon-in2 " onclick="onClickImage(${img.id})"></div>
+                <div style="background-image:url(img/${image.id}.jpg); background-size: 200px ${200*ratio}px;" class="hexagon-in2 " onclick="onClickImage(${image.id})"></div>
             </div>
         </div>`
             setGridDimensions()
