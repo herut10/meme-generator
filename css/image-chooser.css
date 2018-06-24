@@ -90,6 +90,9 @@ main {
 }
 
 .filter-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: #2eb398;
     border-radius: 7px;
     height: 40px;
