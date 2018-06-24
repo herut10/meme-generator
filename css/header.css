@@ -9,15 +9,16 @@ body .header-page {
 }
 
 header .btns-lang {
+    flex-direction: column;
     margin: 15px;
-    width: 12vw;
-    background-color: green;
     justify-content: space-around;
 }
 
 .lang-btn {
-    width: 30%;
-    height: 30px;
+    min-width: 40px;
+    min-height: 40px;
+    width: 40px;
+    height: 40px;
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-position: 50%;
@@ -99,6 +100,10 @@ li:hover a {
 
 .btn-offCanvas-menu i {
     font-size: 20px;
+}
+
+@media(min-width: 430px){
+    flex-direction: row
 }
 
 @media (min-width: 1000px) {
