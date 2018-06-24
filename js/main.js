@@ -269,10 +269,18 @@ function toggleMenu() {
     var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu .fa')
     elBtnOffCanvas.classList.toggle('fa-bars')
     elBtnOffCanvas.classList.toggle('fa-times')
+}
 
+function closeMenu() {
 
+    document.querySelector('.header-menu').classList.remove('open')
+    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu .fa')
+    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu .fa')
+    elBtnOffCanvas.classList.toggle('fa-bars')
+    elBtnOffCanvas.classList.toggle('fa-times')
 
 }
+
 
 function translatePage() {
     var els = document.querySelectorAll('[data-trans]');

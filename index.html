@@ -35,10 +35,10 @@
         </h1>
 
         <ul class="header-menu clean-list flex">
-            <li onclick="toggleOffCanvas('contact')" class="item-header-menu flex li-journal active">
+            <li onclick="toggleOffCanvas('contact');closeMenu()" class="item-header-menu flex li-journal active">
                 <a href="#" data-trans="CONTACT">Contact</a>
             </li>
-            <li onclick="toggleOffCanvas('about')" class="item-header-menu flex">
+            <li onclick="toggleOffCanvas('about');closeMenu()" class="item-header-menu flex">
                 <a href="#" data-trans="ABOUT_US">About Us</a>
             </li>
         </ul>
@@ -108,6 +108,9 @@
 
         <div class="offCanvas flex column">
             <div class="contact none">
+                <button class="btn btn-submit" style="float: right;" onclick="toggleOffCanvas(gCurrOpenOffCanvas)">
+                    <i class="fa fa-times"></i>
+                </button>
                 <div class="offCanvas-content flex column">
                     <h1 data-trans="TOUCH_HEADER">Get In Touch</h1>
                     <h2 data-trans="TOUCH_SUB_HEADER">In order to get in touch use the contact form below:</h2>
@@ -119,11 +122,16 @@
                             <textarea class="form-control" id="body" rows="3" placeholder="Write your message here..."></textarea>
                         </div>
                         <button type="button" class="btn btn-submit" onclick="contact(subject.value,body.value)" data-trans="SUBMIT">Submit</button>
+
                     </form>
                 </div>
             </div>
             <div class="about none">
+                
                 <div class="offCanvas-content flex column">
+                        <button class="btn btn-submit" style="float: right;" onclick="toggleOffCanvas(gCurrOpenOffCanvas)">
+                                <i class="fa fa-times"></i>
+                            </button>
                     <h1 data-trans="ABOUT_US">About Us</h1>
                     <h2 data-trans="ABOUT_US_BODY">Herut and Idan are two handsome programmers on the way to becoming fullstack developers.</h2>
                 </div>
