@@ -65,7 +65,7 @@ function renderImages() {
             document.querySelector('.images-container').innerHTML += `
         <div class="hexagon hexagon1">
             <div class="hexagon-in1 ">
-                <div style="background-image:url(img/${image.id}.jpg); background-size: 280px ${280*ratio}px;" class="hexagon-in2 " onclick="onClickImage(${image.id})"></div>
+                <div onmouseover="this.style='background-image:url(img/${image.id}.jpg); background-size: 400px ${400*ratio}px;' " style="background-image:url(img/${image.id}.jpg); background-size: 280px ${280*ratio}px;" onmouseout="this.style='background-image:url(img/${image.id}.jpg); background-size: 280px ${280*ratio}px;' " class="hexagon-in2 " onclick="onClickImage(${image.id})"></div>
             </div>
         </div>`
             setGridDimensions()
@@ -391,4 +391,3 @@ function doUploadImg(elForm, onSuccess) {
             console.error(error);
         });
 }
-

@@ -62,9 +62,9 @@ main {
     transition-duration: 0.5s;
 }
 
-.hexagon-in2:hover {
-    background-size: 270px 309px;
-}
+/* .hexagon.hexagon1 .hexagon-in2:hover {
+    background-size: 300px 270px !important;
+} */
 
 .hexagon1 {
     width: 180px;
@@ -81,8 +81,7 @@ main {
     color: #2eb398;
 }
 
-.select-keyword-filter
- {
+.select-keyword-filter {
     border: none;
     border-radius: 7px;
     height: 40px;
@@ -90,11 +89,11 @@ main {
     padding: 10px;
 }
 
-.filter-btn{
+.filter-btn {
     background-color: #2eb398;
     border-radius: 7px;
     height: 40px;
-    border:none;
+    border: none;
     color: white;
     font-size: 25px;
     margin: 0;
@@ -106,6 +105,6 @@ main {
     animation: pulse 1s;
 }
 
-datalist{
+datalist {
     background-color: #bac1c1;
 }
