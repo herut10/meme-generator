@@ -46,7 +46,7 @@ function renderPopularKeywords() {
     var keywords = getPopularKeywords();
     var strHtml = '';
     strHtml = keywords.map(function (keyword) {
-        return `<h1 style="font-size: ${map(keyword.count, 1, gTotalKeywordCount, 0.5, 4)}em">${keyword.keyword}</h1>`;
+        return `<h1 style="font-size: ${map(keyword.count, 1, gTotalKeywordCount, 1, 4)}em">${keyword.keyword}</h1>`;
     }).join('');
 
     document.querySelector('.popular-Keywords-container').innerHTML = strHtml;
@@ -290,6 +290,9 @@ function translatePage() {
         var transKey = el.getAttribute('data-trans');
         el.innerText = getTrans(transKey);
     }
+    document.querySelector('.form-group input').placeholder=getTrans('SUBJECT')
+    document.querySelector('.form-group textarea').placeholder=getTrans('BODY')
+    document.querySelector('.select-keyword-filter').placeholder=getTrans('FILTER_PLACEHOLDER')
 }
 
 function onSetLang(lang) {
