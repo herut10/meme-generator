@@ -293,21 +293,29 @@ function onSetLang(lang) {
     translatePage();
 }
 
-
-function initModal() {
+function openModal() {
     // Get the modal
     var modal = document.getElementById('myModal');
+    modal.style.display = "block";
+}
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
+function renderContactModal(){
+    document.querySelector('.modal-header').innerHTML=`
+    <span class="close">&times;</span>
+    <h1>Get In Touch</h1>    
+    `
+
+
+
+
+}
+
+function initModal() {
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
-    // When the user clicks on the button, open the modal 
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
+    var modal = document.getElementById('myModal');
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {

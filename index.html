@@ -35,10 +35,10 @@
         </h1>
 
         <ul class="header-menu clean-list flex">
-            <li class="item-header-menu flex li-journal active">
+            <li onclick="openModal()" class="item-header-menu flex li-journal active">
                 <a href="#" data-trans="CONTACT">Contact</a>
             </li>
-            <li class="item-header-menu flex">
+            <li onclick="openModal()" class="item-header-menu flex">
                 <a href="#" data-trans="ABOUT_US">About Us</a>
             </li>
         </ul>
@@ -103,16 +103,11 @@
         </div>
 
         <!-- modal -->
-        <!-- Trigger/Open The Modal -->
-        <button id="myBtn">Open Modal</button>
-
         <!-- The Modal -->
         <div id="myModal" class="modal">
 
             <div class="modal-content">
                 <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2>Modal Header</h2>
                 </div>
                 <div class="modal-body">
                     <p>Some text in the Modal Body</p>
