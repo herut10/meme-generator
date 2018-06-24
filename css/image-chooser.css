@@ -71,18 +71,20 @@ main {
 }
 
 .popular-Keywords-container {
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     background-color: aqua;
     width: 90%;
 }
 
-.select-keyword-filter{
+.select-keyword-filter {
     border: none;
     border-radius: 7px;
     height: 40px;
 }
-.filter-btn{
+
+.filter-btn {
     border-radius: 7px;
     height: 40px;
     border: none;

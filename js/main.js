@@ -49,7 +49,6 @@ function renderPopularKeywords() {
     }).join('');
 
     document.querySelector('.popular-Keywords-container').innerHTML = strHtml;
-    console.log(keywords);
 }
 
 function renderImages() {
@@ -71,10 +70,8 @@ function renderImages() {
 
 function updateHexagonPosition() {
     var hexagonNodes = document.querySelectorAll('.hexagon')
-    console.log(hexagonNodes);
 
     for (var i = 0; i < Math.ceil(hexagonNodes.length / gNumOfCols); i++) {
-        console.log(i);
         for (var j = 0; j < gNumOfCols; j++) {
             if (hexagonNodes[2 * i * gNumOfCols + j + gNumOfCols]) {
                 hexagonNodes[2 * i * gNumOfCols + j + gNumOfCols].style = `        
@@ -262,8 +259,8 @@ function onChangeKeywordFilter(ev) {
 
 function toggleMenu() {
     document.querySelector('.header-menu').classList.toggle('open');
-    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu.fa').toggle('fa-bars')
-    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu.fa').toggle('fa-times')
+    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu .fa').toggle('fa-bars')
+    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu .fa').toggle('fa-times')
 
 
     if (elBtnOffCanvas.innerText !== '<i class="fa fa-bars"></i>') {
@@ -299,9 +296,9 @@ function openModal() {
     modal.style.display = "block";
 }
 
-function renderContactModal(){
-    document.querySelector('.modal-header').innerHTML=
-    `
+function renderContactModal() {
+    document.querySelector('.modal-header').innerHTML =
+        `
     <span class="close">&times;</span>
     <h1>Get In Touch</h1>    
     `
@@ -314,19 +311,12 @@ function renderContactModal(){
 function initModal() {
 
     // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
 
     var modal = document.getElementById('myModal');
 
     // When the user clicks on <span> (x), close the modal
+    var span = document.getElementsByClassName("close")[0];
     span.onclick = function () {
         modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
     }
 }
