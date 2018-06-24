@@ -96,7 +96,7 @@ function mousePos(ev) {
     var mouseY = ev.clientY - canvasPos.top + window.pageYOffset;
     return {
         x: mouseX,
-        y: mouseY - 130
+        y: mouseY
     };
 };
 

@@ -1,9 +1,5 @@
 .meme-editor {
     background: red;
-    /* z-index: 3;
-    position: absolute;
-    left: 0;
-    top: 130px; */
     width: 100%;
     min-height: calc(100vh - 130px);
     height: 100%;
@@ -49,9 +45,8 @@
     transition: all 1s ease;
 }
 
-
 .input-line-txt {
-    width: 100%
+    width: 90%;
 }
 
 .btn-download-meme,
@@ -72,9 +67,7 @@
 }
 
 @media(min-width: 510px) {
-    .input-line-txt {
-        width: auto;
-    }
+
 }
 
 @media(min-width: 920px) {
