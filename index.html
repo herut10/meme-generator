@@ -52,7 +52,7 @@
         <!-- IMAGE-CHOOSER -->
         <div class="image-chooser flex column animated bounceInRight">
             <div class="image-filter flex">
-                <form>
+                <form class="flex">
                     <input class="select-keyword-filter" list="keywords" name="keyword" placeholder="Enter text">
                     <datalist id="keywords">
                         <option value="All" data-trans="ALL">All</option>
@@ -66,9 +66,7 @@
                         <option value="Animal" data-trans="ANIMAL">Animal</option>
                         <option value="Baby" data-trans="BABY">Baby</option>
                     </datalist>
-                    <button class="btn filter-btn" for="keyword" type="submit" data-trans="SEARCH" value="search" onclick="onChangeKeywordFilter(event)">
-                        <span data-trans="FILTER">Search</span>
-                    </button>
+                    <button class="btn filter-btn" for="keyword" type="submit" data-trans="SEARCH" value="search" onclick="onChangeKeywordFilter(event)">Search</button>
                 </form>
             </div>
 
@@ -83,7 +81,7 @@
             <div class="canvas-container flex column">
                 <div class="footer-editor flex align-center">
                     <div class="btn-back-gallery flex">
-                        <i class="fa fa-undo icon-back"></i>
+                        <i class="fa fa-arrow-circle-left"></i>
                         <button class="btn-back " onclick="onCloseEditor()" data-trans="BACK_TO_GALLERY"> Back to gallery</button>
                     </div>
 
