@@ -16,7 +16,6 @@ function initMemeService() {
         createPopularKeywords();
     }
     setTotalKeywordCount()
-
 }
 
 function setTotalKeywordCount() {

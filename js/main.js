@@ -154,6 +154,9 @@ function onDeleteText(ev, idInput) {
         var nodeToRemove = document.querySelector(`.add-line-menu-${idInput}`);
         document.querySelector(".lines-edit").removeChild(nodeToRemove);
         drawCanvas();
+        if (getGMeme().txts.length === 4) {
+            onAddLineText();
+        }
     }
 }
 
@@ -187,30 +190,31 @@ function onClearChosenText() {
 
 function onAddLineText() {
     var newIdLine = makeId(4);
+    if (getGMeme().txts.length < 5) {
+        var strHTML = `    <div>
+        <div class="selection-style-text animated bounceInRight">
+            <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="Enter text" required>
+            <button class="btn btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+            <div class="btns-actions-text animated bounceInRight">
+            <button class="btn btn-increase-size" onclick="onChangeSize(event,'${newIdLine}',1)"><i class="fa fa-font"></i><i class="fa fa-arrow-up"></i></button>
+            <button class="btn btn-decrease-size" onclick="onChangeSize(event,'${newIdLine}',-1)"><i class="fa fa-font"></i><i class="fa fa-arrow-down"></i></button>
+            <button class="btn btn-bold btn-bold-${newIdLine}" onclick="onBoldText(event,'${newIdLine}')"><i class="fa fa-bold bold-select"></i></button>
+            <button class="btn btn-shadow btn-shadow-${newIdLine}" onclick="onShadowText(event,'${newIdLine}')">s</button>
+            <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff"  />
+            ${makeFontSelect(newIdLine)}
+        </div>
+    </div>
+    `;
 
-    var strHTML = `    <div>
-                            <div class="selection-style-text animated bounceInRight">
-                                <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="Enter text" required>
-                                <button class="btn btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                            </div>
-                                <div class="btns-actions-text animated bounceInRight">
-                                <button class="btn btn-increase-size" onclick="onChangeSize(event,'${newIdLine}',1)"><i class="fa fa-font"></i><i class="fa fa-arrow-up"></i></button>
-                                <button class="btn btn-decrease-size" onclick="onChangeSize(event,'${newIdLine}',-1)"><i class="fa fa-font"></i><i class="fa fa-arrow-down"></i></button>
-                                <button class="btn btn-bold btn-bold-${newIdLine}" onclick="onBoldText(event,'${newIdLine}')"><i class="fa fa-bold bold-select"></i></button>
-                                <button class="btn btn-shadow btn-shadow-${newIdLine}" onclick="onShadowText(event,'${newIdLine}')">s</button>
-                                <input onchange="onChangeStyleText('${newIdLine}')" type="color" id="color-text-${newIdLine}" name="color" value="#ffffff"  />
-                                ${makeFontSelect(newIdLine)}
-                            </div>
-                        </div>
-                        `;
 
-
-    var node = document.createElement("div");
-    node.classList.add('add-line-menu', `add-line-menu-${newIdLine}`, 'flex');
-    node.innerHTML = strHTML;
-    document.querySelector(".lines-edit").appendChild(node);
+        var node = document.createElement("div");
+        node.classList.add('add-line-menu', `add-line-menu-${newIdLine}`, 'flex');
+        node.innerHTML = strHTML;
+        document.querySelector(".lines-edit").appendChild(node);
+    }
 }
 
 function onFontChange(id, font) {
@@ -290,9 +294,4 @@ function onSetLang(lang) {
         document.body.classList.remove('rtl');
     }
     translatePage();
-}
-
-function onOnTouch(ev) {
-    console.log(ev);
-
 }
