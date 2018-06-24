@@ -1,5 +1,11 @@
 * {
     box-sizing: border-box;
+    font-family: eurofurence;
+}
+
+@font-face {
+    font-family: eurofurence;
+    src: url('../fonts/earofurence/eurof35.ttf');
 }
 
 /* helpers */
