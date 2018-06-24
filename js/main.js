@@ -258,8 +258,8 @@ function onChangeKeywordFilter(ev) {
 
 function toggleMenu() {
     document.querySelector('.header-menu').classList.toggle('open');
-    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu .fa').toggle('fa-bars')
-    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu .fa').toggle('fa-times')
+    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu .fa').classList.toggle('fa-bars')
+    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu .fa').classList.toggle('fa-times')
 
 
     if (elBtnOffCanvas.innerText !== '<i class="fa fa-bars"></i>') {
@@ -292,6 +292,13 @@ function onSetLang(lang) {
 function toggleOffCanvas(txt) {
     // Get the modal
     var offCanvas = document.querySelector('.offCanvas');
+    if (offCanvas.classList.contains('open')) {
+        offCanvas.classList.toggle('close')
+        setTimeout(() => {
+            offCanvas.classList.toggle('close')
+            offCanvas.classList.toggle('.open')
+        }, 500);
+    }
     if (txt === 'contact') {
         offCanvas.innerHTML = `
         <div class="offCanvas-content flex column">
@@ -309,6 +316,15 @@ function toggleOffCanvas(txt) {
         </form>
     </div>
         `
+    } else if (txt === 'about') {
+        offCanvas.innerHTML = `
+        <div class="offCanvas-content flex column">
+        <h1>About Us</h1>
+        <h2>Herut and Idan are both young and handsome programmers on the way to becoming fullstack developers.</h2>
+    </div>
+        
+        `
+
     }
     offCanvas.classList.toggle('open')
 }
