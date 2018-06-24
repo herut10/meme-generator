@@ -22,7 +22,7 @@ function drawImageCanvas() {
 
     if (meme) {
         var img = new Image;
-        img.src = `/img/${meme.selectedImgId}.jpg`;
+        img.src = `img/${meme.selectedImgId}.jpg`;
         var newWidth = Math.min(window.innerWidth, window.innerHeight) * 0.9
         var newHeight = newWidth * (img.height / img.width)
         setCanvasDimensions(newWidth, newHeight);
