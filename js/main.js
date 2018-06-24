@@ -6,6 +6,7 @@ var gFonts = ['Impact', 'Arial', 'Times New Roman', 'Courier New', 'Verdana',
 ]
 var gNumOfCols;
 var gNumOfRows;
+var gCurrOpenOffCanvas
 
 function initMain() {
     initCanvas();
@@ -258,15 +259,13 @@ function onChangeKeywordFilter(ev) {
 
 function toggleMenu() {
     document.querySelector('.header-menu').classList.toggle('open');
-    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu .fa').classList.toggle('fa-bars')
-    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu .fa').classList.toggle('fa-times')
+    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu .fa')
+    var elBtnOffCanvas = document.querySelector('.btn-offCanvas-menu .fa')
+    elBtnOffCanvas.classList.toggle('fa-bars')
+    elBtnOffCanvas.classList.toggle('fa-times')
 
 
-    if (elBtnOffCanvas.innerText !== '<i class="fa fa-bars"></i>') {
-        elBtnOffCanvas.innerHTML = '<i class="fa fa-times"></i>'; // להביא את התגית של איקס 
-    } else {
-        elBtnOffCanvas.innerText = '<i class="fa fa-bars"></i>';
-    }
+
 }
 
 function translatePage() {
@@ -293,50 +292,50 @@ function toggleOffCanvas(txt) {
     // Get the modal
     var offCanvas = document.querySelector('.offCanvas');
     if (offCanvas.classList.contains('open')) {
-        offCanvas.classList.toggle('close')
-        setTimeout(() => {
-            offCanvas.classList.toggle('close')
-            offCanvas.classList.toggle('.open')
-        }, 500);
+        offCanvas.classList.remove('open')
+        if (txt !== gCurrOpenOffCanvas) {
+            setTimeout(() => {
+                setOffCanvasContent(txt)
+                offCanvas.classList.add('open')
+            }, 500);
+        }
+    } else {
+        setOffCanvasContent(txt)
+        offCanvas.classList.add('open')
     }
-    if (txt === 'contact') {
-        offCanvas.innerHTML = `
-        <div class="offCanvas-content flex column">
-
-        <h1>Get In Touch</h1>
-        <h2>In order to get in touch use the contact form below:</h2>
-        <form class="flex column">
-            <div class="form-group flex align-center">
-                <input type="text" class="form-control" id="subject" placeholder="subject">
-            </div>
-            <div class="form-group flex align-center">
-                <textarea class="form-control" id="body" rows="3" placeholder="Write your message here..."></textarea>
-            </div>
-            <button type="button" class="btn btn-submit" onclick="contact(subject.value,body.value)">Submit</button>
-        </form>
-    </div>
-        `
-    } else if (txt === 'about') {
-        offCanvas.innerHTML = `
-        <div class="offCanvas-content flex column">
-        <h1>About Us</h1>
-        <h2>Herut and Idan are both young and handsome programmers on the way to becoming fullstack developers.</h2>
-    </div>
-        
-        `
-
-    }
-    offCanvas.classList.toggle('open')
+    gCurrOpenOffCanvas = txt
 }
 
-function renderContactModal() {
-    document.querySelector('.modal-header').innerHTML =
-        `
-    <span class="close">&times;</span>
-    <h1>Get In Touch</h1>    
-    `
+
+
+
+function setOffCanvasContent(txt) {
+    var offCanvas = document.querySelector('.offCanvas');
+    if (txt === 'contact') {
+        offCanvas.innerHTML = `
+<div class="offCanvas-content flex column">
+
+<h1>Get In Touch</h1>
+<h2>In order to get in touch use the contact form below:</h2>
+<form class="flex column">
+<div class="form-group flex align-center">
+    <input type="text" class="form-control" id="subject" placeholder="subject">
+</div>
+<div class="form-group flex align-center">
+    <textarea class="form-control" id="body" rows="3" placeholder="Write your message here..."></textarea>
+</div>
+<button type="button" class="btn btn-submit" onclick="contact(subject.value,body.value)">Submit</button>
+</form>
+</div>`
+    } else if (txt === 'about') {
+        offCanvas.innerHTML = `
+<div class="offCanvas-content flex column">
+<h1>About Us</h1>
+<h2>Herut and Idan are both young and handsome programmers on the way to becoming fullstack developers.</h2>
+</div>`
+    }
 }
 
 function contact(subject, body) {
-    window.location = `https://mail.google.com/mail/?view=cm&fs=1&to=yonaherut@gmail.com&su=${subject}&body=${body} `
+    window.location = `https://mail.google.com/mail/?view=cm&fs=1&to=yonaherut@gmail.com,idanhakim123@gmail.com&su=${subject}&body=${body} `
 }
