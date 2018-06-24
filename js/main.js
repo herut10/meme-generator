@@ -14,7 +14,6 @@ function initMain() {
     renderPopularKeywords();
     setGridDimensions()
     updateHexagonPosition()
-    initModal()
 }
 
 function setGridDimensions() {
@@ -290,10 +289,10 @@ function onSetLang(lang) {
     translatePage();
 }
 
-function openModal() {
+function offCanvas() {
     // Get the modal
-    var modal = document.getElementById('myModal');
-    modal.style.display = "block";
+    var offCanvas = document.querySelector('.offCanvas');
+    offCanvas.classList.toggle('open')
 }
 
 function renderContactModal() {
@@ -302,21 +301,8 @@ function renderContactModal() {
     <span class="close">&times;</span>
     <h1>Get In Touch</h1>    
     `
-
-
-
-
 }
 
-function initModal() {
-
-    // Get the <span> element that closes the modal
-
-    var modal = document.getElementById('myModal');
-
-    // When the user clicks on <span> (x), close the modal
-    var span = document.getElementsByClassName("close")[0];
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
+function contact(subject, body) {
+    window.location = `https://mail.google.com/mail/?view=cm&fs=1&to=yonaherut@gmail.com&su=${subject}&body=${body} `
 }

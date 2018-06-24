@@ -31,18 +31,14 @@
         </div>
 
         <h1 class="logo" data-trans="LOGO">
-<<<<<<< HEAD
-            Meme Generator!
-=======
             Meme Generator
->>>>>>> d8353980f81adbdb320a49b1cc01a971f8192336
         </h1>
 
         <ul class="header-menu clean-list flex">
-            <li onclick="openModal()" class="item-header-menu flex li-journal active">
+            <li onclick="offCanvas()" class="item-header-menu flex li-journal active">
                 <a href="#" data-trans="CONTACT">Contact</a>
             </li>
-            <li onclick="openModal()" class="item-header-menu flex">
+            <li onclick="offCanvas()" class="item-header-menu flex">
                 <a href="#" data-trans="ABOUT_US">About Us</a>
             </li>
         </ul>
@@ -106,21 +102,19 @@
             </div>
         </div>
 
-        <!-- modal -->
-        <!-- The Modal -->
-        <div id="myModal" class="modal">
-
-            <div class="modal-content">
-                <div class="modal-header">
+        <div class="offCanvas flex column">
+            <h1>Contact Me</h1>
+            <form>
+                <div class="form-group flex align-center">
+                    <label for="subject"> <h2>subject:</h2></label>
+                    <input type="text" class="form-control" id="subject" placeholder="subject">
                 </div>
-                <div class="modal-body">
-                    <p>Some text in the Modal Body</p>
-                    <p>Some other text...</p>
+                <div class="form-group">
+                    <label for="body">Please enter your message</label>
+                    <textarea class="form-control" id="body" rows="3"></textarea>
                 </div>
-                <div class="modal-footer">
-                    <h3>Modal Footer</h3>
-                </div>
-            </div>
+                <button type="button" class="btn" onclick="contact(subject.value,body.value)">Submit</button>
+            </form>
 
         </div>
     </main>
@@ -131,13 +125,6 @@
     </footer>
     <!-- Plugin JavaScript -->
     <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
-    <script>
-        window.addEventListener("click", function (event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        });
-    </script>
     <script src="js/util-service.js"></script>
     <script src="js/canvas-service.js"></script>
     <script src="js/meme-service.js"></script>
