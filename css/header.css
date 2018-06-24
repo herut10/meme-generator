@@ -33,8 +33,13 @@ header .btns-lang {
     background-image: url(../img/he.png);
 }
 
+
 .lang-btn.en {
     background-image: url(../img/en.png)
+}
+
+.lang-btn.he:hover, .lang-btn.en:hover {
+    animation: pulse 1s;
 }
 
 .logo {

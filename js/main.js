@@ -191,7 +191,7 @@ function onAddLineText() {
         var strHTML = `    <div class="new-text">
                                 <div class="selection-style-text flex animated bounceInRight">
                                     <input class="input-line-txt line-text-${newIdLine}" onkeyup="onChangeStyleText('${newIdLine}')" type="text" placeholder="Enter text" required>
-                                    <button class="btn btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">
+                                    <button class="btn btn-delete-text btn-delete-text-${newIdLine}" onclick="onDeleteText(event,'${newIdLine}')">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </div>
