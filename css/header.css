@@ -68,7 +68,7 @@ header .btns-lang {
     border-bottom: 1px solid black;
     background-color: #1e1e1ee8;
     border-left: 1px solid black;
-    width: 100vw;
+    width: 100%;
     height: 80px;
     justify-content: center;
     align-items: center;

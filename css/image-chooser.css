@@ -26,8 +26,8 @@ main {
 }
 
 .image-filter {
-    padding: 70px;
-    width: 100vw;
+    padding: 50px;
+    width: 100%;
     height: 70px;
     justify-content: center;
     align-items: center;
