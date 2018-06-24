@@ -8,7 +8,7 @@ body .header-page {
     width: 100%;
     position: fixed;
     z-index: 100;
-   
+    font-size: 27px;
 }
 
 header .btns-lang {
@@ -45,7 +45,7 @@ header .btns-lang {
 
 .logo {
     font-family: eurofurence;
-    font-size: 40px;
+    font-size: 60px;
     font-weight: 400;
     color: #2eb398;
 }
@@ -78,7 +78,7 @@ header .btns-lang {
     text-decoration: none;
     color: #ffffff;
     text-shadow: 0 1px 0 #1e1e1e;
-    font-size: 16px;
+    
 }
 
 .header-menu li:last-child {
