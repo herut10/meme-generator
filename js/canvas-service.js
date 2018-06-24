@@ -22,14 +22,13 @@ function drawImageCanvas() {
 
     if (meme) {
         var img = new Image;
-        console.log(img.height);
-        console.log(img.width);
-        
         img.src = `img/${meme.selectedImgId}.jpg`;
-        var newWidth = Math.min(window.innerWidth, window.innerHeight) * 0.9
-        var newHeight = newWidth * (img.height / img.width)
-        setCanvasDimensions(newWidth, newHeight);
-        gCtx.drawImage(img, 0, 0, newWidth, newHeight)
+        img.addEventListener("load", function () {
+            var newWidth = Math.min(window.innerWidth, window.innerHeight) * 0.9
+            var newHeight = newWidth * (img.height / img.width)
+            setCanvasDimensions(newWidth, newHeight);
+            gCtx.drawImage(img, 0, 0, newWidth, newHeight)
+        })
     }
 }
 
