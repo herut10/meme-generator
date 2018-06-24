@@ -65,7 +65,7 @@ function renderImages() {
             document.querySelector('.images-container').innerHTML += `
         <div class="hexagon hexagon1">
             <div class="hexagon-in1 ">
-                <div style="background-image:url(img/${image.id}.jpg); background-size: 200px ${200*ratio}px;" class="hexagon-in2 " onclick="onClickImage(${image.id})"></div>
+                <div style="background-image:url(img/${image.id}.jpg); background-size: 300px ${300*ratio}px;" class="hexagon-in2 " onclick="onClickImage(${image.id})"></div>
             </div>
         </div>`
             setGridDimensions()
