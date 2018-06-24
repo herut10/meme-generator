@@ -44,7 +44,7 @@ function renderPopularKeywords() {
     var keywords = getPopularKeywords();
     var strHtml = '';
     strHtml = keywords.map(function (keyword) {
-        return `<h1 style="font-size: ${map(keyword.count, 1, gTotalKeywordCount, 1, 4)}em">${keyword.keyword}</h1>`;
+        return `<h1 style="font-size: ${map(keyword.count, 1, gTotalKeywordCount, 0, 4)}em">${keyword.keyword}</h1>`;
     }).join('');
 
     document.querySelector('.popular-Keywords-container').innerHTML = strHtml;
